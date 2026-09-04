@@ -1,9 +1,27 @@
 ![github-background](https://github.com/user-attachments/assets/f728f52e-bf67-4357-9ba2-c24c437488e3)
 
 <div align="center">
-  <h3 align="center">Kan</h3>
+  <h3 align="center">byescaleira Kanban</h3>
   <p>The open-source project management alternative to Trello.</p>
 </div>
+
+> ### A fork of [kan](https://github.com/kanbn/kan)
+>
+> This project is **not** original work. It is a fork of
+> **[kanbn/kan](https://github.com/kanbn/kan)** by
+> [Henry Ball](https://github.com/hjball) and its
+> [contributors](https://github.com/kanbn/kan/graphs/contributors), who
+> wrote the application. What is ours is the visual design system
+> applied on top of it — see [DESIGN.md](DESIGN.md).
+>
+> kan is licensed **AGPL-3.0**, and so is this fork. That licence is the
+> reason this fork can exist at all, and it carries an obligation as
+> well as a permission: if you run a modified copy of this over a
+> network, you owe your users its source.
+>
+> Please support the original: **[kan.bn](https://kan.bn)** ·
+> [Docs](https://docs.kan.bn) · [Discord](https://discord.gg/e6ejRb6CmT)
+> · [Star it on GitHub](https://github.com/kanbn/kan)
 
 <p align="center">
   <a href="https://kan.bn/kan/roadmap">Roadmap</a>

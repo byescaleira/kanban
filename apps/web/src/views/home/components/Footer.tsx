@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import { FaDiscord, FaGithub } from "react-icons/fa";
 
 import { LanguageSelector } from "~/components/LanguageSelector";
@@ -53,7 +54,6 @@ const Footer = () => {
       label: t`Resources`,
       items: [
         { name: t`Features`, href: "/#features" },
-        { name: t`Pricing`, href: "/#pricing" },
         { name: t`FAQs`, href: "/#faq" },
       ],
     },
@@ -93,6 +93,73 @@ const Footer = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* THE CREDIT.
+
+            A colophon is where a printed sheet records who made it, so
+            this is the correct place for it rather than a courtesy line
+            in fine print. The application is not ours: it is kan, by
+            Henry Ball and its contributors. What is ours is the design
+            system printed on top of it.
+
+            AGPL-3.0 is why this fork may exist, and it is an obligation
+            as much as a permission. Saying so plainly costs nothing and
+            is the whole point of the licence. */}
+        <div className="colophon-row mt-8 flex-col items-start gap-y-2 border-b-0 sm:flex-row sm:items-baseline">
+          <p className="label-mono shrink-0">{t`Built on`}</p>
+          <p className="t-small max-w-[62ch] text-light-900 dark:text-dark-900 sm:text-right">
+            <Trans>
+              This is a fork of{" "}
+              <a
+                href="https://github.com/kanbn/kan"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent-ink underline"
+              >
+                kan
+              </a>
+              , written by{" "}
+              <a
+                href="https://github.com/hjball"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent-ink underline"
+              >
+                Henry Ball
+              </a>{" "}
+              and its{" "}
+              <a
+                href="https://github.com/kanbn/kan/graphs/contributors"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent-ink underline"
+              >
+                contributors
+              </a>
+              . They wrote the application; we printed a design system on it.
+              Licensed{" "}
+              <a
+                href="https://github.com/kanbn/kan?tab=AGPL-3.0-1-ov-file#readme"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent-ink underline"
+              >
+                AGPL-3.0
+              </a>
+              , which is what makes this fork legitimate — and which obliges us
+              to publish{" "}
+              <a
+                href="https://github.com/byescaleira/kanban"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent-ink underline"
+              >
+                our source
+              </a>{" "}
+              in turn.
+            </Trans>
+          </p>
         </div>
 
         <div className="mt-8 flex flex-wrap items-center gap-4">
