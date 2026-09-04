@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-label="byescaleira Kanban — the open source alternative to Trello">
+  <defs>
+    <!-- The paper grain, done entirely inside an SVG filter rather than
+         with CSS mix-blend-mode: GitHub sanitises inline styles on SVG,
+         and a stripped blend mode would leave a flat grey wash over the
+         art. feBlend is a filter primitive, so it survives. -->
+    <filter id="paper" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="4" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="grey"/>
+      <feComponentTransfer in="grey" result="soft">
+        <feFuncA type="linear" slope="0.34"/>
+      </feComponentTransfer>
+      <feFlood flood-color="#f3efe5" result="stock"/>
+      <feBlend in="soft" in2="stock" mode="multiply"/>
+    </filter>
+    <pattern id="dots" width="9" height="9" patternUnits="userSpaceOnUse">
+      <circle cx="4.5" cy="4.5" r="1.15" fill="#5f5a50"/>
+    </pattern>
+    <radialGradient id="fade">
+      <stop offset="0%" stop-color="#fff" stop-opacity="1"/>
+      <stop offset="55%" stop-color="#fff" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="discmask">
+      <rect width="1280" height="420" fill="#000"/>
+      <circle cx="1120" cy="70" r="290" fill="url(#fade)"/>
+    </mask>
+  </defs>
+
+  <!-- the stock, with its tooth -->
+  <rect width="1280" height="420" filter="url(#paper)"/>
+
+  <!-- the printed sky: a press builds tone from dots, so does a sky -->
+  <g mask="url(#discmask)" opacity="0.4">
+    <rect width="1280" height="420" fill="url(#dots)"/>
+  </g>
+
+  <!-- running head: the label and the rule -->
+  <text x="80" y="96" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" letter-spacing="2.4" fill="#ad3e00">OPEN SOURCE KANBAN</text>
+  <rect x="80" y="112" width="1120" height="2" fill="#ff6b00"/>
+
+  <!-- the mark: near-black ink over the accent, because white on
+       #ff6b00 measures 2.86:1 and fails AA -->
+  <g transform="translate(80 170) scale(3.1)">
+    <rect x="1" y="1" width="22" height="22" rx="7" fill="#ff6b00"/>
+    <rect x="6" y="6" width="5" height="12" rx="2" fill="#26241f"/>
+    <rect x="13" y="6" width="5" height="7" rx="2" fill="#26241f"/>
+  </g>
+
+  <!-- the name is set in ink, never in orange -->
+  <text x="176" y="228" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="72" font-weight="600" letter-spacing="-2.4" fill="#26241f">Kanban</text>
+  <text x="80" y="288" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="25" fill="#4e4a41">The open source alternative to Trello.</text>
+  <text x="80" y="324" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="25" fill="#5f5a50">A fork of kan, printed on a two-ink press.</text>
+
+  <!-- the heavy rule: one per sheet, the only thick thing on it -->
+  <rect x="80" y="360" width="1120" height="6" fill="#ff6b00"/>
+</svg>
