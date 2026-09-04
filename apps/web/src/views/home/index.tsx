@@ -21,74 +21,76 @@ export default function HomeView() {
     <Layout>
       <PageHead title="Kan.bn | The open source alternative to Trello" />
       <div className="flex h-full w-full flex-col lg:pt-[5rem]">
-        <div className="w-full pb-10 pt-32 lg:py-32">
-          <div className="my-10 flex h-full w-full animate-fade-down flex-col items-center justify-center px-4">
-            <div className="flex items-center gap-2">
-              <div className="relative animate-fade-in overflow-hidden rounded-full bg-gradient-to-b from-light-300 to-light-400 p-[2px] dark:from-dark-300 dark:to-dark-400">
-                <div className="gradient-border absolute inset-0 animate-border-spin" />
-
-                <div className="relative z-10 rounded-full bg-light-50 dark:bg-dark-50">
-                  <Link
-                    href="https://github.com/kanbn/kan"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    className="flex items-center gap-2 px-4 py-1 text-center text-xs text-light-1000 dark:text-dark-1000 lg:text-sm"
-                  >
-                    {t`Star on Github`}
-                    <IoLogoGithub size={20} />
-                  </Link>
-                </div>
-              </div>
-
-              {/* <div className="relative overflow-hidden rounded-full bg-gradient-to-b from-light-300 to-light-400 p-[2px] dark:from-dark-300 dark:to-dark-400">
-                <div className="relative z-10 rounded-full bg-light-50 dark:bg-dark-50">
-                  <Link
-                    href="https://news.ycombinator.com/item?id=44157177"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    className="flex items-center gap-2 px-4 py-1 text-center text-xs text-light-1000 dark:text-dark-1000 lg:text-sm"
-                  >
-                    {t`#1 Hacker News`}
-                    <div className="relative">
-                      <div className="absolute inset-1 bg-white" />
-                      <IoLogoHackernews
-                        size={20}
-                        className="relative text-orange-500"
-                      />
-                    </div>
-                  </Link>
-                </div>
-              </div> */}
+        {/* THE MASTHEAD. Not a hero: the type IS the structure, rather
+            than a headline centred on top of one. Left-aligned, ranged
+            against the same edge as everything below it, so the page
+            reads as a printed sheet and not as a landing template. */}
+        <header className="w-full px-4 pb-10 pt-28 lg:pb-14 lg:pt-32">
+          <div className="o-stagger">
+            <div className="running-head">
+              <p className="running-head-label">{t`Open source kanban`}</p>
+              <p className="running-head-folio">01</p>
             </div>
 
-            <p className="mt-2 text-center text-4xl font-bold text-light-1000 dark:text-dark-1000 lg:text-5xl">
-              <Trans>
-                The open source <br /> alternative to Trello
-              </Trans>
-            </p>
+            <h1 className="t-display mt-6 max-w-[16ch] text-balance text-light-1000 dark:text-dark-1000">
+              <Trans>The open source alternative to Trello</Trans>
+            </h1>
 
-            <p className="text-md mt-3 max-w-[450px] text-center text-light-950 dark:text-dark-900 lg:max-w-[600px] lg:text-lg">
+            <p className="t-lead mt-5 max-w-[58ch] text-light-950 dark:text-dark-900">
               {t`A powerful, flexible kanban app that helps you organise work, track progress, and deliver results—all in one place.`}
             </p>
 
-            <div className="mt-6 flex gap-2">
-              <Button href="/signup">{t`Get started on Cloud`}</Button>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Button
+                href="/signup"
+                size="lg"
+              >{t`Get started on Cloud`}</Button>
               <Button
                 variant="secondary"
+                size="lg"
                 href="https://github.com/kanbn/kan"
                 openInNewTab
               >
                 {t`Self host with Github`}
               </Button>
             </div>
-            <p className="mt-4 text-center text-sm text-light-950 dark:text-dark-900">
-              {t`No credit card required`}
-            </p>
+
+            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2">
+              <p className="t-caption text-light-900 dark:text-dark-900">
+                {t`No credit card required`}
+              </p>
+              {/* The spinning ring is the accent plate turning: one
+                  colour, one orbit, retimed from 4s to 46s. An orbital
+                  under 5s reads as a spinner, not as atmosphere. */}
+              <div className="relative overflow-hidden rounded-full border-2 border-hairline p-[2px]">
+                <div className="gradient-border absolute inset-0 animate-border-spin" />
+                <div className="relative z-10 rounded-full bg-panel">
+                  <Link
+                    href="https://github.com/kanbn/kan"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    className="flex items-center gap-2 px-4 py-1 text-center text-xs text-light-1000 dark:text-dark-1000"
+                  >
+                    {t`Star on Github`}
+                    <IoLogoGithub size={18} />
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
+        </header>
+
+        {/* THE HEAVY RULE. One per page, and it prints rather than
+            appears. A second one would halve the weight of both. */}
+        <div className="px-4">
+          <hr className="rule-heavy o-squeegee" />
         </div>
-        <div className="px-4 pb-10">
-          <div className="rounded-[16px] border border-light-300 bg-light-50 p-1 shadow-md dark:border-dark-300 dark:bg-dark-100 lg:rounded-[24px] lg:p-2">
-            <div className="relative overflow-hidden rounded-[12px] border border-light-300 shadow-sm dark:border-dark-300 lg:rounded-[16px]">
+
+        {/* The screenshot is a pulled print pasted onto the sheet:
+            2px ink border, no shadow, no lift. */}
+        <div className="px-4 pb-10 pt-8">
+          <div className="overflow-hidden rounded-lg border-2 border-hairline bg-panel p-1 lg:p-2">
+            <div className="relative overflow-hidden rounded-md border-2 border-hairline">
               <Image
                 src={`/hero-light.png`}
                 alt="kanban"
@@ -120,7 +122,7 @@ export default function HomeView() {
           <FAQs />
         </div>
         <div className="relative">
-          <Cta theme={resolvedTheme ?? "light"} />
+          <Cta />
         </div>
       </div>
     </Layout>

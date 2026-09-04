@@ -68,7 +68,7 @@ export default function ListSelector({
     <>
       {isLoading ? (
         <div className="flex w-full">
-          <div className="h-full w-[150px] animate-pulse rounded-[5px] bg-light-300 dark:bg-dark-300" />
+          <div className="h-full w-[150px] animate-pulse rounded-sm bg-light-300 dark:bg-dark-300" />
         </div>
       ) : (
         <CheckboxDropdown
@@ -85,7 +85,7 @@ export default function ListSelector({
           ariaLabel={t`Current list`}
         >
           <div
-            className={`flex h-full w-full items-center rounded-[5px] border-[1px] border-light-50 py-1 pl-2 text-left text-xs text-neutral-900 dark:border-dark-50 dark:text-dark-1000 ${disabled ? "cursor-not-allowed opacity-60" : "hover:border-light-300 hover:bg-light-200 dark:hover:border-dark-200 dark:hover:bg-dark-100"}`}
+            className={`flex h-full w-full items-center rounded-sm border-2 border-hairline py-1 pl-2 text-left text-xs text-light-1000 dark:border-hairline dark:text-dark-1000 ${disabled ? "cursor-not-allowed opacity-60" : "hover:border-hairline hover:bg-light-200 dark:hover:border-hairline dark:hover:bg-dark-100"}`}
           >
             {selectedList?.value}
           </div>

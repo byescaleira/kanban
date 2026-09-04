@@ -100,7 +100,7 @@ const Pricing = ({
             <RadioGroup
               value={frequency}
               onChange={(value) => setFrequency(value)}
-              className="flex gap-1 rounded-lg border border-light-300 bg-light-50 p-1 dark:border-dark-300 dark:bg-dark-50"
+              className="flex gap-1 rounded-lg border border-hairline bg-panel p-1 dark:border-hairline"
             >
               {frequencies.map((option) => (
                 <Radio
@@ -110,7 +110,7 @@ const Pricing = ({
                     "cursor-pointer rounded-md px-4 py-1.5 text-sm font-medium transition-colors",
                     frequency?.value === option.value
                       ? "bg-white text-light-1000 shadow-sm dark:bg-dark-100 dark:text-dark-1000"
-                      : "text-light-600 dark:text-dark-700",
+                      : "text-light-900 dark:text-dark-700",
                   )}
                 >
                   {option.label}
@@ -122,95 +122,104 @@ const Pricing = ({
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {tiers.map((tier) => (
+            /* THE PLATE. Two fields, not one: a solid title band with
+               the heading reversed out of it, and a body below on the
+               paper. The band does the work the <h3> was already
+               doing, so the structure costs no decoration.
+
+               The tinted band is reserved for the one plate on a page
+               that matters — which is exactly what mostPopular means,
+               and it is why that tier needs no separate badge. The
+               index is a status, and a true one. On hover the plates
+               slip out of register: the ink moves, never the block. */
             <div
               key={tier.id}
-              className={twMerge(
-                "relative flex h-full flex-col rounded-lg border p-6",
-                tier.mostPopular
-                  ? "border-light-400 bg-light-200 dark:border-dark-400 dark:bg-dark-100"
-                  : "border-light-300 bg-light-50 dark:border-dark-300 dark:bg-dark-50",
-              )}
+              className="misreg relative flex h-full flex-col overflow-hidden rounded-lg border-2 border-hairline bg-panel shadow-plate"
             >
-              <h3
-                id={tier.id}
+              <div
                 className={twMerge(
-                  "mb-4 flex items-center text-base font-semibold",
-                  tier.mostPopular
-                    ? "text-light-1000 dark:text-dark-1000"
-                    : "text-light-1000 dark:text-dark-1000",
+                  "plate-band",
+                  tier.mostPopular && "plate-band--tinted",
                 )}
               >
-                {tier.name}
-              </h3>
-              <div className="mb-4">
-                <p className="flex items-baseline gap-x-1">
-                  <span
-                    className={twMerge(
-                      "text-2xl font-semibold",
-                      tier.mostPopular
-                        ? "text-light-1000 dark:text-dark-1000"
-                        : "text-light-1000 dark:text-dark-1000",
-                      !tier.showPrice && "opacity-0",
-                    )}
-                  >
-                    {tier.price[frequency?.value ?? "monthly"]}
-                  </span>
-                  {tier.showPriceSuffix && (
-                    <span className="text-sm font-normal text-dark-400 dark:text-dark-700">
-                      {frequency?.priceSuffix}
-                    </span>
-                  )}
-                </p>
-              </div>
-              {tier.bestFor && (
-                <p className="mb-6 text-sm text-dark-400 dark:text-dark-700">
-                  {tier.bestFor}
-                </p>
-              )}
-              <div className="mb-6">
-                {tier.id === "tier-enterprise" ? (
-                  <a
-                    href={tier.href}
-                    aria-describedby={tier.id}
-                    className="block w-full rounded-md border border-dark-200 bg-transparent px-4 py-2 text-center text-sm font-medium text-dark-50 transition-colors hover:bg-dark-50 hover:text-light-50 dark:border-dark-300 dark:text-dark-1000 dark:hover:bg-dark-200"
-                  >
-                    {tier.buttonText}
-                  </a>
-                ) : (
-                  <>
-                    <Link
-                      href={tier.href}
-                      aria-describedby={tier.id}
-                      className={twMerge(
-                        "block w-full rounded-md px-4 py-2 text-center text-sm font-medium transition-colors",
-                        tier.mostPopular
-                          ? "bg-dark-50 text-light-50 shadow-sm hover:bg-dark-100 dark:bg-dark-1000 dark:text-dark-50 dark:hover:bg-dark-900"
-                          : "border border-dark-200 bg-transparent text-dark-50 transition-colors hover:bg-dark-50 hover:text-light-50 dark:border-dark-300 dark:text-dark-1000 dark:hover:bg-dark-200",
-                      )}
-                    >
-                      {tier.buttonText}
-                    </Link>
-                  </>
+                <h3 id={tier.id} className="plate-band-title">
+                  {tier.name}
+                </h3>
+                {tier.mostPopular && (
+                  <span className="plate-index">{t`Most popular`}</span>
                 )}
               </div>
-              <ul role="list" className="space-y-2.5">
-                {tier.features.map((feature, index) => (
-                  <li
-                    key={`${tier.id}-feature-${index}`}
-                    className="flex items-start gap-x-2.5"
-                  >
-                    <HiCheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-light-1000 dark:text-dark-1000" />
-                    <span className="text-sm text-dark-600 dark:text-dark-800">
-                      {feature.text}
+              <div className="flex h-full flex-col p-6">
+                <div className="mb-4">
+                  <p className="flex items-baseline gap-x-1">
+                    <span
+                      className={twMerge(
+                        "text-2xl font-semibold",
+                        tier.mostPopular
+                          ? "text-light-1000 dark:text-dark-1000"
+                          : "text-light-1000 dark:text-dark-1000",
+                        !tier.showPrice && "opacity-0",
+                      )}
+                    >
+                      {tier.price[frequency?.value ?? "monthly"]}
                     </span>
-                  </li>
-                ))}
-              </ul>
+                    {tier.showPriceSuffix && (
+                      <span className="text-sm font-normal text-light-900 dark:text-dark-900">
+                        {frequency?.priceSuffix}
+                      </span>
+                    )}
+                  </p>
+                </div>
+                {tier.bestFor && (
+                  <p className="mb-6 text-sm text-light-900 dark:text-dark-900">
+                    {tier.bestFor}
+                  </p>
+                )}
+                <div className="mb-6">
+                  {tier.id === "tier-enterprise" ? (
+                    <a
+                      href={tier.href}
+                      aria-describedby={tier.id}
+                      className="block w-full rounded-md border border-hairline bg-transparent px-4 py-2 text-center text-sm font-medium text-dark-50 transition-colors hover:bg-dark-50 hover:text-light-50 dark:border-hairline dark:text-dark-1000 dark:hover:bg-dark-200"
+                    >
+                      {tier.buttonText}
+                    </a>
+                  ) : (
+                    <>
+                      <Link
+                        href={tier.href}
+                        aria-describedby={tier.id}
+                        className={twMerge(
+                          "block w-full rounded-md px-4 py-2 text-center text-sm font-medium transition-colors",
+                          tier.mostPopular
+                            ? "bg-dark-50 text-light-50 shadow-sm hover:bg-dark-100 dark:bg-dark-1000 dark:text-dark-50 dark:hover:bg-dark-900"
+                            : "border border-hairline bg-transparent text-dark-50 transition-colors hover:bg-dark-50 hover:text-light-50 dark:border-hairline dark:text-dark-1000 dark:hover:bg-dark-200",
+                        )}
+                      >
+                        {tier.buttonText}
+                      </Link>
+                    </>
+                  )}
+                </div>
+                <ul role="list" className="space-y-2.5">
+                  {tier.features.map((feature, index) => (
+                    <li
+                      key={`${tier.id}-feature-${index}`}
+                      className="flex items-start gap-x-2.5"
+                    >
+                      <HiCheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-light-1000 dark:text-dark-1000" />
+                      <span className="text-sm text-dark-600 dark:text-dark-800">
+                        {feature.text}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>
         <div className="mx-auto mt-8 max-w-3xl px-4 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border bg-light-50 px-4 py-1 text-center text-xs text-light-1000 dark:border-dark-300 dark:bg-dark-50 dark:text-dark-900">
+          <div className="inline-flex items-center gap-2 rounded-full border bg-panel px-4 py-1 text-center text-xs text-light-1000 dark:border-hairline dark:text-dark-900">
             <p>{t`14 day free trial · Switch plans or cancel anytime`}</p>
           </div>
         </div>

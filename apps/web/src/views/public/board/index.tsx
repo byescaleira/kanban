@@ -132,21 +132,21 @@ export default function PublicBoardView() {
       `}</style>
 
       <div className="relative flex h-screen flex-col bg-light-100 px-4 pt-4 dark:bg-dark-50">
-        <div className="relative h-full overflow-hidden rounded-md border pb-8 dark:border-dark-200">
+        <div className="relative h-full overflow-hidden rounded-md border pb-8 dark:border-hairline">
           <PatternedBackground />
           <div className="z-10 flex w-full justify-between p-8">
             {isLoading || !router.isReady ? (
               <div className="flex space-x-2">
-                <div className="h-[2.3rem] w-[150px] animate-pulse rounded-[5px] bg-light-200 dark:bg-dark-100" />
+                <div className="h-[2.3rem] w-[150px] animate-pulse rounded-sm bg-light-200 dark:bg-dark-100" />
               </div>
             ) : (
-              <h1 className="font-bold leading-[2.3rem] tracking-tight text-neutral-900 focus:ring-0 focus-visible:outline-none dark:text-dark-1000 sm:text-[1.2rem]">
+              <h1 className="font-bold leading-[2.3rem] tracking-tight text-light-1000 focus:ring-0 focus-visible:outline-none dark:text-dark-1000 sm:text-[1.2rem]">
                 {data?.name}
               </h1>
             )}
             {data && (
               <div className="z-10 flex items-center space-x-2">
-                <div className="inline-flex cursor-default items-center justify-center whitespace-nowrap rounded-md border-[1px] border-light-300 bg-light-50 px-3 py-2 text-sm font-semibold text-light-950 shadow-sm dark:border-dark-300 dark:bg-dark-50 dark:text-dark-950">
+                <div className="inline-flex cursor-default items-center justify-center whitespace-nowrap rounded-md border-2 border-hairline bg-panel px-3 py-2 text-sm font-semibold text-light-950 shadow-sm dark:border-hairline dark:text-dark-950">
                   <span className="mr-2">
                     <HiOutlineLockClosed />
                   </span>
@@ -165,7 +165,7 @@ export default function PublicBoardView() {
           <div
             ref={scrollRef}
             onMouseDown={onMouseDown}
-            className="scrollbar-w-none scrollbar-track-rounded-[4px] scrollbar-thumb-rounded-[4px] scrollbar-h-[8px] relative h-full flex-1 snap-x snap-mandatory scroll-pl-[10px] overflow-y-hidden overflow-x-scroll overscroll-contain scrollbar scrollbar-track-light-200 scrollbar-thumb-light-400 dark:scrollbar-track-dark-100 dark:scrollbar-thumb-dark-300 md:snap-none"
+            className="scrollbar-w-none scrollbar-track-rounded-sm scrollbar-thumb-rounded-sm scrollbar-h-[8px] relative h-full flex-1 snap-x snap-mandatory scroll-pl-[10px] overflow-y-hidden overflow-x-scroll overscroll-contain scrollbar scrollbar-track-light-200 scrollbar-thumb-light-400 dark:scrollbar-track-dark-100 dark:scrollbar-thumb-dark-300 md:snap-none"
           >
             {isLoading || !router.isReady ? (
               <div className="ml-[2rem] flex">
@@ -192,14 +192,14 @@ export default function PublicBoardView() {
                 {data?.lists.map((list) => (
                   <div
                     key={list.publicId}
-                    className="dark-text-dark-1000 mr-5 h-fit min-w-[18rem] max-w-[18rem] snap-start rounded-md border border-light-400 bg-light-300 py-2 pl-2 pr-1 text-neutral-900 dark:border-dark-300 dark:bg-dark-100 md:snap-align-none"
+                    className="dark-text-dark-1000 mr-5 h-fit min-w-[18rem] max-w-[18rem] snap-start rounded-md border border-hairline bg-light-300 py-2 pl-2 pr-1 text-light-1000 dark:border-hairline dark:bg-dark-100 md:snap-align-none"
                   >
                     <div className="flex justify-between">
-                      <span className="mb-4 block px-4 pt-1 text-sm font-medium text-neutral-900 dark:text-dark-1000">
+                      <span className="mb-4 block px-4 pt-1 text-sm font-medium text-light-1000 dark:text-dark-1000">
                         {list.name}
                       </span>
                     </div>
-                    <div className="scrollbar-track-rounded-[4px] scrollbar-thumb-rounded-[4px] scrollbar-w-[8px] z-10 h-full max-h-[calc(100dvh-265px)] min-h-[2rem] overflow-y-auto pb-[calc(0.75rem+env(safe-area-inset-bottom))] pr-1 scrollbar dark:scrollbar-track-dark-100 dark:scrollbar-thumb-dark-600">
+                    <div className="scrollbar-track-rounded-sm scrollbar-thumb-rounded-sm scrollbar-w-[8px] z-10 h-full max-h-[calc(100dvh-265px)] min-h-[2rem] overflow-y-auto pb-[calc(0.75rem+env(safe-area-inset-bottom))] pr-1 scrollbar dark:scrollbar-track-dark-100 dark:scrollbar-thumb-dark-600">
                       {list.cards.map((card) => {
                         return (
                           <Link
@@ -247,7 +247,7 @@ export default function PublicBoardView() {
 
           {IS_CLOUD && (
             <Link
-              className="text-lg font-bold tracking-tight text-neutral-900 dark:text-dark-1000"
+              className="text-lg font-bold tracking-tight text-light-1000 dark:text-dark-1000"
               href="/"
             >
               kan.bn
@@ -259,7 +259,7 @@ export default function PublicBoardView() {
               href="https://kan.bn"
               target="_blank"
               rel="noreferrer noopener"
-              className="absolute right-[1rem] inline-flex items-center gap-[0.175rem] rounded-full border border-light-300 bg-light-50 px-3 py-1 text-[11px] font-medium text-light-950 shadow-sm transition-colors hover:bg-light-100 dark:border-dark-300 dark:bg-dark-50 dark:text-dark-900 dark:hover:bg-dark-100"
+              className="absolute right-[1rem] inline-flex items-center gap-[0.175rem] rounded-full border border-hairline bg-panel px-3 py-1 text-[11px] font-medium text-light-950 shadow-sm transition-colors hover:bg-light-100 dark:border-hairline dark:text-dark-900 dark:hover:bg-dark-100"
             >
               <span>{`Powered by`}</span>
               <span className="font-semibold">kan.bn</span>

@@ -187,7 +187,7 @@ export default function WorkspaceNameView() {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-light-100 px-4 py-8 dark:bg-dark-50 md:px-6">
-      <div className="w-full max-w-3xl overflow-hidden rounded-xl border border-light-400 bg-light-200 shadow-xl dark:border-dark-400 dark:bg-dark-100">
+      <div className="w-full max-w-3xl overflow-hidden rounded-xl border border-hairline bg-panel shadow-xl dark:border-hairline">
         <div className="flex flex-col md:h-[520px] md:flex-row">
           {/* Left panel */}
           <div className="flex flex-col p-6 md:w-[55%] md:p-8">
@@ -246,7 +246,7 @@ export default function WorkspaceNameView() {
                           isTyping || slugAvailability.isPending ? (
                             <LoadingSpinner />
                           ) : isSlugAvailable ? (
-                            <HiCheck className="h-4 w-4 text-white" />
+                            <HiCheck className="h-4 w-4 text-accent-ink" />
                           ) : null
                         ) : null
                       }
@@ -261,7 +261,7 @@ export default function WorkspaceNameView() {
                     placeholder={t`Workspace description`}
                     maxLength={280}
                     rows={3}
-                    className="block w-full resize-none rounded-md border-0 bg-dark-300 bg-white/5 py-1.5 text-sm shadow-sm ring-1 ring-inset ring-light-600 placeholder:text-dark-800 focus:ring-2 focus:ring-inset focus:ring-light-700 dark:text-dark-1000 dark:ring-dark-700 dark:focus:ring-dark-700 sm:leading-6"
+                    className="block w-full resize-none rounded-md border-0 bg-dark-300 bg-white/5 py-1.5 text-sm shadow-sm ring-1 ring-inset ring-hairline placeholder:text-dark-800 focus:ring-2 focus:ring-inset focus:ring-hairline dark:text-dark-1000 dark:ring-hairline dark:focus:ring-hairline sm:leading-6"
                   />
                   <p className="mt-1 text-right text-[10px] text-light-700 dark:text-dark-700">
                     {description.length}/280
@@ -307,7 +307,7 @@ export default function WorkspaceNameView() {
           {/* Right panel — browser mockup */}
           <div className="hidden flex-col bg-light-300 dark:bg-dark-200 md:flex md:w-[45%]">
             {/* Browser chrome */}
-            <div className="flex items-center gap-2 border-b border-light-400 px-3 py-2.5 dark:border-dark-400">
+            <div className="flex items-center gap-2 border-b border-hairline px-3 py-2.5 dark:border-hairline">
               <div className="flex items-center gap-1.5 text-light-700 dark:text-dark-700">
                 <HiArrowLeft className="h-3.5 w-3.5" />
                 <HiArrowRight className="h-3.5 w-3.5" />
@@ -351,7 +351,7 @@ export default function WorkspaceNameView() {
                         opacity: { duration: 0.2 },
                         y: { duration: 0.25, ease: "easeOut" },
                       }}
-                      className="flex w-full flex-1 items-center justify-center rounded border border-dashed border-light-400 bg-light-50 px-3 text-[10px] font-medium text-light-900 dark:border-dark-400 dark:bg-dark-100 dark:text-dark-900"
+                      className="flex w-full flex-1 items-center justify-center rounded border border-dashed border-hairline bg-panel px-3 text-[10px] font-medium text-light-900 dark:border-hairline dark:bg-dark-100 dark:text-dark-900"
                     >
                       {board}
                     </motion.div>

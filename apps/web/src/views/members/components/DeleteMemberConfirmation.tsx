@@ -43,7 +43,7 @@ export function DeleteMemberConfirmation() {
   return (
     <div className="p-5">
       <div className="flex w-full flex-col justify-between pb-4">
-        <h2 className="text-md pb-4 font-medium text-neutral-900 dark:text-dark-1000">
+        <h2 className="text-md pb-4 font-medium text-light-1000 dark:text-dark-1000">
           <Trans>Are you sure want to remove {entityLabel}?</Trans>
         </h2>
         <p className="text-sm font-medium text-light-900 dark:text-dark-900">

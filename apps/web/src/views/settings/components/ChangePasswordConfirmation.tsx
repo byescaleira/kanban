@@ -138,7 +138,7 @@ export function ChangePasswordFormConfirmation({ hasPassword }: Props) {
   return (
     <div className="p-5">
       <div className="flex w-full flex-col justify-between pb-4">
-        <h2 className="pb-4 text-base font-medium dark:text-white">
+        <h2 className="pb-4 text-base font-medium dark:text-dark-1000">
           {hasPassword ? t`Change Password` : t`Set Password`}
         </h2>
         <p className="mb-4 text-sm text-light-900">
@@ -159,7 +159,7 @@ export function ChangePasswordFormConfirmation({ hasPassword }: Props) {
                 placeholder={t`Enter your current password`}
               />
               {errors.currentPassword && (
-                <p className="mt-2 text-xs text-red-400">
+                <p className="mt-2 text-xs text-danger-ink">
                   {errors.currentPassword.message}
                 </p>
               )}
@@ -174,7 +174,7 @@ export function ChangePasswordFormConfirmation({ hasPassword }: Props) {
               placeholder={t`Enter your new password`}
             />
             {errors.newPassword && (
-              <p className="mt-2 text-xs text-red-400">
+              <p className="mt-2 text-xs text-danger-ink">
                 {errors.newPassword.message}
               </p>
             )}
@@ -188,7 +188,7 @@ export function ChangePasswordFormConfirmation({ hasPassword }: Props) {
               placeholder={t`Confirm your new password`}
             />
             {errors.confirmPassword && (
-              <p className="mt-2 text-xs text-red-400">
+              <p className="mt-2 text-xs text-danger-ink">
                 {errors.confirmPassword.message}
               </p>
             )}

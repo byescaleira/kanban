@@ -28,29 +28,39 @@ const Button = ({
   iconOnly,
   ...props
 }: ButtonProps) => {
+  /* Every control is a capsule. A pill button reads as a printed
+     badge, not as an OS control — which is why the radius is safe
+     here even in a print language.
+
+     Primary is an --accent-solid FILL with near-black ink over it:
+     white on #ff6b00 measures 2.86:1 and fails AA, and darkening the
+     orange until it carries white takes it to ~#c75200, which is
+     brown and no longer the brand.
+
+     No shadow on any variant. Print has no depth of field, and the
+     2px ink border does the separating that the shadow used to. */
   const classes = twMerge(
-    "inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-2 text-sm font-semibold text-light-50 shadow-sm focus-visible:outline-none",
-    size === "xs" && "text-xs px-2 py-1",
-    size === "sm" && "text-xs",
-    size === "lg" && "py-[0.65rem]",
+    "inline-flex items-center justify-center whitespace-nowrap rounded-full border-2 border-transparent px-5 text-base font-medium transition-colors duration-200 ease-colour focus-visible:outline-none",
+    size === "xs" && "px-3 text-xs",
+    size === "sm" && "px-4 text-sm",
+    size === "md" && "min-h-[40px]",
+    size === "lg" && "min-h-[46px] px-6",
     fullWidth && "w-full",
-    iconOnly && "p-0",
+    iconOnly && "px-0",
     iconOnly &&
       (size === "xs"
-        ? "h-6 w-6"
+        ? "h-7 w-7"
         : size === "sm"
-          ? "h-8 w-8"
+          ? "h-9 w-9"
           : size === "lg"
-            ? "h-10 w-10"
-            : "h-9 w-9"),
-    variant === "primary" &&
-      "bg-light-1000 dark:bg-dark-1000 dark:text-dark-50",
+            ? "h-[46px] w-[46px]"
+            : "h-10 w-10"),
+    variant === "primary" && "border-accent bg-accent text-on-accent",
     variant === "secondary" &&
-      "border-[1px] border-light-600 bg-light-50 text-light-1000 dark:border-dark-600 dark:bg-dark-300 dark:text-dark-1000",
-    variant === "danger" &&
-      "dark:text-red-1000 border-[1px] border-red-600 bg-red-500 dark:border-red-600 dark:bg-red-500",
+      "border-hairline bg-transparent text-light-1000 dark:text-dark-1000",
+    variant === "danger" && "border-danger bg-danger text-on-danger",
     variant === "ghost" &&
-      "bg-none text-light-1000 shadow-none hover:bg-light-300 dark:text-dark-1000 dark:hover:bg-dark-200",
+      "text-light-1000 hover:bg-light-300 dark:text-dark-1000 dark:hover:bg-dark-300",
     props.disabled && "opacity-60",
   );
 

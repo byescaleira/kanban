@@ -58,7 +58,6 @@ export default function Avatar({
   const [crop, setCrop] = useState<PercentCrop>();
   const imgRef = useRef<HTMLImageElement | null>(null);
 
-
   const avatarUrl = userImage ? getAvatarUrl(userImage) : undefined;
 
   const onFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -166,17 +165,14 @@ export default function Avatar({
       const fileName = `${userId}/avatar-${generateUID()}.${originalExt}`;
 
       const baseUrl = env("NEXT_PUBLIC_BASE_URL") ?? "";
-      const response = await fetch(
-        `${baseUrl}/api/upload/avatar`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": blob.type,
-            "x-original-filename": encodeURIComponent(fileName),
-          },
-          body: blob,
+      const response = await fetch(`${baseUrl}/api/upload/avatar`, {
+        method: "POST",
+        headers: {
+          "Content-Type": blob.type,
+          "x-original-filename": encodeURIComponent(fileName),
         },
-      );
+        body: blob,
+      });
 
       if (!response.ok) {
         throw new Error("Failed to upload profile image");
@@ -184,13 +180,13 @@ export default function Avatar({
 
       // User image is updated in the backend, refresh user data
       await utils.user.getUser.refetch();
-      
+
       showPopup({
         header: t`Profile image updated`,
         message: t`Your profile image has been updated.`,
         icon: "success",
       });
-      
+
       setCropDialogOpen(false);
       resetCropState();
     } catch (error) {
@@ -234,7 +230,7 @@ export default function Avatar({
         ) : (
           <span className="inline-block h-16 w-16 overflow-hidden rounded-full bg-light-400 dark:bg-dark-400">
             <svg
-              className="h-full w-full text-dark-700"
+              className="h-full w-full text-light-900 dark:text-dark-700"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -257,7 +253,7 @@ export default function Avatar({
               </p>
             </div>
             <div className="max-h-[80vh]">
-              <div className="rounded-md border border-light-600 p-2 dark:border-dark-600">
+              <div className="rounded-md border border-hairline p-2 dark:border-hairline">
                 <AnyReactCrop
                   crop={crop}
                   onChange={(_crop: LocalPixelCrop, percentCrop: PercentCrop) =>

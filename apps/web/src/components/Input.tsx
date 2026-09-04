@@ -44,7 +44,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           onChange={onChange}
           onKeyDown={onKeyDown}
           className={twMerge(
-            "block min-h-[70px] w-full cursor-text overflow-y-auto rounded-md border-0 bg-dark-300 bg-white/5 px-3 py-1.5 text-light-900 shadow-sm ring-1 ring-inset ring-light-600 focus:ring-2 focus:ring-inset focus:ring-light-600 focus-visible:outline-none dark:text-dark-1000 dark:ring-dark-700 dark:focus:ring-dark-700 sm:text-sm sm:leading-6",
+            "block min-h-[70px] w-full cursor-text overflow-y-auto rounded-md border-0 bg-dark-300 bg-white/5 px-3 py-1.5 text-light-900 shadow-sm ring-1 ring-inset ring-hairline focus:ring-2 focus:ring-inset focus:ring-hairline focus-visible:outline-none dark:text-dark-1000 dark:ring-hairline dark:focus:ring-hairline sm:text-sm sm:leading-6",
             className && className,
           )}
         />
@@ -55,7 +55,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       <div className="flex w-full flex-col gap-1">
         <div className="relative flex">
           {prefix && (
-            <div className="flex shrink-0 items-center rounded-l-md border border-r-0 border-light-600 px-3 text-sm dark:border-dark-700 dark:text-dark-1000 sm:text-sm/6">
+            <div className="flex shrink-0 items-center rounded-l-md border border-r-0 border-hairline px-3 text-sm dark:border-hairline dark:text-dark-1000 sm:text-sm/6">
               {prefix}
             </div>
           )}
@@ -65,7 +65,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             onChange={onChange}
             type={type === "password" && showPassword ? "text" : type}
             className={twMerge(
-              "block w-full rounded-md border-0 bg-dark-300 bg-white/5 py-1.5 text-sm shadow-sm ring-1 ring-inset ring-light-600 placeholder:text-dark-800 focus:ring-2 focus:ring-inset focus:ring-light-700 dark:text-dark-1000 dark:ring-dark-700 dark:focus:ring-dark-700 sm:leading-6",
+              "block w-full rounded-md border-0 bg-dark-300 bg-white/5 py-1.5 text-sm shadow-sm ring-1 ring-inset ring-hairline placeholder:text-dark-800 focus:ring-2 focus:ring-inset focus:ring-hairline dark:text-dark-1000 dark:ring-hairline dark:focus:ring-hairline sm:leading-6",
               prefix && "rounded-l-none",
               type === "password" && "pr-8",
               className && className,
@@ -94,7 +94,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           )}
         </div>
         {errorMessage && (
-          <div className="text-xs text-red-500">{errorMessage}</div>
+          <div className="text-xs text-danger-ink">{errorMessage}</div>
         )}
       </div>
     );

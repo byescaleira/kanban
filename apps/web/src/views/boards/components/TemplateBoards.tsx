@@ -32,7 +32,14 @@ export const getTemplates = (): Template[] => [
   {
     id: "roadmap-extended",
     name: t`Extended Roadmap`,
-    lists: [t`Requested`, t`Under Review`, t`Planned`, t`In Progress`, t`Done`, t`Rejected`],
+    lists: [
+      t`Requested`,
+      t`Under Review`,
+      t`Planned`,
+      t`In Progress`,
+      t`Done`,
+      t`Rejected`,
+    ],
     labels: [t`Feature`, t`Enhancement`, t`Critical`, t`Documentation`],
   },
   {
@@ -174,16 +181,16 @@ export default function TemplateBoards({
               onClick={() => handleBoardSelect(template.id)}
               className={`scroll-container relative flex cursor-pointer rounded-lg border p-3 transition-all hover:bg-light-100 dark:hover:bg-dark-200 ${
                 currentBoard?.id === template.id
-                  ? "border-light-700 bg-light-100 ring-1 ring-inset ring-light-700 dark:border-dark-700 dark:bg-dark-200 dark:ring-dark-700"
-                  : "border-light-600 dark:border-dark-600"
+                  ? "border-hairline bg-light-100 ring-1 ring-inset ring-hairline dark:border-hairline dark:bg-dark-200 dark:ring-hairline"
+                  : "border-hairline"
               }`}
             >
               <div className="flex-1">
-                <h4 className="text-sm font-medium text-gray-900 dark:text-gray-100">
+                <h4 className="text-sm font-medium text-light-1000 dark:text-light-400">
                   {template.name}
                 </h4>
                 <p className="text-xs text-light-950 dark:text-dark-900">
-                  {template.lists.join(", ")}
+                  {template.lists.join(",")}
                 </p>
               </div>
               {currentBoard?.id === template.id && (
@@ -195,10 +202,10 @@ export default function TemplateBoards({
           ))}
         </div>
         {showTopFade && (
-          <div className="pointer-events-none absolute left-0 right-0 top-0 h-6 bg-gradient-to-b from-white/80 to-transparent dark:from-dark-100/80" />
+          <div className="pointer-events-none absolute left-0 right-0 top-0 h-6 bg-gradient-to-b from-panel to-transparent" />
         )}
         {showFade && (
-          <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-white/80 to-transparent dark:from-dark-100/80" />
+          <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-panel to-transparent" />
         )}
       </div>
     </div>

@@ -117,7 +117,7 @@ const NewChecklistItemForm = ({
       .replace(/<br\s*\/?>(\n)?/gi, "\n")
       .replace(/<div><br\s*\/?><\/div>/gi, "")
       .replace(/<[^>]*>/g, "")
-      .replace(/&nbsp;/g, " ")
+      .replace(/&nbsp;/g, "")
       .trim();
   };
 
@@ -147,7 +147,7 @@ const NewChecklistItemForm = ({
           <input
             type="checkbox"
             disabled
-            className="peer h-[16px] w-[16px] appearance-none rounded-md border border-light-500 bg-transparent outline-none ring-0 hover:border-light-500 hover:bg-transparent focus:outline-none focus:ring-0 focus-visible:outline-none dark:border-dark-500 dark:hover:border-dark-500"
+            className="peer h-[16px] w-[16px] appearance-none rounded-md border border-hairline bg-transparent outline-none ring-0 hover:border-hairline hover:bg-transparent focus:outline-none focus:ring-0 focus-visible:outline-none dark:border-hairline dark:hover:border-hairline"
           />
         </label>
         <div className="flex-1 pr-7">

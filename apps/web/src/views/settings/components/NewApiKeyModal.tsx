@@ -87,7 +87,7 @@ export default function NewApiKeyModal() {
     return (
       <div>
         <div className="px-5 pt-5">
-          <div className="flex w-full items-center justify-between pb-4 text-neutral-900 dark:text-dark-1000">
+          <div className="flex w-full items-center justify-between pb-4 text-light-1000 dark:text-dark-1000">
             <h2 className="text-sm font-bold">{t`API key created`}</h2>
             <button
               type="button"
@@ -117,21 +117,21 @@ export default function NewApiKeyModal() {
                 onClick={() => copy(createdApiKey.key)}
               >
                 {copied ? (
-                  <HiMiniCheck className="h-5 w-5 text-green-600" />
+                  <HiMiniCheck className="h-5 w-5 text-accent-ink" />
                 ) : (
                   <HiOutlineDocumentDuplicate className="h-5 w-5" />
                 )}
               </button>
             </div>
             <div className="mt-2 flex items-start gap-1">
-              <HiInformationCircle className="mt-0.5 h-4 w-4 text-dark-900" />
-              <p className="text-xs text-gray-500 dark:text-dark-900">
+              <HiInformationCircle className="mt-0.5 h-4 w-4 text-light-900 dark:text-dark-900" />
+              <p className="text-xs text-light-900 dark:text-dark-900">
                 {t`This API key will only be shown once. Please save it in a secure location.`}
               </p>
             </div>
           </div>
         </div>
-        <div className="mt-12 flex items-center justify-end border-t border-light-600 px-5 pb-5 pt-5 dark:border-dark-600">
+        <div className="mt-12 flex items-center justify-end border-t border-hairline px-5 pb-5 pt-5 dark:border-hairline">
           <div>
             <Button onClick={() => closeModal()}>{t`Close`}</Button>
           </div>
@@ -143,7 +143,7 @@ export default function NewApiKeyModal() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="px-5 pt-5">
-        <div className="flex w-full items-center justify-between pb-4 text-neutral-900 dark:text-dark-1000">
+        <div className="flex w-full items-center justify-between pb-4 text-light-1000 dark:text-dark-1000">
           <h2 className="text-sm font-bold">{t`New API key`}</h2>
           <button
             type="button"
@@ -169,7 +169,7 @@ export default function NewApiKeyModal() {
           }}
         />
       </div>
-      <div className="mt-12 flex items-center justify-end border-t border-light-600 px-5 pb-5 pt-5 dark:border-dark-600">
+      <div className="mt-12 flex items-center justify-end border-t border-hairline px-5 pb-5 pt-5 dark:border-hairline">
         <div>
           <Button type="submit" isLoading={createApiKeyMutation.isPending}>
             {t`Create API key`}

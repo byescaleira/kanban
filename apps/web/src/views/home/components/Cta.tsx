@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import Button from "~/components/Button";
 
-const Cta = ({ theme }: { theme: string }) => {
+const Cta = () => {
   const [currentWorkspaceSlug, setCurrentWorkspaceSlug] = useState("acme");
   const [isVisible, setIsVisible] = useState(true);
 
@@ -42,7 +42,7 @@ const Cta = ({ theme }: { theme: string }) => {
       <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
         <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
           <div
-            className={`mb-8 flex items-center gap-2 rounded-2xl border bg-light-50 px-4 py-2 text-center text-sm font-bold text-light-1000 transition-all duration-500 dark:border-dark-300 dark:bg-dark-50 dark:text-dark-950 lg:text-[16px] ${
+            className={`mb-8 flex items-center gap-2 rounded-2xl border bg-light-50 px-4 py-2 text-center text-sm font-bold text-light-1000 transition-all duration-500 dark:border-hairline dark:bg-dark-50 dark:text-dark-950 lg:text-[16px] ${
               isVisible
                 ? "translate-y-0 opacity-100"
                 : "-translate-y-4 opacity-0"
@@ -77,13 +77,10 @@ const Cta = ({ theme }: { theme: string }) => {
         />
         <defs>
           <radialGradient id="8d958450-c69f-4251-94bc-4e091a323369">
-            <stop
-              stopColor={theme === "light" ? "hsl(0deg 0% 52.2%)" : "#505050"}
-            />
-            <stop
-              offset={1}
-              stopColor={theme === "light" ? "hsl(0deg 0% 43.5%)" : "#707070"}
-            />
+            {/* The ink, not a grey ramp. Both stops follow the theme
+                through the token, so nothing has to be switched in JS. */}
+            <stop stopColor="var(--ink-3)" />
+            <stop offset={1} stopColor="var(--ink-2)" />
           </radialGradient>
         </defs>
       </svg>

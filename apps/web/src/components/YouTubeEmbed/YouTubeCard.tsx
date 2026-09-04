@@ -20,7 +20,7 @@ const YouTubeCard = ({
   onUpdate,
 }: YouTubeCardProps) => {
   return (
-    <div className="w-full max-w-md rounded-lg border border-light-300 bg-light-50 dark:border-dark-300 dark:bg-dark-50">
+    <div className="w-full max-w-md rounded-lg border border-hairline bg-panel dark:border-hairline">
       <div className="flex items-center justify-between gap-6 p-0 px-6">
         <h3 className="truncate text-sm font-medium">{title}</h3>
         <div className="mt-3">

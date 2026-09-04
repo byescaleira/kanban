@@ -26,7 +26,7 @@ interface TableRowProps {
 }
 
 function formatEvents(events: string[]) {
-  return events.map((e) => e.replace("card.", "")).join(", ");
+  return events.map((e) => e.replace("card.", "")).join(",");
 }
 
 function formatDate(date?: Date | null, locale?: DateFnsLocale) {
@@ -95,8 +95,8 @@ function TableRow({
           className={twMerge(
             "inline-flex items-center rounded-md px-1.5 py-0.5 text-[11px] font-medium ring-1 ring-inset",
             active
-              ? "bg-emerald-500/10 text-emerald-400 ring-emerald-500/20"
-              : "bg-gray-500/10 text-gray-400 ring-gray-500/20",
+              ? "bg-accent-soft text-accent-ink ring-accent"
+              : "ring-hairline/20 bg-light-600/10 text-light-900",
             showSkeleton &&
               "h-5 w-[50px] animate-pulse bg-light-200 ring-0 dark:bg-dark-200",
           )}
@@ -191,8 +191,8 @@ export default function WebhookList({ workspacePublicId }: WebhookListProps) {
 
   if (!isLoading && (!webhooks || webhooks.length === 0)) {
     return (
-      <div className="rounded-lg border border-light-300 bg-light-50 p-8 text-center dark:border-dark-300 dark:bg-dark-100">
-        <p className="text-sm text-neutral-500 dark:text-dark-900">
+      <div className="rounded-lg border border-hairline bg-panel p-8 text-center dark:border-hairline dark:bg-dark-100">
+        <p className="text-sm text-light-900 dark:text-dark-900">
           {t`No webhooks configured. Add a webhook to receive notifications.`}
         </p>
       </div>
@@ -203,7 +203,7 @@ export default function WebhookList({ workspacePublicId }: WebhookListProps) {
     <div className="mt-8 flow-root">
       <div className="overflow-x-auto overflow-y-visible">
         <div className="inline-block min-w-full py-2 pb-12 align-middle">
-          <div className="relative h-full shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
+          <div className="relative h-full shadow ring-1 ring-hairline sm:rounded-lg">
             <table className="min-w-[700px] divide-y divide-light-600 dark:divide-dark-600">
               <thead className="rounded-t-lg bg-light-300 dark:bg-dark-200">
                 <tr>

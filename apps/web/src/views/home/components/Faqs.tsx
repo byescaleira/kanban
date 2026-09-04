@@ -48,7 +48,7 @@ const Faqs = () => {
         <Text>
           <Trans>
             Importing your Trello boards into Kan is easy. You can follow our
-            step-by-step guide{" "}
+            step-by-step guide{""}
             <Link
               href="https://docs.kan.bn/imports/trello"
               className="underline"
@@ -65,14 +65,15 @@ const Faqs = () => {
       answer: (
         <Text>
           <Trans>
-            You can get a custom workspace URL, like{" "}
+            You can get a custom workspace URL, like{""}
             <Link href="https://kan.bn/kan" className="underline">
               kan.bn/kan
             </Link>
-            , by going into your{" "}
+            , by going into your{""}
             <Link href="https://kan.bn/settings" className="underline">
               workspace settings
-            </Link>{" "}
+            </Link>
+            {""}
             and upgrading to a Team workspace subscription. All subscriptions
             help fund the development of the project!
           </Trans>
@@ -92,7 +93,7 @@ const Faqs = () => {
       answer: (
         <Text>
           <Trans>
-            We are using the{" "}
+            We are using the{""}
             <Link
               href="https://github.com/kan-bn/kan/blob/main/LICENSE"
               className="underline"
@@ -110,10 +111,11 @@ const Faqs = () => {
         <Text>
           <Trans>
             You can invite team members by clicking the "Invite" button in the
-            top right corner of the{" "}
+            top right corner of the{""}
             <Link href="https://kan.bn/members" className="underline">
               members page
-            </Link>{" "}
+            </Link>
+            {""}
             and entering their email address. They will receive an email with a
             link to join the workspace.
           </Trans>
@@ -125,7 +127,7 @@ const Faqs = () => {
       answer: (
         <Text>
           <Trans>
-            You can self-host by following the instructions in our{" "}
+            You can self-host by following the instructions in our{""}
             <Link href="https://github.com/kanbn/kan" className="underline">
               repo
             </Link>
@@ -138,18 +140,19 @@ const Faqs = () => {
 
   return (
     <div className="mx-auto max-w-[900px] px-4">
-      <div className="flex flex-col items-center justify-center pb-12">
-        <div className="flex items-center gap-2 rounded-full border bg-light-50 px-4 py-1 text-center text-xs text-light-1000 dark:border-dark-300 dark:bg-dark-50 dark:text-dark-900 lg:text-sm">
-          <p>{t`FAQs`}</p>
+      <div className="flex flex-col pb-12">
+        <div className="running-head">
+          <p className="running-head-label">{t`FAQs`}</p>
+          <p className="running-head-folio">04</p>
         </div>
 
-        <p className="mt-2 text-center text-3xl font-bold text-light-1000 dark:text-dark-1000 lg:text-4xl">
+        <h2 className="t-section mt-5 max-w-[20ch] text-balance text-light-1000 dark:text-dark-1000">
           {t`Questions?`}
-        </p>
-        <p className="text lg:text-md mt-3 max-w-[500px] text-center text-light-950 dark:text-dark-900">
+        </h2>
+        <p className="t-lead mt-4 max-w-[58ch] text-light-950 dark:text-dark-900">
           <Trans>
             Find answers to common questions about Kan. Can't find what you're
-            looking for? Feel free to{" "}
+            looking for? Feel free to{""}
             <Link href="mailto:support@kan.bn" className="underline">
               contact us
             </Link>
@@ -157,7 +160,7 @@ const Faqs = () => {
           </Trans>
         </p>
       </div>
-      <div className="rounded-2xl bg-light-50 ring-1 ring-light-300 dark:bg-dark-50 dark:ring-dark-200">
+      <div className="rounded-2xl bg-panel ring-1 ring-hairline dark:ring-hairline">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-16">
           <div className="mx-auto max-w-4xl">
             <dl className="divide-y divide-light-300 dark:divide-dark-200">

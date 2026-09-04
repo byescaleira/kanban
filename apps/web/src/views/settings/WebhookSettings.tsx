@@ -23,11 +23,11 @@ export default function WebhookSettings() {
     <>
       <PageHead title={t`Settings | Webhooks`} />
 
-      <div className="mb-8 border-t border-light-300 dark:border-dark-300">
-        <h2 className="mb-4 mt-8 text-[14px] font-bold text-neutral-900 dark:text-dark-1000">
+      <div className="mb-8 border-t border-hairline">
+        <h2 className="mb-4 mt-8 text-[14px] font-bold text-light-1000 dark:text-dark-1000">
           {t`Webhooks`}
         </h2>
-        <p className="mb-8 text-sm text-neutral-500 dark:text-dark-900">
+        <p className="mb-8 text-sm text-light-900 dark:text-dark-900">
           {t`Configure webhooks to receive notifications when cards are created, updated, moved, or deleted.`}
         </p>
 

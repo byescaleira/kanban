@@ -89,7 +89,7 @@ export default function ApiKeyList() {
           <div>
             <span
               className={twMerge(
-                "inline-flex items-center rounded-md bg-emerald-500/10 px-1.5 py-0.5 text-[11px] font-medium text-emerald-400 ring-1 ring-inset ring-emerald-500/20",
+                "inline-flex items-center rounded-md bg-accent-soft px-1.5 py-0.5 text-[11px] font-medium text-accent-ink ring-1 ring-inset ring-accent",
                 showSkeleton &&
                   "h-5 w-[50px] animate-pulse bg-light-200 ring-0 dark:bg-dark-200",
               )}
@@ -136,7 +136,7 @@ export default function ApiKeyList() {
     <div className="mt-8 flow-root">
       <div className="overflow-x-auto overflow-y-visible">
         <div className="inline-block min-w-full py-2 pb-12 align-middle">
-          <div className="relative h-full shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
+          <div className="relative h-full shadow ring-1 ring-hairline sm:rounded-lg">
             <table className="min-w-[600px] divide-y divide-light-600 dark:divide-dark-600">
               <thead className="rounded-t-lg bg-light-300 dark:bg-dark-200">
                 <tr>

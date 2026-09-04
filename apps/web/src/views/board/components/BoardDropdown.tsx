@@ -98,7 +98,7 @@ export default function BoardDropdown({
             label: t`Make template`,
             action: () => openModal("CREATE_TEMPLATE"),
             icon: (
-              <HiOutlineDocumentDuplicate className="h-[16px] w-[16px] text-dark-900" />
+              <HiOutlineDocumentDuplicate className="h-[16px] w-[16px] text-light-900 dark:text-dark-900" />
             ),
           },
         ]
@@ -108,7 +108,9 @@ export default function BoardDropdown({
           {
             label: t`Edit board URL`,
             action: () => openModal("UPDATE_BOARD_SLUG"),
-            icon: <HiLink className="h-[16px] w-[16px] text-dark-900" />,
+            icon: (
+              <HiLink className="h-[16px] w-[16px] text-light-900 dark:text-dark-900" />
+            ),
           },
         ]
       : []),
@@ -118,7 +120,7 @@ export default function BoardDropdown({
             label: isArchived ? t`Unarchive board` : t`Archive board`,
             action: handleArchiveOrUnarchive,
             icon: (
-              <IoArchiveOutline className="h-[16px] w-[16px] text-dark-900" />
+              <IoArchiveOutline className="h-[16px] w-[16px] text-light-900 dark:text-dark-900" />
             ),
           },
         ]
@@ -129,7 +131,7 @@ export default function BoardDropdown({
             label: t`Move to workspace`,
             action: () => openModal("MOVE_BOARD"),
             icon: (
-              <HiArrowRightOnRectangle className="h-[16px] w-[16px] text-dark-900" />
+              <HiArrowRightOnRectangle className="h-[16px] w-[16px] text-light-900 dark:text-dark-900" />
             ),
           },
         ]
@@ -138,9 +140,9 @@ export default function BoardDropdown({
       label: isFavorite ? t`Remove from favorites` : t`Add to favorites`,
       action: handleToggleFavorite,
       icon: isFavorite ? (
-        <HiStar className="h-[16px] w-[16px] text-dark-900" />
+        <HiStar className="h-[16px] w-[16px] text-light-900 dark:text-dark-900" />
       ) : (
-        <HiOutlineStar className="h-[16px] w-[16px] text-dark-900" />
+        <HiOutlineStar className="h-[16px] w-[16px] text-light-900 dark:text-dark-900" />
       ),
     },
     ...(canDeleteBoard
@@ -149,7 +151,7 @@ export default function BoardDropdown({
             label: isTemplate ? t`Delete template` : t`Delete board`,
             action: () => openModal("DELETE_BOARD"),
             icon: (
-              <HiOutlineTrash className="h-[16px] w-[16px] text-dark-900" />
+              <HiOutlineTrash className="h-[16px] w-[16px] text-light-900 dark:text-dark-900" />
             ),
           },
         ]
@@ -166,7 +168,7 @@ export default function BoardDropdown({
       items={items}
       ariaLabel={t`Board options`}
     >
-      <HiEllipsisHorizontal className="h-5 w-5 text-dark-900" />
+      <HiEllipsisHorizontal className="h-5 w-5 text-light-900 dark:text-dark-900" />
     </Dropdown>
   );
 }

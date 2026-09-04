@@ -113,7 +113,7 @@ export function AttachmentUpload({ cardPublicId }: { cardPublicId: string }) {
         className={twMerge(
           "rounded-lg border-2 border-dashed transition-colors",
           isDragging
-            ? "border-light-300 bg-light-100 dark:border-dark-300 dark:bg-dark-100"
+            ? "border-hairline bg-light-100 dark:border-hairline dark:bg-dark-100"
             : "border-transparent",
         )}
       >

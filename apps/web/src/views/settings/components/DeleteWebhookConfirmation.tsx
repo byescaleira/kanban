@@ -51,7 +51,7 @@ export function DeleteWebhookConfirmation({
   return (
     <div>
       <div className="px-5 pt-5">
-        <div className="flex w-full items-center justify-between pb-4 text-neutral-900 dark:text-dark-1000">
+        <div className="flex w-full items-center justify-between pb-4 text-light-1000 dark:text-dark-1000">
           <h2 className="text-sm font-bold">{t`Delete webhook`}</h2>
           <button
             type="button"
@@ -65,12 +65,12 @@ export function DeleteWebhookConfirmation({
           </button>
         </div>
 
-        <p className="text-sm text-neutral-500 dark:text-dark-900">
+        <p className="text-sm text-light-900 dark:text-dark-900">
           {t`Are you sure you want to delete the webhook "${webhookName}"? This action cannot be undone.`}
         </p>
       </div>
 
-      <div className="mt-8 flex items-center justify-end gap-3 border-t border-light-600 px-5 pb-5 pt-5 dark:border-dark-600">
+      <div className="mt-8 flex items-center justify-end gap-3 border-t border-hairline px-5 pb-5 pt-5 dark:border-hairline">
         <Button variant="secondary" onClick={() => closeModal()}>
           {t`Cancel`}
         </Button>

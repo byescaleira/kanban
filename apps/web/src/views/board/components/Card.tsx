@@ -68,7 +68,7 @@ const Card = ({
   const hasDueDate = !!dueDate;
 
   return (
-    <div className="flex flex-col overflow-hidden rounded-md border border-light-200 bg-light-50 px-3 py-2 text-sm text-neutral-900 dark:border-dark-200 dark:bg-dark-200 dark:text-dark-1000 dark:hover:bg-dark-300">
+    <div className="flex flex-col overflow-hidden rounded-md border border-hairline bg-panel px-3 py-2 text-sm text-light-1000 dark:border-hairline dark:bg-dark-200 dark:text-dark-1000 dark:hover:bg-dark-300">
       {ticketNumber && (
         <span className="mb-1 text-xs text-light-700 dark:text-dark-800">
           {ticketNumber}
@@ -103,7 +103,7 @@ const Card = ({
                   className={twMerge(
                     "flex items-center gap-1",
                     isOverdue
-                      ? "text-red-600 dark:text-red-400"
+                      ? "text-danger-ink"
                       : "text-light-800 dark:text-dark-800",
                   )}
                 >
@@ -128,7 +128,7 @@ const Card = ({
             </div>
             <div className="flex items-center justify-end gap-1">
               {checklists.length > 0 && (
-                <div className="flex items-center gap-1 rounded-full border-[1px] border-light-300 px-2 py-1 dark:border-dark-600">
+                <div className="flex items-center gap-1 rounded-full border-2 border-hairline px-2 py-1 dark:border-hairline">
                   <CircularProgress
                     progress={progress || 2}
                     size="sm"

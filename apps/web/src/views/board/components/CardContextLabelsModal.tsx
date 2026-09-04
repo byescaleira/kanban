@@ -1,8 +1,8 @@
 import { t } from "@lingui/core/macro";
 
+import LabelIcon from "~/components/LabelIcon";
 import { useModal } from "~/providers/modal";
 import { api } from "~/utils/api";
-import LabelIcon from "~/components/LabelIcon";
 import LabelSelector from "~/views/card/components/LabelSelector";
 
 export function CardContextLabelsModal() {
@@ -43,7 +43,7 @@ export function CardContextLabelsModal() {
         <button
           type="button"
           onClick={closeModal}
-          className="rounded-md border border-light-300 bg-light-50 px-3 py-1.5 text-sm font-medium text-light-1000 hover:bg-light-200 dark:border-dark-400 dark:bg-dark-200 dark:text-dark-1000 dark:hover:bg-dark-300"
+          className="rounded-md border border-hairline bg-panel px-3 py-1.5 text-sm font-medium text-light-1000 hover:bg-light-200 dark:border-hairline dark:bg-dark-200 dark:text-dark-1000 dark:hover:bg-dark-300"
         >
           {t`Done`}
         </button>

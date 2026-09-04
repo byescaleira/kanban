@@ -358,7 +358,7 @@ export function Auth({
                 size="lg"
               >
                 <Trans>
-                  Continue with{" "}
+                  Continue with{""}
                   {key === "oidc" ? oidcProviderName : provider.name}
                 </Trans>
               </Button>
@@ -395,7 +395,7 @@ export function Auth({
                   placeholder={t`Enter your name`}
                 />
                 {errors.name && (
-                  <p className="mt-2 text-xs text-red-400">
+                  <p className="mt-2 text-xs text-danger-ink">
                     {t`Please enter a valid name`}
                   </p>
                 )}
@@ -407,7 +407,7 @@ export function Auth({
                 placeholder={t`Enter your email address`}
               />
               {errors.email && (
-                <p className="mt-2 text-xs text-red-400">
+                <p className="mt-2 text-xs text-danger-ink">
                   {t`Please enter a valid email address`}
                 </p>
               )}
@@ -421,7 +421,7 @@ export function Auth({
                   placeholder={t`Enter your password`}
                 />
                 {errors.password && (
-                  <p className="mt-2 text-xs text-red-400">
+                  <p className="mt-2 text-xs text-danger-ink">
                     {errors.password.message ??
                       t`Please enter a valid password`}
                   </p>
@@ -429,7 +429,7 @@ export function Auth({
               </div>
             )}
             {loginError && (
-              <p className="mt-2 text-xs text-red-400">{loginError}</p>
+              <p className="mt-2 text-xs text-danger-ink">{loginError}</p>
             )}
           </div>
           <div className="mt-[1.5rem] flex items-center gap-4">
@@ -446,7 +446,7 @@ export function Auth({
         </form>
       )}
       {!(isCredentialsEnabled || isMagicLinkAvailable) && loginError && (
-        <p className="mt-2 text-xs text-red-400">{loginError}</p>
+        <p className="mt-2 text-xs text-danger-ink">{loginError}</p>
       )}
     </div>
   );

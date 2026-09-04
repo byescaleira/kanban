@@ -97,10 +97,10 @@ const getActivityText = ({
     mergedLabels &&
     mergedLabels.length > 1
   ) {
-    const labelList = mergedLabels.join(", ");
+    const labelList = mergedLabels.join(",");
     return (
       <Trans>
-        added {mergedLabels.length} labels:{" "}
+        added {mergedLabels.length} labels:{""}
         <TextHighlight>{labelList}</TextHighlight>
       </Trans>
     );
@@ -111,10 +111,10 @@ const getActivityText = ({
     mergedLabels &&
     mergedLabels.length > 1
   ) {
-    const labelList = mergedLabels.join(", ");
+    const labelList = mergedLabels.join(",");
     return (
       <Trans>
-        removed {mergedLabels.length} labels:{" "}
+        removed {mergedLabels.length} labels:{""}
         <TextHighlight>{labelList}</TextHighlight>
       </Trans>
     );
@@ -158,7 +158,8 @@ const getActivityText = ({
   if (type === "card.updated.list" && fromList && toList) {
     return (
       <Trans>
-        moved the card from <TextHighlight>{truncate(fromList)}</TextHighlight>{" "}
+        moved the card from <TextHighlight>{truncate(fromList)}</TextHighlight>
+        {""}
         to
         <TextHighlight>{truncate(toList)}</TextHighlight>
       </Trans>
@@ -238,7 +239,7 @@ const getActivityText = ({
   if (type === "card.updated.checklist.item.updated" && toTitle) {
     return (
       <Trans>
-        renamed checklist item to{" "}
+        renamed checklist item to{""}
         <TextHighlight>{truncate(toTitle)}</TextHighlight>
       </Trans>
     );
@@ -247,7 +248,7 @@ const getActivityText = ({
   if (type === "card.updated.checklist.item.completed" && toTitle) {
     return (
       <Trans>
-        completed checklist item{" "}
+        completed checklist item{""}
         <TextHighlight>{truncate(toTitle)}</TextHighlight>
       </Trans>
     );
@@ -256,7 +257,8 @@ const getActivityText = ({
   if (type === "card.updated.checklist.item.uncompleted" && toTitle) {
     return (
       <Trans>
-        marked checklist item <TextHighlight>{truncate(toTitle)}</TextHighlight>{" "}
+        marked checklist item <TextHighlight>{truncate(toTitle)}</TextHighlight>
+        {""}
         as incomplete
       </Trans>
     );
@@ -265,7 +267,7 @@ const getActivityText = ({
   if (type === "card.updated.checklist.item.deleted" && fromTitle) {
     return (
       <Trans>
-        deleted checklist item{" "}
+        deleted checklist item{""}
         <TextHighlight>{truncate(fromTitle)}</TextHighlight>
       </Trans>
     );
@@ -286,7 +288,7 @@ const getActivityText = ({
     if (!filename) return baseText;
     return (
       <Trans>
-        removed an attachment{" "}
+        removed an attachment{""}
         <TextHighlight>{truncate(filename)}</TextHighlight>
       </Trans>
     );
@@ -507,8 +509,8 @@ const ActivityList = ({
           dateLocale: dateLocale,
           mergedLabels: (activity as ActivityWithMergedLabels).mergedLabels,
           attachmentName:
-            (activity as ActivityWithMergedLabels).attachment?.originalFilename ??
-            null,
+            (activity as ActivityWithMergedLabels).attachment
+              ?.originalFilename ?? null,
         });
 
         if (activity.type === "card.updated.comment.added")
@@ -541,7 +543,9 @@ const ActivityList = ({
                 size="sm"
                 name={activity.user?.name ?? ""}
                 email={activity.user?.email ?? ""}
-                imageUrl={getAvatarUrl(activity.user?.image ?? null) || undefined}
+                imageUrl={
+                  getAvatarUrl(activity.user?.image ?? null) || undefined
+                }
                 icon={getActivityIcon(
                   activity.type,
                   activity.fromList?.index,

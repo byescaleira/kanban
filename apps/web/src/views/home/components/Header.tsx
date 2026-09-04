@@ -71,11 +71,11 @@ const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
           "fixed z-50 flex w-full transition-all duration-500",
         )}
       >
-        <div className="flex h-[4rem] min-h-[4rem] w-full border-b border-light-300 bg-light-50/80 px-5 py-2 align-middle opacity-100 shadow-sm backdrop-blur-[10px] transition-all duration-500 dark:border-dark-300 dark:bg-dark-50/90">
+        <div className="flex h-[4rem] min-h-[4rem] w-full border-b border-hairline bg-background px-5 py-2 align-middle opacity-100 transition-all duration-500 dark:border-hairline dark:bg-dark-50/90">
           <div className="mx-auto flex w-full max-w-[1100px] items-center justify-between lg:px-4">
             <div className="my-auto flex items-center justify-between">
               <Link href="/">
-                <h1 className="text-lg font-bold tracking-tight text-neutral-900 dark:text-dark-1000 lg:w-[200px]">
+                <h1 className="text-lg font-bold tracking-tight text-light-1000 dark:text-dark-1000 lg:w-[200px]">
                   kan.bn
                 </h1>
               </Link>
@@ -138,7 +138,7 @@ const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
             : "pointer-events-none translate-x-0 opacity-0"
         }`}
       >
-        <div className="absolute inset-0 bg-light-50/80 bg-white backdrop-blur-[15px] dark:bg-dark-50 dark:bg-dark-50/90">
+        <div className="absolute inset-0 bg-background">
           <div className="mt-[6rem] flex h-full flex-col space-y-8 px-5">
             {Object.entries(groupedMenuItems).map(([group, items]) => (
               <div key={group} className="flex flex-col space-y-4">

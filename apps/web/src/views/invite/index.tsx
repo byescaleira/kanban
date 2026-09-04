@@ -146,7 +146,9 @@ export default function InvitePage() {
                   : t`You've been invited to join a workspace.`}
               </p>
             ) : (
-              <p className="mt-4 text-center text-sm text-red-500">{error}</p>
+              <p className="mt-4 text-center text-sm text-danger-ink">
+                {error}
+              </p>
             )}
           </div>
           <div className="flex justify-center gap-2">

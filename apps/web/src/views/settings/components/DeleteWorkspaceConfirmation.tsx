@@ -58,7 +58,7 @@ export function DeleteWorkspaceConfirmation() {
   return (
     <div className="p-5">
       <div className="flex w-full flex-col justify-between pb-4">
-        <h2 className="text-md pb-4 font-medium text-neutral-900 dark:text-dark-1000">
+        <h2 className="text-md pb-4 font-medium text-light-1000 dark:text-dark-1000">
           <Trans>
             Are you sure you want to delete the workspace {workspace.name}?
           </Trans>
@@ -77,7 +77,7 @@ export function DeleteWorkspaceConfirmation() {
             name="acknowledgment"
             type="checkbox"
             aria-describedby="acknowledgment-description"
-            className="mt-2 h-[14px] w-[14px] rounded border-gray-300 bg-transparent text-indigo-600 focus:shadow-none focus:ring-0 focus:ring-offset-0"
+            className="mt-2 h-[14px] w-[14px] rounded border-hairline bg-transparent text-accent focus:shadow-none focus:ring-0 focus:ring-offset-0"
             checked={isAcknowledgmentChecked}
             onChange={() =>
               setIsAcknowledgmentChecked(!isAcknowledgmentChecked)

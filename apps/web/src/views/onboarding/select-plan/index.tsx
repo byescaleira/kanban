@@ -148,7 +148,7 @@ export default function SelectPlanView() {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-light-100 px-4 py-8 dark:bg-dark-50 md:px-6">
-      <div className="w-full max-w-3xl overflow-hidden rounded-xl border border-light-400 bg-light-200 shadow-xl dark:border-dark-400 dark:bg-dark-100">
+      <div className="w-full max-w-3xl overflow-hidden rounded-xl border border-hairline bg-panel shadow-xl dark:border-hairline">
         <div className="flex flex-col md:h-[520px] md:flex-row">
           {/* Left panel */}
           <div className="flex flex-col p-6 md:w-[55%] md:p-8">
@@ -167,7 +167,7 @@ export default function SelectPlanView() {
                 <RadioGroup
                   value={billing}
                   onChange={handleSetBilling}
-                  className="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs font-semibold ring-1 ring-inset ring-light-600 dark:ring-dark-600"
+                  className="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs font-semibold ring-1 ring-inset ring-hairline"
                 >
                   {FREQUENCIES.map((f) => (
                     <Radio
@@ -197,8 +197,8 @@ export default function SelectPlanView() {
                       onClick={() => handleSelectPlan(plan.id)}
                       className={`relative w-full rounded-lg border px-4 py-3 text-left transition-colors ${
                         selected === plan.id
-                          ? "border-light-700 bg-light-300 dark:border-dark-600 dark:bg-dark-200"
-                          : "border-light-500 bg-light-200 hover:border-light-600 dark:border-dark-500 dark:bg-dark-100 dark:hover:border-dark-600"
+                          ? "border-hairline bg-light-300 dark:border-hairline dark:bg-dark-200"
+                          : "border-hairline bg-light-200 hover:border-hairline dark:bg-dark-100 dark:hover:border-hairline"
                       }`}
                     >
                       <div className="flex items-start justify-between">
@@ -207,11 +207,11 @@ export default function SelectPlanView() {
                             <span className="text-sm font-semibold text-light-1000 dark:text-dark-1000">
                               {plan.name}
                             </span>
-                            <span className="rounded-full bg-neutral-700 px-2 py-px text-[11px] font-medium text-neutral-200">
+                            <span className="rounded-full bg-light-1000 px-2 py-px text-[11px] font-medium text-light-400">
                               {badge}
                             </span>
                             {plan.trial && billing === "annual" && (
-                              <span className="rounded-full bg-emerald-500/10 px-2 py-px text-[11px] font-medium text-emerald-600 ring-1 ring-inset ring-emerald-500/20 dark:text-emerald-400">
+                              <span className="rounded-full bg-accent-soft px-2 py-px text-[11px] font-medium text-accent-ink ring-1 ring-inset ring-accent dark:text-accent-ink">
                                 -20%
                               </span>
                             )}
@@ -224,8 +224,8 @@ export default function SelectPlanView() {
                           <div
                             className={`flex h-4 w-4 items-center justify-center rounded-full border-2 ${
                               selected === plan.id
-                                ? "border-light-900 bg-light-900 dark:border-dark-900 dark:bg-dark-900"
-                                : "border-light-700 dark:border-dark-700"
+                                ? "border-hairline bg-light-900 dark:border-hairline dark:bg-dark-900"
+                                : "border-hairline"
                             }`}
                           >
                             {selected === plan.id && (
@@ -258,9 +258,9 @@ export default function SelectPlanView() {
           <div className="hidden items-center justify-center bg-light-200 dark:bg-dark-200 md:flex md:w-[45%]">
             <div className="relative h-72 w-72">
               {/* Orbit rings */}
-              <div className="absolute inset-0 m-auto h-72 w-72 rounded-full border border-light-400 dark:border-dark-400" />
-              <div className="absolute inset-0 m-auto h-52 w-52 rounded-full border border-light-400 dark:border-dark-400" />
-              <div className="absolute inset-0 m-auto h-32 w-32 rounded-full border border-light-400 dark:border-dark-400" />
+              <div className="absolute inset-0 m-auto h-72 w-72 rounded-full border border-hairline" />
+              <div className="absolute inset-0 m-auto h-52 w-52 rounded-full border border-hairline" />
+              <div className="absolute inset-0 m-auto h-32 w-32 rounded-full border border-hairline" />
 
               {/* Centre person */}
               <div className="absolute inset-0 m-auto flex h-16 w-16 items-center justify-center overflow-hidden rounded-full bg-light-300 dark:bg-dark-300">

@@ -142,7 +142,7 @@ export function NewWorkspaceForm() {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="px-5 pt-5">
         <div className="flex w-full items-center justify-between pb-4">
-          <h2 className="text-sm font-bold text-neutral-900 dark:text-dark-1000">
+          <h2 className="text-sm font-bold text-light-1000 dark:text-dark-1000">
             {t`New workspace`}
           </h2>
           <button
@@ -179,9 +179,7 @@ export function NewWorkspaceForm() {
             placeholder={t`workspace-url`}
             {...register("slug")}
             className={`${
-              isSlugAvailable
-                ? "focus:ring-green-500 dark:focus:ring-green-500"
-                : ""
+              isSlugAvailable ? "focus:ring-accent dark:focus:ring-accent" : ""
             }`}
             errorMessage={
               errors.slug?.message ??
@@ -196,7 +194,7 @@ export function NewWorkspaceForm() {
             iconRight={
               slug && slug.length >= 3 && !errors.slug ? (
                 isWorkspaceSlugAvailable?.isAvailable ? (
-                  <HiCheck className="h-4 w-4 text-green-500" />
+                  <HiCheck className="h-4 w-4 text-accent-ink" />
                 ) : checkWorkspaceSlugAvailability.isPending || isTyping ? (
                   <LoadingSpinner />
                 ) : null
@@ -211,7 +209,7 @@ export function NewWorkspaceForm() {
           />
         </div>
       </div>
-      <div className="mt-6 flex items-center justify-end border-t border-light-600 px-5 pb-5 pt-5 dark:border-dark-600">
+      <div className="mt-6 flex items-center justify-end border-t border-hairline px-5 pb-5 pt-5 dark:border-hairline">
         <div>
           <Button
             type="submit"

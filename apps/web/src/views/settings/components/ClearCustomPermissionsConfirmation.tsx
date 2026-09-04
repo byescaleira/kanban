@@ -1,9 +1,9 @@
 import { t } from "@lingui/core/macro";
 
+import type { api } from "~/utils/api";
 import Button from "~/components/Button";
 import { useModal } from "~/providers/modal";
 import { useWorkspace } from "~/providers/workspace";
-import type { api } from "~/utils/api";
 
 type ResetMutation = ReturnType<
   typeof api.permission.resetWorkspaceMemberPermissions.useMutation
@@ -28,7 +28,7 @@ export function ClearCustomPermissionsConfirmation({
   return (
     <div className="p-5">
       <div className="flex w-full flex-col justify-between pb-4">
-        <h2 className="text-md pb-4 font-medium text-neutral-900 dark:text-dark-1000">
+        <h2 className="text-md pb-4 font-medium text-light-1000 dark:text-dark-1000">
           {t`Clear all custom permissions?`}
         </h2>
         <p className="mb-4 text-sm text-light-900 dark:text-dark-900">
@@ -51,5 +51,3 @@ export function ClearCustomPermissionsConfirmation({
     </div>
   );
 }
-
-

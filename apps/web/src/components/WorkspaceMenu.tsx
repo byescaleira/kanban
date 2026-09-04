@@ -73,14 +73,14 @@ export default function WorkspaceMenu({
                 )}
                 title={isCollapsed ? workspace.name : undefined}
               >
-                <span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-indigo-700">
-                  <span className="text-xs font-bold leading-none text-white">
+                <span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-accent">
+                  <span className="text-xs font-medium leading-none text-on-accent">
                     {workspace.name.charAt(0).toUpperCase()}
                   </span>
                 </span>
                 <span
                   className={twMerge(
-                    "ml-2 min-w-0 flex-1 truncate text-left text-sm font-bold text-neutral-900 dark:text-dark-1000",
+                    "ml-2 min-w-0 flex-1 truncate text-left text-sm font-bold text-light-1000 dark:text-dark-1000",
                     isCollapsed && "md:hidden",
                   )}
                 >
@@ -89,7 +89,7 @@ export default function WorkspaceMenu({
                 {workspace.plan === "pro" && (
                   <span
                     className={twMerge(
-                      "ml-2 inline-flex items-center rounded-md bg-indigo-100 px-2 py-1 text-[10px] font-medium text-indigo-700",
+                      "ml-2 inline-flex items-center rounded-md bg-accent-soft px-2 py-1 text-[10px] font-medium text-accent-ink",
                       isCollapsed && "md:hidden",
                     )}
                   >
@@ -124,7 +124,7 @@ export default function WorkspaceMenu({
         >
           <Menu.Items
             className={twMerge(
-              "absolute left-0 z-10 origin-top-left rounded-md border border-light-600 bg-light-50 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:border-dark-600 dark:bg-dark-300",
+              "absolute left-0 z-10 origin-top-left rounded-md border border-hairline bg-panel shadow-lg ring-1 ring-hairline focus:outline-none dark:border-hairline dark:bg-dark-300",
               isCollapsed ? "w-48" : "w-full",
             )}
           >
@@ -134,11 +134,11 @@ export default function WorkspaceMenu({
                   <Menu.Item>
                     <button
                       onClick={() => switchWorkspace(availableWorkspace)}
-                      className="flex w-full items-center justify-between rounded-[5px] px-3 py-2 text-left text-sm text-neutral-900 hover:bg-light-200 dark:text-dark-1000 dark:hover:bg-dark-400"
+                      className="flex w-full items-center justify-between rounded-sm px-3 py-2 text-left text-sm text-light-1000 hover:bg-light-200 dark:text-dark-1000 dark:hover:bg-dark-400"
                     >
                       <div className="flex min-w-0 flex-1 items-center">
-                        <span className="inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-[5px] bg-indigo-700">
-                          <span className="text-xs font-medium leading-none text-white">
+                        <span className="inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-sm bg-accent">
+                          <span className="text-xs font-medium leading-none text-on-accent">
                             {availableWorkspace.name.charAt(0).toUpperCase()}
                           </span>
                         </span>
@@ -156,7 +156,7 @@ export default function WorkspaceMenu({
                 </div>
               ))}
             </div>
-            <div className="border-t-[1px] border-light-600 p-1 dark:border-dark-500">
+            <div className="border-t-[1px] border-hairline p-1 dark:border-hairline">
               <Menu.Item>
                 <button
                   onClick={() => {
@@ -172,7 +172,7 @@ export default function WorkspaceMenu({
                       );
                     }
                   }}
-                  className="flex w-full items-center justify-between rounded-[5px] px-3 py-2 text-left text-xs text-neutral-900 hover:bg-light-200 dark:text-dark-1000 dark:hover:bg-dark-400"
+                  className="flex w-full items-center justify-between rounded-sm px-3 py-2 text-left text-xs text-light-1000 hover:bg-light-200 dark:text-dark-1000 dark:hover:bg-dark-400"
                 >
                   {t`Create workspace`}
                 </button>

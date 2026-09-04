@@ -137,15 +137,15 @@ export default function IntegrationsSettings() {
     <>
       <PageHead title={t`Settings | Integrations`} />
 
-      <div className="mb-8 border-t border-light-300 dark:border-dark-300">
-        <h2 className="mb-4 mt-8 text-[14px] font-bold text-neutral-900 dark:text-dark-1000">
+      <div className="mb-8 border-t border-hairline">
+        <h2 className="mb-4 mt-8 text-[14px] font-bold text-light-1000 dark:text-dark-1000">
           {t`Trello`}
         </h2>
         {!integrations?.some(
           (integration) => integration.provider === "trello",
         ) && trelloUrl ? (
           <>
-            <p className="mb-8 text-sm text-neutral-500 dark:text-dark-900">
+            <p className="mb-8 text-sm text-light-900 dark:text-dark-900">
               {t`Connect your Trello account to import boards.`}
             </p>
             <Button
@@ -167,7 +167,7 @@ export default function IntegrationsSettings() {
             (integration) => integration.provider === "trello",
           ) && (
             <>
-              <p className="mb-8 text-sm text-neutral-500 dark:text-dark-900">
+              <p className="mb-8 text-sm text-light-900 dark:text-dark-900">
                 {t`Your Trello account is connected.`}
               </p>
               <Button
@@ -181,13 +181,13 @@ export default function IntegrationsSettings() {
         )}
       </div>
 
-      <div className="mb-8 border-t border-light-300 dark:border-dark-300">
-        <h2 className="mb-4 mt-8 text-[14px] font-bold text-neutral-900 dark:text-dark-1000">
+      <div className="mb-8 border-t border-hairline">
+        <h2 className="mb-4 mt-8 text-[14px] font-bold text-light-1000 dark:text-dark-1000">
           {t`GitHub`}
         </h2>
         {!githubStatus?.connected ? (
           <>
-            <p className="mb-4 text-sm text-neutral-500 dark:text-dark-900">
+            <p className="mb-4 text-sm text-light-900 dark:text-dark-900">
               {t`Connect your GitHub account to import projects.`}
             </p>
             <form
@@ -216,7 +216,7 @@ export default function IntegrationsSettings() {
           </>
         ) : (
           <>
-            <p className="mb-8 text-sm text-neutral-500 dark:text-dark-900">
+            <p className="mb-8 text-sm text-light-900 dark:text-dark-900">
               {t`Your GitHub account is connected.`}
             </p>
             <Button variant="secondary" onClick={() => disconnectGithub()}>

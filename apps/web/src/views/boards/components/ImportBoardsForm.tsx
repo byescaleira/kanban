@@ -102,7 +102,7 @@ const SelectSource = ({
               {({ open }) => (
                 <>
                   <div className="relative">
-                    <Listbox.Button className="focus-ring-light-700 block w-full rounded-md border-0 bg-dark-300 bg-white/5 px-4 py-1.5 text-neutral-900 shadow-sm ring-1 ring-inset ring-light-600 focus:ring-2 focus:ring-inset dark:text-dark-1000 dark:ring-dark-700 dark:focus:ring-dark-700 sm:text-sm sm:leading-6">
+                    <Listbox.Button className="focus-ring-hairline block w-full rounded-md border-0 bg-dark-300 bg-white/5 px-4 py-1.5 text-light-1000 shadow-sm ring-1 ring-inset ring-hairline focus:ring-2 focus:ring-inset dark:text-dark-1000 dark:ring-hairline dark:focus:ring-hairline sm:text-sm sm:leading-6">
                       <span className="flex items-center">
                         {integrationProviders[field.value]?.icon}
                         <span className="ml-2 block truncate text-sm">
@@ -111,7 +111,7 @@ const SelectSource = ({
                       </span>
                       <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                         <HiChevronUpDown
-                          className="h-5 w-5 text-gray-400"
+                          className="h-5 w-5 text-light-900"
                           aria-hidden="true"
                         />
                       </span>
@@ -124,7 +124,7 @@ const SelectSource = ({
                       leaveFrom="opacity-100"
                       leaveTo="opacity-0"
                     >
-                      <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-light-50 py-1 text-base text-neutral-900 shadow-lg ring-1 ring-light-600 ring-opacity-5 focus:outline-none dark:bg-dark-300 dark:text-dark-1000 sm:text-sm">
+                      <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-panel py-1 text-base text-light-1000 shadow-lg ring-1 ring-hairline focus:outline-none dark:bg-dark-300 dark:text-dark-1000 sm:text-sm">
                         {hasIntegrations ? (
                           availableIntegrations.map((integration, index) => (
                             <Listbox.Option
@@ -132,7 +132,7 @@ const SelectSource = ({
                               className="relative cursor-default select-none px-1"
                               value={integration.provider}
                             >
-                              <div className="flex items-center rounded-[5px] p-1 hover:bg-light-200 dark:hover:bg-dark-400">
+                              <div className="flex items-center rounded-sm p-1 hover:bg-light-200 dark:hover:bg-dark-400">
                                 {
                                   integrationProviders[integration.provider]
                                     ?.icon
@@ -153,7 +153,7 @@ const SelectSource = ({
                               className="font-sm relative cursor-default select-none px-1"
                               value="trello"
                             >
-                              <div className="flex items-center rounded-[5px] p-1 text-sm hover:bg-light-200 dark:hover:bg-dark-400">
+                              <div className="flex items-center rounded-sm p-1 text-sm hover:bg-light-200 dark:hover:bg-dark-400">
                                 {integrationProviders.trello?.icon}
                                 <span className="ml-2 block truncate text-sm">
                                   {integrationProviders.trello?.name}
@@ -165,7 +165,7 @@ const SelectSource = ({
                               className="font-sm relative cursor-default select-none px-1"
                               value="github"
                             >
-                              <div className="flex items-center rounded-[5px] p-1 text-sm hover:bg-light-200 dark:hover:bg-dark-400">
+                              <div className="flex items-center rounded-sm p-1 text-sm hover:bg-light-200 dark:hover:bg-dark-400">
                                 {integrationProviders.github?.icon}
                                 <span className="ml-2 block truncate text-sm">
                                   {integrationProviders.github?.name}
@@ -184,7 +184,7 @@ const SelectSource = ({
         />
       </div>
 
-      <div className="mt-12 flex items-center justify-end space-x-4 border-t border-light-600 px-5 pb-5 pt-5 dark:border-dark-600">
+      <div className="mt-12 flex items-center justify-end space-x-4 border-t border-hairline px-5 pb-5 pt-5 dark:border-hairline">
         <div>
           <Button
             type="submit"
@@ -269,9 +269,9 @@ const ImportGithub: React.FC = () => {
     if (projectsLoading) {
       return (
         <div className="flex h-full w-full flex-col items-center justify-center gap-1">
-          <div className="h-[30px] w-full animate-pulse rounded-[5px] bg-light-200 dark:bg-dark-300" />
-          <div className="h-[30px] w-full animate-pulse rounded-[5px] bg-light-200 dark:bg-dark-300" />
-          <div className="h-[30px] w-full animate-pulse rounded-[5px] bg-light-200 dark:bg-dark-300" />
+          <div className="h-[30px] w-full animate-pulse rounded-sm bg-light-200 dark:bg-dark-300" />
+          <div className="h-[30px] w-full animate-pulse rounded-sm bg-light-200 dark:bg-dark-300" />
+          <div className="h-[30px] w-full animate-pulse rounded-sm bg-light-200 dark:bg-dark-300" />
         </div>
       );
     }
@@ -279,7 +279,7 @@ const ImportGithub: React.FC = () => {
     if (!projects?.length) {
       return (
         <div className="flex h-full w-full items-center justify-center">
-          <p className="text-sm text-neutral-500 dark:text-dark-900">
+          <p className="text-sm text-light-900 dark:text-dark-900">
             {t`No projects found`}
           </p>
         </div>
@@ -289,7 +289,7 @@ const ImportGithub: React.FC = () => {
     return projects.map((project) => (
       <div key={project.id}>
         <label
-          className="flex cursor-pointer items-center rounded-[5px] p-2 hover:bg-light-100 dark:hover:bg-dark-300"
+          className="flex cursor-pointer items-center rounded-sm p-2 hover:bg-light-100 dark:hover:bg-dark-300"
           htmlFor={project.id}
         >
           <input
@@ -298,7 +298,7 @@ const ImportGithub: React.FC = () => {
             className="h-[14px] w-[14px] rounded bg-transparent ring-0 focus:outline-none focus:ring-0 focus:ring-offset-0"
             {...registerProjects(project.id)}
           />
-          <span className="ml-3 text-sm text-neutral-900 dark:text-dark-1000">
+          <span className="ml-3 text-sm text-light-1000 dark:text-dark-1000">
             {project.name}
           </span>
         </label>
@@ -310,7 +310,7 @@ const ImportGithub: React.FC = () => {
     <form onSubmit={handleSubmitProjects(onSubmitProjects)}>
       <div className="h-[105px] overflow-auto px-5">{renderContent()}</div>
 
-      <div className="mt-12 flex items-center justify-end space-x-4 border-t border-light-600 px-5 pb-5 pt-5 dark:border-dark-600">
+      <div className="mt-12 flex items-center justify-end space-x-4 border-t border-hairline px-5 pb-5 pt-5 dark:border-hairline">
         <Toggle
           label={t`Select all`}
           isChecked={!!isSelectAllEnabled}
@@ -418,9 +418,9 @@ const ImportTrello: React.FC = () => {
     if (boardsLoading) {
       return (
         <div className="flex h-full w-full flex-col items-center justify-center gap-1">
-          <div className="h-[30px] w-full animate-pulse rounded-[5px] bg-light-200 dark:bg-dark-300" />
-          <div className="h-[30px] w-full animate-pulse rounded-[5px] bg-light-200 dark:bg-dark-300" />
-          <div className="h-[30px] w-full animate-pulse rounded-[5px] bg-light-200 dark:bg-dark-300" />
+          <div className="h-[30px] w-full animate-pulse rounded-sm bg-light-200 dark:bg-dark-300" />
+          <div className="h-[30px] w-full animate-pulse rounded-sm bg-light-200 dark:bg-dark-300" />
+          <div className="h-[30px] w-full animate-pulse rounded-sm bg-light-200 dark:bg-dark-300" />
         </div>
       );
     }
@@ -428,7 +428,7 @@ const ImportTrello: React.FC = () => {
     if (!boards?.length) {
       return (
         <div className="flex h-full w-full items-center justify-center">
-          <p className="text-sm text-neutral-500 dark:text-dark-900">
+          <p className="text-sm text-light-900 dark:text-dark-900">
             {t`No boards found`}
           </p>
         </div>
@@ -438,7 +438,7 @@ const ImportTrello: React.FC = () => {
     return boards.map((board) => (
       <div key={board.id}>
         <label
-          className="flex cursor-pointer items-center rounded-[5px] p-2 hover:bg-light-100 dark:hover:bg-dark-300"
+          className="flex cursor-pointer items-center rounded-sm p-2 hover:bg-light-100 dark:hover:bg-dark-300"
           htmlFor={board.id}
         >
           <input
@@ -447,7 +447,7 @@ const ImportTrello: React.FC = () => {
             className="h-[14px] w-[14px] rounded bg-transparent ring-0 focus:outline-none focus:ring-0 focus:ring-offset-0"
             {...registerBoards(board.id)}
           />
-          <span className="ml-3 text-sm text-neutral-900 dark:text-dark-1000">
+          <span className="ml-3 text-sm text-light-1000 dark:text-dark-1000">
             {board.name}
           </span>
         </label>
@@ -459,7 +459,7 @@ const ImportTrello: React.FC = () => {
     <form onSubmit={handleSubmitBoards(onSubmitBoards)}>
       <div className="h-[105px] overflow-auto px-5">{renderContent()}</div>
 
-      <div className="mt-12 flex items-center justify-end space-x-4 border-t border-light-600 px-5 pb-5 pt-5 dark:border-dark-600">
+      <div className="mt-12 flex items-center justify-end space-x-4 border-t border-hairline px-5 pb-5 pt-5 dark:border-hairline">
         <Toggle
           label={t`Select all`}
           isChecked={!!isSelectAllEnabled}
@@ -509,13 +509,13 @@ export function ImportBoardsForm() {
     <div>
       <div className="flex w-full items-center justify-between px-5 pb-4 pt-5">
         <div className="flex items-center">
-          <h2 className="text-sm font-medium text-neutral-900 dark:text-dark-1000">
+          <h2 className="text-sm font-medium text-light-1000 dark:text-dark-1000">
             {t`New import`}
           </h2>
           <Link
             href="https://docs.kan.bn/imports/trello"
             target="_blank"
-            className="ml-2 text-neutral-500 hover:text-neutral-700 dark:text-dark-900 dark:hover:text-dark-700"
+            className="ml-2 text-light-900 hover:text-light-900 dark:text-dark-900 dark:hover:text-dark-700"
           >
             <HiOutlineQuestionMarkCircle className="h-4.5 w-4.5" />
           </Link>
@@ -526,7 +526,7 @@ export function ImportBoardsForm() {
           className="rounded p-1 hover:bg-light-200 dark:hover:bg-dark-300"
           onClick={() => closeModal()}
         >
-          <HiXMark size={18} className="text-dark-900" />
+          <HiXMark size={18} className="text-light-900 dark:text-dark-900" />
         </button>
       </div>
 

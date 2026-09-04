@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import React from "react";
 import {
   Dialog,
   DialogBackdrop,
@@ -7,7 +6,7 @@ import {
   DialogTitle,
 } from "@headlessui/react";
 import { t } from "@lingui/core/macro";
-import {
+import React, {
   createContext,
   useCallback,
   useContext,
@@ -121,7 +120,7 @@ class ShortcutConflictError extends Error {
 
   private static stringifyShortcut(shortcut: KeyboardShortcut): string {
     if (shortcut.type === "SEQUENCE") {
-      return shortcut.strokes.map(serializeKeyStroke).join(" → ");
+      return shortcut.strokes.map(serializeKeyStroke).join("→");
     }
     return serializeKeyStroke(shortcut.stroke);
   }
@@ -217,14 +216,14 @@ export function KeyboardShortcutProvider({
         shortcut.type === "SEQUENCE" ? shortcut.strokes : [shortcut.stroke];
 
       const path = strokes.map(serializeKeyStroke);
-      const pathKey = path.join(" → ");
+      const pathKey = path.join("→");
 
       path.reduce((currentLevel, key, i) => {
         const isLast = i === path.length - 1;
         const existingNode = currentLevel[key];
 
         if (env.NODE_ENV === "development" && existingNode) {
-          const conflictPath = path.slice(0, i + 1).join(" → ");
+          const conflictPath = path.slice(0, i + 1).join("→");
           validateNoConflict(existingNode, isLast, shortcut, conflictPath);
         }
 
@@ -314,23 +313,23 @@ export function KeyboardShortcutProvider({
         <div className="fixed inset-0 flex min-h-full w-screen items-center justify-center overflow-y-auto p-4">
           <DialogPanel
             transition
-            className="relative w-full max-w-sm transform overflow-hidden rounded-lg border border-light-600 bg-white shadow-3xl-light dark:border-dark-600 dark:bg-dark-100 dark:shadow-3xl-dark"
+            className="relative w-full max-w-sm transform overflow-hidden rounded-lg border border-hairline bg-white shadow-3xl-light dark:border-hairline dark:bg-dark-100 dark:shadow-3xl-dark"
           >
-            <div className="flex items-center justify-between border-b border-light-300 px-6 py-4 dark:border-dark-300">
-              <DialogTitle className="text-[14px] font-semibold text-neutral-900 dark:text-dark-1000">
+            <div className="flex items-center justify-between border-b border-hairline px-6 py-4 dark:border-hairline">
+              <DialogTitle className="text-[14px] font-semibold text-light-1000 dark:text-dark-1000">
                 {t`Keyboard Shortcuts`}
               </DialogTitle>
               <button
                 onClick={() => setIsLegendOpen(false)}
                 className="rounded p-1 hover:bg-light-200 dark:hover:bg-dark-200"
               >
-                <HiXMark className="h-5 w-5 text-neutral-700 dark:text-dark-700" />
+                <HiXMark className="h-5 w-5 text-light-900 dark:text-dark-700" />
               </button>
             </div>
 
             <div className="max-h-[60vh] overflow-y-auto p-6">
               {shortcutsArray.length === 0 ? (
-                <p className="text-center text-sm text-neutral-600 dark:text-dark-600">
+                <p className="text-center text-sm text-light-900 dark:text-dark-900">
                   {t`No keyboard shortcuts registered.`}
                 </p>
               ) : (
@@ -445,7 +444,7 @@ function ShortcutListItem({ shortcut }: { shortcut: KeyboardShortcut }) {
 
 function FormattedShortcut({ shortcut }: { shortcut: KeyboardShortcut }) {
   const kbdClassName =
-    "inline-flex h-5 w-5 items-center justify-center rounded border border-light-400 bg-light-200 px-1.5 py-0.5 font-mono text-[8px] font-semibold text-center text-neutral-900 dark:border-dark-400 dark:bg-dark-200 dark:text-dark-950";
+    "inline-flex h-5 w-5 items-center justify-center rounded border border-hairline bg-light-200 px-1.5 py-0.5 font-mono text-[8px] font-semibold text-center text-light-1000 dark:border-hairline dark:bg-dark-200 dark:text-dark-950";
 
   const stringifyModifier = (modifier: ModifierKey): string => {
     const isMac =

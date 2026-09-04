@@ -154,7 +154,7 @@ export default function SideNavigation({
     <>
       <nav
         className={twMerge(
-          "flex h-full w-64 flex-col justify-between border-r border-light-300 bg-light-100 p-3 dark:border-dark-300 dark:bg-dark-100 md:border-r-0 md:py-0 md:pl-0",
+          "flex h-full w-64 flex-col justify-between border-r border-hairline bg-light-100 p-3 dark:border-hairline dark:bg-dark-100 md:border-r-0 md:py-0 md:pl-0",
           isCollapsed && "md:w-auto",
         )}
       >
@@ -162,7 +162,7 @@ export default function SideNavigation({
           <div className="hidden h-[45px] items-center justify-between pb-3 md:flex">
             {!isCollapsed && (
               <Link href="/" className="block">
-                <h1 className="pl-2 text-[16px] font-bold tracking-tight text-neutral-900 dark:text-dark-1000">
+                <h1 className="pl-2 text-[16px] font-bold tracking-tight text-light-1000 dark:text-dark-1000">
                   kan.bn
                 </h1>
               </Link>
@@ -187,7 +187,7 @@ export default function SideNavigation({
               )}
             </Button>
           </div>
-          <div className="mx-1 mb-4 hidden w-auto border-b border-light-300 dark:border-dark-400 md:block" />
+          <div className="mx-1 mb-4 hidden w-auto border-b border-hairline md:block" />
 
           <WorkspaceMenu isCollapsed={isCollapsed} />
           <ul role="list" className="space-y-1">

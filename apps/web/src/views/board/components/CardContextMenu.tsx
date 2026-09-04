@@ -2,12 +2,12 @@ import { t } from "@lingui/core/macro";
 import { useEffect, useRef } from "react";
 import {
   HiLink,
+  HiOutlineArrowRightCircle,
   HiOutlineCalendar,
   HiOutlineDocumentDuplicate,
   HiOutlineTag,
   HiOutlineTrash,
   HiOutlineUserGroup,
-  HiOutlineArrowRightCircle,
 } from "react-icons/hi2";
 
 export type CardContextMenuAction =
@@ -108,7 +108,7 @@ export function CardContextMenu({
   return (
     <div
       ref={menuRef}
-      className="fixed z-[200] min-w-[200px] rounded-md border border-light-200 bg-white py-1 shadow-lg dark:border-dark-400 dark:bg-dark-200"
+      className="fixed z-[200] min-w-[200px] rounded-md border border-hairline bg-white py-1 shadow-lg dark:border-hairline dark:bg-dark-200"
       style={{ left: x, top: y }}
     >
       {items.map(({ action, label, icon }) => (
@@ -119,7 +119,7 @@ export function CardContextMenu({
             onAction(action);
             onClose();
           }}
-          className="flex w-full items-center gap-2 px-3 py-2 text-left text-sm text-neutral-900 hover:bg-light-200 dark:text-dark-1000 dark:hover:bg-dark-400"
+          className="flex w-full items-center gap-2 px-3 py-2 text-left text-sm text-light-1000 hover:bg-light-200 dark:text-dark-1000 dark:hover:bg-dark-400"
         >
           {icon}
           {label}

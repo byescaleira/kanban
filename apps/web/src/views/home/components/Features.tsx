@@ -42,14 +42,14 @@ const FeatureItem = ({
   return (
     <div
       onMouseEnter={handleMouseEnter}
-      className="group relative flex aspect-square w-full flex-col items-center justify-center overflow-hidden rounded-3xl border border-light-200 bg-light-50 p-2 dark:border-dark-200 dark:bg-dark-50"
+      className="group relative flex aspect-square w-full flex-col items-center justify-center overflow-hidden rounded-3xl border border-hairline bg-panel p-2 dark:border-hairline"
     >
       <div className="absolute left-8 top-8 h-2 w-2 rounded-full bg-light-200 dark:bg-dark-200" />
       <div className="absolute right-8 top-8 h-2 w-2 rounded-full bg-light-200 dark:bg-dark-200" />
       <div className="absolute bottom-8 left-8 h-2 w-2 rounded-full bg-light-200 dark:bg-dark-200" />
       <div className="absolute bottom-8 right-8 h-2 w-2 rounded-full bg-light-200 dark:bg-dark-200" />
 
-      <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-light-300 bg-light-200 dark:border-dark-600 dark:bg-dark-200">
+      <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-hairline bg-panel dark:border-hairline">
         <LottieIcon index={index} json={feature.icon} isPlaying={isHovered} />
       </div>
 
@@ -63,13 +63,13 @@ const FeatureItem = ({
       </div>
 
       {feature.comingSoon && (
-        <div className="absolute right-4 top-4 rounded-full border border-light-300 px-2 py-1 text-[10px] text-light-1000 dark:border-dark-600 dark:bg-dark-50 dark:text-dark-900">
+        <div className="absolute right-4 top-4 rounded-full border border-hairline px-2 py-1 text-[10px] text-light-1000 dark:border-hairline dark:text-dark-900">
           {t`Coming soon`}
         </div>
       )}
 
       {feature.new && (
-        <div className="absolute right-4 top-4 rounded-full border border-light-300 px-2 py-1 text-[10px] text-light-1000 dark:border-dark-600 dark:bg-dark-50 dark:text-dark-900">
+        <div className="absolute right-4 top-4 rounded-full border border-hairline px-2 py-1 text-[10px] text-light-1000 dark:border-hairline dark:text-dark-900">
           {t`New`}
         </div>
       )}
@@ -127,15 +127,16 @@ const Features = ({ theme }: { theme: "light" | "dark" }) => {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center px-4 pb-24">
-        <div className="flex items-center gap-2 rounded-full border bg-light-50 px-4 py-1 text-center text-xs text-light-1000 dark:border-dark-300 dark:bg-dark-50 dark:text-dark-900 lg:text-sm">
-          <p>{t`Features`}</p>
+      <div className="flex flex-col px-4 pb-24">
+        <div className="running-head">
+          <p className="running-head-label">{t`Features`}</p>
+          <p className="running-head-folio">02</p>
         </div>
 
-        <p className="mt-2 text-center text-3xl font-bold text-light-1000 dark:text-dark-1000 lg:text-4xl">
+        <h2 className="t-section mt-5 max-w-[20ch] text-balance text-light-1000 dark:text-dark-1000">
           {t`Kanban reimagined`}
-        </p>
-        <p className="text-md lg:text-md mt-3 max-w-[500px] text-center text-light-950 dark:text-dark-900">
+        </h2>
+        <p className="t-lead mt-4 max-w-[58ch] text-light-950 dark:text-dark-900">
           {t`Simple, visual task management that just works. Drag and drop cards, collaborate with your team, and get more done.`}
         </p>
         <div className="mx-auto mt-16 w-full max-w-7xl">
@@ -147,7 +148,7 @@ const Features = ({ theme }: { theme: "light" | "dark" }) => {
         </div>
 
         <div>
-          <div className="mt-8 flex items-center gap-2 rounded-full border bg-light-50 px-4 py-1 text-center text-sm text-light-1000 dark:border-dark-300 dark:bg-dark-50 dark:text-dark-900">
+          <div className="mt-8 flex items-center gap-2 rounded-full border bg-panel px-4 py-1 text-center text-sm text-light-1000 dark:border-hairline dark:text-dark-900">
             <p className="text-xs lg:text-sm">
               {t`We're just getting started. `}
               <Link href="/kan/roadmap" className="underline">

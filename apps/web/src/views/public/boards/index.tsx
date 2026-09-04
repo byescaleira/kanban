@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { t } from "@lingui/core/macro";
+import { useEffect } from "react";
+
 import { PageHead } from "~/components/PageHead";
 import PatternedBackground from "~/components/PatternedBackground";
 import { api } from "~/utils/api";
@@ -58,9 +59,9 @@ export default function PublicBoardsView() {
             href={`/${workspaceSlug}/${board.slug}`}
             className="h-full"
           >
-            <div className="relative flex h-full w-full items-center justify-center rounded-md border border-dashed border-light-400 bg-light-50 shadow-sm hover:bg-light-200 dark:border-dark-600 dark:bg-dark-50 dark:hover:bg-dark-100">
+            <div className="relative flex h-full w-full items-center justify-center rounded-md border border-dashed border-hairline bg-panel shadow-sm hover:bg-light-200 dark:border-hairline dark:hover:bg-dark-100">
               <PatternedBackground />
-              <p className="text-md px-4 font-medium text-neutral-900 dark:text-dark-1000">
+              <p className="text-md px-4 font-medium text-light-1000 dark:text-dark-1000">
                 {board.name}
               </p>
             </div>
@@ -86,7 +87,7 @@ export default function PublicBoardsView() {
         <p className="mb-6 text-light-1000 dark:text-dark-900">
           {data?.description}
         </p>
-        <div className="mb-4 h-[400px] w-[600px] rounded-xl border border-light-400 bg-light-200 p-4 dark:border-dark-200 dark:bg-dark-100">
+        <div className="mb-4 h-[400px] w-[600px] rounded-xl border border-hairline bg-panel p-4 dark:border-hairline">
           {data?.boards && workspaceSlug && (
             <BoardsList
               isLoading={isLoading}
@@ -96,7 +97,7 @@ export default function PublicBoardsView() {
           )}
         </div>
         <Link
-          className="text-lg font-bold tracking-tight text-neutral-900 dark:text-dark-1000"
+          className="text-lg font-bold tracking-tight text-light-1000 dark:text-dark-1000"
           href="/"
         >
           kan.bn

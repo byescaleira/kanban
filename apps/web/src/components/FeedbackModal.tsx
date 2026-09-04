@@ -55,7 +55,7 @@ export default function FeedbackModal() {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="px-5 pt-5">
         <div className="flex w-full items-center justify-between pb-4">
-          <h2 className="text-sm font-bold text-neutral-900 dark:text-dark-1000">
+          <h2 className="text-sm font-bold text-light-1000 dark:text-dark-1000">
             {t`Feedback`}
           </h2>
           <button
@@ -89,22 +89,24 @@ export default function FeedbackModal() {
           }}
         />
       </div>
-      <div className="mt-6 flex items-center justify-between border-t border-light-600 px-5 pb-5 pt-5 dark:border-dark-600">
-        <div className="text-xs text-neutral-600 dark:text-dark-800">
+      <div className="mt-6 flex items-center justify-between border-t border-hairline px-5 pb-5 pt-5 dark:border-hairline">
+        <div className="text-xs text-light-900 dark:text-dark-800">
           <p>
-            {t`Need help?`}{" "}
+            {t`Need help?`}
+            {""}
             <Link
               href="mailto:support@kan.bn"
-              className="text-blue-600 underline dark:text-blue-300"
+              className="text-accent-ink underline"
             >
               {t`Contact us`}
             </Link>
-            {t`, or see our`}{" "}
+            {t`, or see our`}
+            {""}
             <Link
               href="https://docs.kan.bn"
               target="_blank"
               rel="noreferrer"
-              className="text-blue-600 underline dark:text-blue-300"
+              className="text-accent-ink underline"
             >
               {t`docs`}
             </Link>

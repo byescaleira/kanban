@@ -6,7 +6,6 @@ interface Testimonial {
   name: string;
   handle: string;
   image?: string;
-  colour?: string;
   text: string | React.ReactNode;
   role?: string;
   link?: string;
@@ -22,7 +21,7 @@ const TestimonialCard = ({
 }) => {
   // Generate initials for avatar
   const initials = testimonial.name
-    .split(" ")
+    .split("")
     .map((n) => n[0])
     .join("")
     .toUpperCase();
@@ -30,7 +29,7 @@ const TestimonialCard = ({
   return (
     <div
       className={twMerge(
-        "group relative rounded-2xl border border-light-200 bg-light-50 p-6 transition-all duration-200 hover:shadow-sm dark:border-dark-200 dark:bg-dark-50",
+        "group relative rounded-2xl border border-hairline bg-panel p-6 transition-all duration-200 hover:shadow-sm dark:border-hairline",
         rowSpan === 2 ? "md:row-span-2" : "",
       )}
     >
@@ -45,14 +44,11 @@ const TestimonialCard = ({
             />
           </div>
         ) : (
-          <div
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-semibold text-light-50 dark:text-dark-1000"
-            style={
-              testimonial.colour
-                ? { backgroundColor: testimonial.colour }
-                : undefined
-            }
-          >
+          /* A printed initial badge. This used to take an arbitrary
+             per-testimonial hex and set near-white type on it — an
+             inline colour outside the tokens, measuring 2.86:1. There
+             is no per-person colour in a two-ink press. */
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-semibold text-on-accent">
             {initials}
           </div>
         )}
@@ -78,7 +74,7 @@ const TestimonialCard = ({
             </p>
           )}
           {testimonial.role && (
-            <p className="text-xs text-light-600 dark:text-dark-600">
+            <p className="text-xs text-light-900 dark:text-dark-900">
               {testimonial.role}
             </p>
           )}
@@ -134,7 +130,6 @@ const Testimonials = () => {
     {
       name: "singiamtel",
       handle: "@singiamtel",
-      colour: "#ff6600",
       text: <>The project seems nice, but how good is that domain name</>,
       link: "https://news.ycombinator.com/item?id=44157177",
     },
@@ -227,15 +222,16 @@ const Testimonials = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center px-4 pb-24">
-        <div className="flex items-center gap-2 rounded-full border bg-light-50 px-4 py-1 text-center text-xs text-light-1000 dark:border-dark-300 dark:bg-dark-50 dark:text-dark-900 lg:text-sm">
-          <p>{t`Testimonials`}</p>
+      <div className="flex flex-col px-4 pb-24">
+        <div className="running-head">
+          <p className="running-head-label">{t`Testimonials`}</p>
+          <p className="running-head-folio">03</p>
         </div>
 
-        <p className="mt-2 text-center text-3xl font-bold text-light-1000 dark:text-dark-1000 lg:text-4xl">
+        <h2 className="t-section mt-5 max-w-[20ch] text-balance text-light-1000 dark:text-dark-1000">
           {t`Loved by teams worldwide`}
-        </p>
-        <p className="text-md lg:text-md mt-3 max-w-[500px] text-center text-light-950 dark:text-dark-900">
+        </h2>
+        <p className="t-lead mt-4 max-w-[58ch] text-light-950 dark:text-dark-900">
           {t`See what our users are saying about Kan`}
         </p>
 

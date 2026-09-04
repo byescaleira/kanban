@@ -25,51 +25,53 @@ export default function AccountSettings() {
     <>
       <PageHead title={t`Settings | Account`} />
 
-      <div className="mb-8 border-t border-light-300 dark:border-dark-300">
-        <h2 className="mb-4 mt-8 text-[14px] font-bold text-neutral-900 dark:text-dark-1000">
+      <div className="mb-8 border-t border-hairline">
+        <h2 className="mb-4 mt-8 text-[14px] font-bold text-light-1000 dark:text-dark-1000">
           {t`Profile picture`}
         </h2>
         <Avatar userId={data?.id} userImage={data?.image} />
 
         <div className="mb-4">
-          <h2 className="mb-4 mt-8 text-[14px] font-bold text-neutral-900 dark:text-dark-1000">
+          <h2 className="mb-4 mt-8 text-[14px] font-bold text-light-1000 dark:text-dark-1000">
             {t`Display name`}
           </h2>
           <UpdateDisplayNameForm displayName={data?.name ?? ""} />
         </div>
 
         <div className="mb-4">
-          <h2 className="mb-4 mt-8 text-[14px] font-bold text-neutral-900 dark:text-dark-1000">
+          <h2 className="mb-4 mt-8 text-[14px] font-bold text-light-1000 dark:text-dark-1000">
             {t`Email`}
           </h2>
-          <p className="text-sm text-neutral-700 dark:text-dark-900">{data?.email}</p>
+          <p className="text-sm text-light-900 dark:text-dark-900">
+            {data?.email}
+          </p>
         </div>
 
-        <div className="mb-8 border-t border-light-300 dark:border-dark-300">
-          <h2 className="mb-4 mt-8 text-[14px] font-bold text-neutral-900 dark:text-dark-1000">
+        <div className="mb-8 border-t border-hairline">
+          <h2 className="mb-4 mt-8 text-[14px] font-bold text-light-1000 dark:text-dark-1000">
             {t`Language`}
           </h2>
-          <p className="mb-8 text-sm text-neutral-500 dark:text-dark-900">
+          <p className="mb-8 text-sm text-light-900 dark:text-dark-900">
             {t`Change your language preferences.`}
           </p>
           <LanguageSelector />
         </div>
 
-        <div className="mb-8 border-t border-light-300 dark:border-dark-300">
-          <h2 className="mb-4 mt-8 text-[14px] font-bold text-neutral-900 dark:text-dark-1000">
+        <div className="mb-8 border-t border-hairline">
+          <h2 className="mb-4 mt-8 text-[14px] font-bold text-light-1000 dark:text-dark-1000">
             {t`Font size`}
           </h2>
-          <p className="mb-8 text-sm text-neutral-500 dark:text-dark-900">
+          <p className="mb-8 text-sm text-light-900 dark:text-dark-900">
             {t`Change the application font size.`}
           </p>
           <FontSizeSelector />
         </div>
 
-        <div className="mb-8 border-t border-light-300 dark:border-dark-300">
-          <h2 className="mb-4 mt-8 text-[14px] font-bold text-neutral-900 dark:text-dark-1000">
+        <div className="mb-8 border-t border-hairline">
+          <h2 className="mb-4 mt-8 text-[14px] font-bold text-light-1000 dark:text-dark-1000">
             {t`Delete account`}
           </h2>
-          <p className="mb-8 text-sm text-neutral-500 dark:text-dark-900">
+          <p className="mb-8 text-sm text-light-900 dark:text-dark-900">
             {t`Once you delete your account, there is no going back. This action cannot be undone.`}
           </p>
           <div className="mt-4">
@@ -83,11 +85,11 @@ export default function AccountSettings() {
         </div>
 
         {isCredentialsEnabled && (
-          <div className="mb-8 border-t border-light-300 dark:border-dark-300">
-            <h2 className="mb-4 mt-8 text-[14px] font-bold text-neutral-900 dark:text-dark-1000">
+          <div className="mb-8 border-t border-hairline">
+            <h2 className="mb-4 mt-8 text-[14px] font-bold text-light-1000 dark:text-dark-1000">
               {data?.hasPassword ? t`Change Password` : t`Set Password`}
             </h2>
-            <p className="mb-8 text-sm text-neutral-500 dark:text-dark-900">
+            <p className="mb-8 text-sm text-light-900 dark:text-dark-900">
               {data?.hasPassword
                 ? t`You are about to change your password.`
                 : t`Set a password to enable password-based login.`}
@@ -115,7 +117,9 @@ export default function AccountSettings() {
         modalSize="sm"
         isVisible={isOpen && modalContentType === "CHANGE_PASSWORD"}
       >
-        <ChangePasswordFormConfirmation hasPassword={data?.hasPassword ?? false} />
+        <ChangePasswordFormConfirmation
+          hasPassword={data?.hasPassword ?? false}
+        />
       </Modal>
 
       {/* Global modals */}

@@ -205,7 +205,7 @@ export function NewWebhookModal({
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="px-5 pt-5">
-        <div className="flex w-full items-center justify-between pb-4 text-neutral-900 dark:text-dark-1000">
+        <div className="flex w-full items-center justify-between pb-4 text-light-1000 dark:text-dark-1000">
           <h2 className="text-sm font-bold">
             {isEdit ? t`Edit webhook` : t`New webhook`}
           </h2>
@@ -261,7 +261,7 @@ export function NewWebhookModal({
               {...register("secret")}
               errorMessage={errors.secret?.message}
             />
-            <p className="mt-1 text-xs text-neutral-500 dark:text-dark-800">
+            <p className="mt-1 text-xs text-light-900 dark:text-dark-800">
               {t`Used to sign webhook payloads for verification. Leave blank to keep existing secret.`}
             </p>
           </div>
@@ -292,7 +292,7 @@ export function NewWebhookModal({
                             );
                           }
                         }}
-                        className="text-primary-600 focus:ring-primary-500 h-4 w-4 rounded border-light-400 dark:border-dark-400"
+                        className="text-primary-600 focus:ring-primary-500 h-4 w-4 rounded border-hairline"
                       />
                       <span className="text-sm text-light-900 dark:text-dark-900">
                         {event}
@@ -303,7 +303,7 @@ export function NewWebhookModal({
               )}
             />
             {errors.events && (
-              <p className="mt-1 text-xs text-red-500">
+              <p className="mt-1 text-xs text-danger-ink">
                 {errors.events.message}
               </p>
             )}
@@ -315,7 +315,7 @@ export function NewWebhookModal({
                 <input
                   type="checkbox"
                   {...register("active")}
-                  className="text-primary-600 focus:ring-primary-500 h-4 w-4 rounded border-light-400 dark:border-dark-400"
+                  className="text-primary-600 focus:ring-primary-500 h-4 w-4 rounded border-hairline"
                 />
                 <span className="text-sm text-light-900 dark:text-dark-900">
                   {t`Active`}
@@ -326,7 +326,7 @@ export function NewWebhookModal({
         </div>
       </div>
 
-      <div className="mt-8 flex items-center justify-between border-t border-light-600 px-5 pb-5 pt-5 dark:border-dark-600">
+      <div className="mt-8 flex items-center justify-between border-t border-hairline px-5 pb-5 pt-5 dark:border-hairline">
         <div>
           {isEdit && webhookPublicId && (
             <Button

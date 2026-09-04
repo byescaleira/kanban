@@ -116,7 +116,7 @@ export function NewBoardForm({ isTemplate }: { isTemplate?: boolean }) {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="px-5 pt-5">
-        <div className="text-neutral-9000 flex w-full items-center justify-between pb-4 dark:text-dark-1000">
+        <div className="flex w-full items-center justify-between pb-4 text-light-1000 dark:text-dark-1000">
           <h2 className="text-sm font-bold">{t`New ${isTemplate ? "template" : "board"}`}</h2>
           <button
             type="button"
@@ -148,7 +148,7 @@ export function NewBoardForm({ isTemplate }: { isTemplate?: boolean }) {
         showTemplates={showTemplates}
         customTemplates={formattedTemplates ?? []}
       />
-      <div className="mt-12 flex items-center justify-end space-x-4 border-t border-light-600 px-5 pb-5 pt-5 dark:border-dark-600">
+      <div className="mt-12 flex items-center justify-end space-x-4 border-t border-hairline px-5 pb-5 pt-5 dark:border-hairline">
         {!isTemplate && (
           <Toggle
             label={t`Use template`}

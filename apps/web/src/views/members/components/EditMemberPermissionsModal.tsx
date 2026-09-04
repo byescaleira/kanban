@@ -23,8 +23,7 @@ export function EditMemberPermissionsModal() {
       memberPublicId: entityId,
     },
     {
-      enabled:
-        modalContentType === "EDIT_MEMBER_PERMISSIONS" && !!entityId,
+      enabled: modalContentType === "EDIT_MEMBER_PERMISSIONS" && !!entityId,
     },
   );
 
@@ -180,14 +179,12 @@ export function EditMemberPermissionsModal() {
             {t`Loading permissions...`}
           </p>
         ) : (
-          <div className="max-h-80 pb-4 space-y-3 overflow-y-auto pr-1">
+          <div className="max-h-80 space-y-3 overflow-y-auto pb-4 pr-1">
             {Object.values(permissionCategories).map((category, index) => (
               <div
                 key={category.label}
                 className={`py-2 ${
-                  index > 0
-                    ? "border-t border-light-300 dark:border-dark-300"
-                    : ""
+                  index > 0 ? "border-t border-hairline" : ""
                 }`}
               >
                 <div className="my-2 text-[12px] font-semibold text-light-900 dark:text-dark-950">
@@ -227,7 +224,7 @@ export function EditMemberPermissionsModal() {
           </div>
         )}
       </div>
-      <div className="flex items-center justify-end border-t border-light-600 px-5 pb-5 pt-5 dark:border-dark-600">
+      <div className="flex items-center justify-end border-t border-hairline px-5 pb-5 pt-5 dark:border-hairline">
         <div>
           <Button
             variant="secondary"
@@ -249,5 +246,3 @@ export function EditMemberPermissionsModal() {
     </div>
   );
 }
-
-

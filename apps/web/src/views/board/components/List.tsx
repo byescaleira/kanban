@@ -97,7 +97,7 @@ export default function List({
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
-          className="dark-text-dark-1000 mr-5 h-fit min-w-[18rem] max-w-[18rem] snap-start rounded-md border border-light-400 bg-light-300 py-2 pl-2 pr-1 text-neutral-900 dark:border-dark-300 dark:bg-dark-100 md:snap-align-none"
+          className="dark-text-dark-1000 mr-5 h-fit min-w-[18rem] max-w-[18rem] snap-start rounded-md border border-hairline bg-light-300 py-2 pl-2 pr-1 text-light-1000 dark:border-hairline dark:bg-dark-100 md:snap-align-none"
         >
           <div className="mb-2 flex justify-between">
             <form
@@ -111,7 +111,7 @@ export default function List({
                 {...register("name")}
                 onBlur={handleSubmit(onSubmit)}
                 readOnly={!canEdit || isOptimistic}
-                className="w-full border-0 bg-transparent px-4 pt-1 text-sm font-medium text-neutral-900 focus:ring-0 focus-visible:outline-none dark:text-dark-1000"
+                className="w-full border-0 bg-transparent px-4 pt-1 text-sm font-medium text-light-1000 focus:ring-0 focus-visible:outline-none dark:text-dark-1000"
               />
             </form>
             <div className="flex items-center">
@@ -127,7 +127,7 @@ export default function List({
                   aria-label={t`Add card`}
                 >
                   <HiOutlinePlusSmall
-                    className="h-5 w-5 text-dark-900"
+                    className="h-5 w-5 text-light-900 dark:text-dark-900"
                     aria-hidden="true"
                   />
                 </button>
@@ -140,7 +140,7 @@ export default function List({
                           label: t`Add a card`,
                           action: () => openNewCardForm(list.publicId),
                           icon: (
-                            <HiOutlineSquaresPlus className="h-[18px] w-[18px] text-dark-900" />
+                            <HiOutlineSquaresPlus className="h-[18px] w-[18px] text-light-900 dark:text-dark-900" />
                           ),
                         },
                       ]
@@ -151,7 +151,7 @@ export default function List({
                           label: t`Delete list`,
                           action: handleOpenDeleteListConfirmation,
                           icon: (
-                            <HiOutlineTrash className="h-[18px] w-[18px] text-dark-900" />
+                            <HiOutlineTrash className="h-[18px] w-[18px] text-light-900 dark:text-dark-900" />
                           ),
                         },
                       ]
@@ -165,7 +165,7 @@ export default function List({
                 return (
                   <div className="relative mr-1 inline-block">
                     <Dropdown items={dropdownItems} ariaLabel={t`List options`}>
-                      <HiEllipsisHorizontal className="h-5 w-5 text-dark-900" />
+                      <HiEllipsisHorizontal className="h-5 w-5 text-light-900 dark:text-dark-900" />
                     </Dropdown>
                   </div>
                 );

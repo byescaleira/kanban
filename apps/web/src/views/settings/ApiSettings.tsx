@@ -17,11 +17,11 @@ export default function ApiSettings() {
     <>
       <PageHead title={t`Settings | API`} />
 
-      <div className="mb-8 border-t border-light-300 dark:border-dark-300">
-        <h2 className="mb-4 mt-8 text-[14px] font-bold text-neutral-900 dark:text-dark-1000">
+      <div className="mb-8 border-t border-hairline">
+        <h2 className="mb-4 mt-8 text-[14px] font-bold text-light-1000 dark:text-dark-1000">
           {t`API keys`}
         </h2>
-        <p className="mb-8 text-sm text-neutral-500 dark:text-dark-900">
+        <p className="mb-8 text-sm text-light-900 dark:text-dark-900">
           {t`View and manage your API keys.`}
         </p>
 

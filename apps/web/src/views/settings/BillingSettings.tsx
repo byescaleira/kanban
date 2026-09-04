@@ -61,11 +61,11 @@ export default function BillingSettings() {
     <>
       <PageHead title={t`Settings | Billing`} />
 
-      <div className="border-t border-light-300 dark:border-dark-300">
-        <h2 className="mb-4 mt-8 text-[14px] font-bold text-neutral-900 dark:text-dark-1000">
+      <div className="border-t border-hairline">
+        <h2 className="mb-4 mt-8 text-[14px] font-bold text-light-1000 dark:text-dark-1000">
           {t`Plan`}
         </h2>
-        <p className="mb-8 text-sm text-neutral-500 dark:text-dark-900">
+        <p className="mb-8 text-sm text-light-900 dark:text-dark-900">
           {planLabel}
         </p>
         {!subscription && isCloud && (
@@ -83,11 +83,11 @@ export default function BillingSettings() {
         )}
       </div>
 
-      <div className="mb-8 border-t border-light-300 dark:border-dark-300">
-        <h2 className="mb-4 mt-8 text-[14px] font-bold text-neutral-900 dark:text-dark-1000">
+      <div className="mb-8 border-t border-hairline">
+        <h2 className="mb-4 mt-8 text-[14px] font-bold text-light-1000 dark:text-dark-1000">
           {t`Billing`}
         </h2>
-        <p className="mb-8 text-sm text-neutral-500 dark:text-dark-900">
+        <p className="mb-8 text-sm text-light-900 dark:text-dark-900">
           {t`View and manage your billing and subscription.`}
         </p>
         <Button

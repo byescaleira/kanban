@@ -51,7 +51,7 @@ export default function TermsView() {
             <Text>
               Our Privacy Policy also governs your use of our Service and
               explains how we collect, safeguard and disclose information that
-              results from your use of our web pages. Please read it here{" "}
+              results from your use of our web pages. Please read it here{""}
               <Link href={PRIVACY_URL}>{PRIVACY_URL}</Link>.
             </Text>
             <Text>
@@ -61,7 +61,8 @@ export default function TermsView() {
             </Text>
             <Text>
               If you do not agree with (or cannot comply with) Agreements, then
-              you may not use the Service, but please let us know by emailing at{" "}
+              you may not use the Service, but please let us know by emailing at
+              {""}
               {CONTACT_EMAIL} so we can try to find a solution. These Terms
               apply to all visitors, users and others who wish to access or use
               Service. Thank you for being responsible.
@@ -603,7 +604,7 @@ export default function TermsView() {
             <SubHeading>Contact Us</SubHeading>
             <Text>
               If you have any questions about these terms of service, please
-              contact us at{" "}
+              contact us at{""}
               <Link
                 className="line-height text-md mb-4 text-light-1000 dark:text-dark-900"
                 href="mailto:support@kan.bn"

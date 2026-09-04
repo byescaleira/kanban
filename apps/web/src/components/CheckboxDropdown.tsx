@@ -84,7 +84,7 @@ export default function CheckboxDropdown({
         ? items.map((item) => (
             <Menu.Item key={item.key}>
               <div
-                className="group flex items-center rounded-[5px] p-2 hover:bg-light-200 dark:hover:bg-dark-300"
+                className="group flex items-center rounded-sm p-2 hover:bg-light-200 dark:hover:bg-dark-300"
                 onClick={(e) => {
                   e.preventDefault();
                   handleSelect(groupKey, { key: item.key, value: item.value });
@@ -108,7 +108,7 @@ export default function CheckboxDropdown({
                 )}
                 <label
                   htmlFor={item.key}
-                  className="ml-3 text-[12px] text-dark-900"
+                  className="ml-3 text-[12px] text-light-900 dark:text-dark-900"
                 >
                   {item.value}
                 </label>
@@ -122,21 +122,24 @@ export default function CheckboxDropdown({
                       handleEdit(item.key);
                     }}
                   >
-                    <HiEllipsisHorizontal size={20} className="text-dark-900" />
+                    <HiEllipsisHorizontal
+                      size={20}
+                      className="text-light-900 dark:text-dark-900"
+                    />
                   </button>
                 )}
               </div>
             </Menu.Item>
           ))
         : !handleCreate && (
-            <div className="flex items-center p-2 text-[12px] text-dark-900">
+            <div className="flex items-center p-2 text-[12px] text-light-900 dark:text-dark-900">
               No items
             </div>
           )}
       {handleCreate && (
         <button
           type="button"
-          className="flex w-full items-center rounded-[5px] p-2 px-2 text-[12px] text-dark-900 hover:bg-light-200 dark:hover:bg-dark-300"
+          className="flex w-full items-center rounded-sm p-2 px-2 text-[12px] text-light-900 hover:bg-light-200 dark:text-dark-900 dark:hover:bg-dark-300"
           onClick={(e) => {
             e.preventDefault();
             handleCreate();
@@ -176,7 +179,7 @@ export default function CheckboxDropdown({
         >
           <Menu.Items
             className={twMerge(
-              "mt-2s absolute z-50 w-56 origin-top-left rounded-md border-[1px] border-light-200 bg-light-50 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:border-dark-500 dark:bg-dark-200",
+              "mt-2s absolute z-50 w-56 origin-top-left rounded-md border-2 border-hairline bg-panel shadow-lg ring-1 ring-hairline focus:outline-none dark:border-hairline dark:bg-dark-200",
               position === "left" ? "left-0" : "right-0",
               menuSpacingClass[menuSpacing],
             )}
@@ -189,14 +192,16 @@ export default function CheckboxDropdown({
                   {groups?.map((group) => (
                     <Menu.Item key={group.key}>
                       <div
-                        className="flex items-center rounded-[5px] p-2 hover:bg-light-200 dark:hover:bg-dark-300"
+                        className="flex items-center rounded-sm p-2 hover:bg-light-200 dark:hover:bg-dark-300"
                         onClick={(e) => {
                           e.preventDefault();
                           setSelectedGroup(group.key);
                         }}
                       >
-                        <span className="mr-2 text-dark-900">{group.icon}</span>
-                        <span className="pointer-events-none text-[12px] text-dark-900">
+                        <span className="mr-2 text-light-900 dark:text-dark-900">
+                          {group.icon}
+                        </span>
+                        <span className="pointer-events-none text-[12px] text-light-900 dark:text-dark-900">
                           {group.label}
                         </span>
                         <span className="ml-auto flex items-center gap-2 text-dark-900">

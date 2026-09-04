@@ -317,7 +317,7 @@ const FeatureComparisonTable = ({
       const { text, highlight, highlightFirstWord } = value;
 
       if (highlightFirstWord) {
-        const spaceIndex = text.indexOf(" ");
+        const spaceIndex = text.indexOf("");
         const firstWord = spaceIndex === -1 ? text : text.slice(0, spaceIndex);
         const rest = spaceIndex === -1 ? "" : text.slice(spaceIndex);
         return (
@@ -340,7 +340,7 @@ const FeatureComparisonTable = ({
               "mt-0.5 h-4 w-4 shrink-0",
               highlight
                 ? "text-light-1000 dark:text-dark-1000"
-                : "text-light-400 dark:text-dark-600",
+                : "text-light-400 dark:text-dark-900",
             )}
           />
           <span
@@ -370,7 +370,7 @@ const FeatureComparisonTable = ({
 
     return (
       <div className="flex items-center gap-2.5">
-        <HiXCircle className="mt-0.5 h-4 w-4 shrink-0 text-light-400 dark:text-dark-600" />
+        <HiXCircle className="mt-0.5 h-4 w-4 shrink-0 text-light-400 dark:text-dark-900" />
         <span className="text-sm font-medium text-light-800 dark:text-dark-800">
           {label}
         </span>
@@ -402,18 +402,18 @@ const FeatureComparisonTable = ({
       <div className="mx-auto max-w-7xl">
         <div
           ref={containerRef}
-          className="relative overflow-x-auto rounded-lg border border-light-300 bg-light-50 dark:border-dark-300 dark:bg-dark-50"
+          className="relative overflow-x-auto rounded-lg border border-hairline bg-panel dark:border-hairline"
         >
           {isHeaderFixed && (
             <div
-              className="fixed z-40 hidden border-b border-light-300 bg-light-50/95 dark:border-dark-400 dark:bg-dark-50/95 sm:block"
+              className="fixed z-40 hidden border-b border-hairline bg-light-50/95 dark:border-hairline dark:bg-dark-50/95 sm:block"
               style={{
                 top: 64,
                 left: headerRect.left,
                 width: headerRect.width,
               }}
             >
-              <div className="grid grid-cols-3 border-x border-light-300 dark:border-dark-300">
+              <div className="grid grid-cols-3 border-x border-hairline">
                 {plans.map((plan) => {
                   const isMostPopular = plan.id === "teams";
                   return (
@@ -468,8 +468,8 @@ const FeatureComparisonTable = ({
                             className={twMerge(
                               "border-t px-6 py-3 text-left text-sm font-semibold text-dark-900 dark:text-dark-900",
                               isMostPopular
-                                ? "border-light-400 bg-light-200 dark:border-dark-400 dark:bg-dark-100"
-                                : "border-light-300 bg-light-50 dark:border-dark-400 dark:bg-dark-50",
+                                ? "border-hairline bg-light-200 dark:border-hairline dark:bg-dark-100"
+                                : "border-hairline bg-panel dark:border-hairline",
                             )}
                           >
                             {plan.id === "free" ? section.name : ""}
@@ -488,8 +488,8 @@ const FeatureComparisonTable = ({
                             className={twMerge(
                               "w-1/3 border-t px-6 py-3 text-left",
                               isMostPopular
-                                ? "border-light-400 bg-light-200 dark:border-dark-400 dark:bg-dark-100"
-                                : "border-light-300 dark:border-dark-400",
+                                ? "border-hairline bg-light-200 dark:border-hairline dark:bg-dark-100"
+                                : "border-hairline",
                             )}
                           >
                             <CellValue

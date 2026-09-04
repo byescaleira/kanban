@@ -1,8 +1,8 @@
 import { t } from "@lingui/core/macro";
 
-import { PageHead } from "~/components/PageHead";
 import Button from "~/components/Button";
 import Modal from "~/components/modal";
+import { PageHead } from "~/components/PageHead";
 import { useModal } from "~/providers/modal";
 import { usePopup } from "~/providers/popup";
 import { useWorkspace } from "~/providers/workspace";
@@ -18,8 +18,8 @@ export default function PermissionsSettings() {
 
   const isAdmin = workspace.role === "admin";
 
-  const resetAllOverrides = api.permission.resetWorkspaceMemberPermissions.useMutation(
-    {
+  const resetAllOverrides =
+    api.permission.resetWorkspaceMemberPermissions.useMutation({
       onSuccess: async () => {
         showPopup({
           header: t`Overrides cleared`,
@@ -41,18 +41,17 @@ export default function PermissionsSettings() {
           icon: "error",
         });
       },
-    },
-  );
+    });
 
   return (
     <>
       <PageHead title={t`Settings | Permissions`} />
 
-      <div className="mb-8 border-t border-light-300 dark:border-dark-300">
-        <h2 className="mb-4 mt-8 text-[14px] font-bold text-neutral-900 dark:text-dark-1000">
+      <div className="mb-8 border-t border-hairline">
+        <h2 className="mb-4 mt-8 text-[14px] font-bold text-light-1000 dark:text-dark-1000">
           {t`Workspace permissions`}
         </h2>
-        <p className="mb-6 text-sm text-neutral-500 dark:text-dark-900">
+        <p className="mb-6 text-sm text-light-900 dark:text-dark-900">
           {t`Configure which actions are allowed for each workspace role. These permissions apply to all members with that role.`}
         </p>
 
@@ -60,10 +59,10 @@ export default function PermissionsSettings() {
           <>
             <RolePermissions />
             <div className="mt-8">
-              <h2 className="mb-4 text-[14px] font-bold text-neutral-900 dark:text-dark-1000">
+              <h2 className="mb-4 text-[14px] font-bold text-light-1000 dark:text-dark-1000">
                 {t`Custom permissions`}
               </h2>
-              <p className="mb-6 text-sm text-neutral-500 dark:text-dark-900">
+              <p className="mb-6 text-sm text-light-900 dark:text-dark-900">
                 {t`Clear any custom member permissions so that all members only inherit permissions from their role defaults.`}
               </p>
               <Button
@@ -82,7 +81,7 @@ export default function PermissionsSettings() {
             </div>
           </>
         ) : (
-          <p className="mt-4 text-sm text-neutral-500 dark:text-dark-900">
+          <p className="mt-4 text-sm text-light-900 dark:text-dark-900">
             {t`You need to be an admin to manage workspace permissions.`}
           </p>
         )}
@@ -99,5 +98,3 @@ export default function PermissionsSettings() {
     </>
   );
 }
-
-

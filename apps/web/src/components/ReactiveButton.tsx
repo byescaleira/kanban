@@ -50,7 +50,7 @@ const Button: React.FC<{
         isCollapsed ? "md:justify-center" : "justify-between",
         current
           ? "bg-light-200 text-light-1000 dark:bg-dark-200 dark:text-dark-1000"
-          : "text-neutral-600 dark:bg-dark-100 dark:text-dark-900",
+          : "text-light-900 dark:bg-dark-100 dark:text-dark-900",
       )}
       title={isCollapsed ? name : undefined}
     >

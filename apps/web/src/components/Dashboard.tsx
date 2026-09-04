@@ -1,7 +1,6 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { t } from "@lingui/core/macro";
 import { env } from "next-runtime-env";
-import { useTheme } from "next-themes";
 import { useEffect, useRef, useState } from "react";
 import {
   TbLayoutSidebarLeftCollapse,
@@ -47,7 +46,6 @@ export default function Dashboard({
   rightPanel,
   hasRightPanel = false,
 }: DashboardProps) {
-  const { resolvedTheme } = useTheme();
   const { openModal, closeModal, modalContentType } = useModal();
   const { availableWorkspaces, hasLoaded } = useWorkspace();
   const { showPopup } = usePopup();
@@ -167,8 +165,6 @@ export default function Dashboard({
     }
   }, [user, userLoading, openModal]);
 
-  const isDarkMode = resolvedTheme === "dark";
-
   return (
     <>
       <style jsx global>{`
@@ -176,12 +172,12 @@ export default function Dashboard({
           height: 100vh;
           overflow: hidden;
           min-width: 320px;
-          background-color: ${!isDarkMode ? "hsl(0deg 0% 97.3%)" : "#1c1c1c"};
+          background-color: var(--background);
         }
       `}</style>
       <div className="relative flex h-screen flex-col bg-light-50 dark:bg-dark-50 md:bg-light-100 md:p-3 md:dark:bg-dark-100">
         {/* Mobile Header */}
-        <div className="flex h-12 items-center justify-between border-b border-light-300 bg-light-50 px-3 dark:border-dark-300 dark:bg-dark-50 md:hidden">
+        <div className="flex h-12 items-center justify-between border-b border-hairline bg-panel px-3 dark:border-hairline md:hidden">
           <button
             ref={sideNavButtonRef}
             onClick={toggleSideNav}
@@ -237,7 +233,7 @@ export default function Dashboard({
             />
           </div>
 
-          <div className="relative h-full min-h-0 w-full overflow-hidden md:rounded-lg md:border md:border-light-300 md:bg-light-50 md:dark:border-dark-300 md:dark:bg-dark-50">
+          <div className="relative h-full min-h-0 w-full overflow-hidden md:rounded-lg md:border md:border-hairline md:bg-panel md:dark:border-hairline">
             <div className="relative flex h-full min-h-0 w-full overflow-hidden">
               <div className="h-full w-full overflow-y-auto">{children}</div>
 
@@ -245,7 +241,7 @@ export default function Dashboard({
               {hasRightPanel && rightPanel && (
                 <div
                   ref={rightPanelRef}
-                  className={`fixed right-0 top-12 z-40 h-[calc(100dvh-3rem)] w-80 transform border-l border-light-300 bg-light-200 transition-transform duration-300 ease-in-out dark:border-dark-300 dark:bg-dark-100 md:hidden ${
+                  className={`fixed right-0 top-12 z-40 h-[calc(100dvh-3rem)] w-80 transform border-l border-hairline bg-light-200 transition-transform duration-300 ease-in-out dark:border-hairline dark:bg-dark-100 md:hidden ${
                     isRightPanelOpen ? "translate-x-0" : "translate-x-full"
                   }`}
                 >
@@ -268,7 +264,7 @@ export default function Dashboard({
       >
         {user?.hasPassword ? (
           <div className="p-5">
-            <h2 className="pb-4 text-base font-medium dark:text-white">{t`Password already set`}</h2>
+            <h2 className="pb-4 text-base font-medium dark:text-dark-1000">{t`Password already set`}</h2>
             <p className="mb-6 text-sm text-light-900">
               {t`Your account already has a password. You can change it from your account settings.`}
             </p>

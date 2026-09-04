@@ -1,24 +1,18 @@
+/* THE PRINTED SKY.
+
+   This was a dot grid filled with a hardcoded #3e3e3e — a fixed dark
+   value on a background that flips with the theme, so it printed as
+   near-ink specks on bone paper and as invisible dots on black. The
+   dots themselves were right: a press builds tone from dots, and the
+   halftone dot is the one mark that is both space and print. Only the
+   ink was wrong.
+
+   Two pitches, both in --ink-3, both masked so the field opens toward
+   the light rather than tiling edge to edge. Nothing here glows. */
 const PatternedBackground = () => (
-  <div className="absolute inset-0 h-full w-full">
-    <svg className="h-full w-full">
-      <pattern
-        id="pattern"
-        x="10"
-        y="10"
-        width="14.423223834988539"
-        height="14.423223834988539"
-        patternUnits="userSpaceOnUse"
-        patternTransform="translate(-0.45072574484339184,-0.45072574484339184)"
-      >
-        <circle
-          cx="0.45072574484339184"
-          cy="0.45072574484339184"
-          r="0.45072574484339184"
-          fill="#3e3e3e"
-        ></circle>
-      </pattern>
-      <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern)"></rect>
-    </svg>
+  <div className="sky" aria-hidden="true">
+    <div className="sky-scatter" />
+    <div className="sky-disc" />
   </div>
 );
 

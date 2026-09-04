@@ -88,7 +88,7 @@ export default function LabelSelector({
     <>
       {isLoading ? (
         <div className="flex w-full">
-          <div className="h-full w-[175px] animate-pulse rounded-[5px] bg-light-300 dark:bg-dark-300" />
+          <div className="h-full w-[175px] animate-pulse rounded-sm bg-light-300 dark:bg-dark-300" />
         </div>
       ) : (
         <CheckboxDropdown
@@ -96,7 +96,11 @@ export default function LabelSelector({
           handleSelect={(_, label) => {
             addOrRemoveLabel.mutate({ cardPublicId, labelPublicId: label.key });
           }}
-          handleEdit={disabled ? undefined : (labelPublicId) => openModal("EDIT_LABEL", labelPublicId)}
+          handleEdit={
+            disabled
+              ? undefined
+              : (labelPublicId) => openModal("EDIT_LABEL", labelPublicId)
+          }
           handleCreate={disabled ? undefined : () => openModal("NEW_LABEL")}
           createNewItemLabel={t`Create new label`}
           ariaLabel={t`Labels`}
@@ -115,7 +119,9 @@ export default function LabelSelector({
               <Badge value={t`Add label`} iconLeft={<HiMiniPlus size={14} />} />
             </div>
           ) : (
-            <div className={`flex h-full w-full items-center rounded-[5px] border-[1px] border-light-50 pl-2 text-left text-sm text-neutral-900 dark:border-dark-50 dark:text-dark-1000 ${disabled ? "cursor-not-allowed opacity-60" : "hover:border-light-300 hover:bg-light-200 dark:hover:border-dark-200 dark:hover:bg-dark-100"}`}>
+            <div
+              className={`flex h-full w-full items-center rounded-sm border-2 border-hairline pl-2 text-left text-sm text-light-1000 dark:border-hairline dark:text-dark-1000 ${disabled ? "cursor-not-allowed opacity-60" : "hover:border-hairline hover:bg-light-200 dark:hover:border-hairline dark:hover:bg-dark-100"}`}
+            >
               <HiMiniPlus size={22} className="pr-2" />
               {t`Add label`}
             </div>

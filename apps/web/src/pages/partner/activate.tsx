@@ -60,7 +60,8 @@ export default function PartnerActivatePage() {
                 <Trans>We sent a link to {magicLinkRecipient}</Trans>
               ) : partnerName ? (
                 <Trans>
-                  Sign in or create an account to activate your {partnerName}{" "}
+                  Sign in or create an account to activate your {partnerName}
+                  {""}
                   license
                 </Trans>
               ) : (
@@ -69,13 +70,13 @@ export default function PartnerActivatePage() {
             </p>
 
             {error && (
-              <div className="mb-4 w-full rounded-md bg-red-50 px-4 py-3 text-sm text-red-700 dark:bg-red-900/20 dark:text-red-400 sm:max-w-md">
+              <div className="dark:bg-danger/20 mb-4 w-full rounded-md bg-danger-soft px-4 py-3 text-sm text-danger-ink dark:text-danger-ink sm:max-w-md">
                 {t`Something went wrong during activation. Please try again.`}
               </div>
             )}
 
             {!isMagicLinkSent && (
-              <div className="w-full rounded-lg border border-light-500 bg-light-300 px-4 py-10 dark:border-dark-400 dark:bg-dark-200 sm:max-w-md lg:px-10">
+              <div className="w-full rounded-lg border border-hairline bg-panel px-4 py-10 dark:border-hairline sm:max-w-md lg:px-10">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                   <Auth
                     setIsMagicLinkSent={(val, recipient) => {
@@ -94,7 +95,7 @@ export default function PartnerActivatePage() {
 
             <p className="mt-4 text-sm text-light-1000 dark:text-dark-1000">
               <Trans>
-                Already have an account?{" "}
+                Already have an account?{""}
                 <span className="underline">
                   <Link
                     href={

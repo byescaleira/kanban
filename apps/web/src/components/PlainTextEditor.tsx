@@ -115,7 +115,7 @@ export default function PlainTextEditor({
           float: left;
           height: 0;
           pointer-events: none;
-          color: var(--placeholder-color, #9ca3af);
+          color: var(--placeholder-color, var(--ink-3));
         }
         .plain-text-editor .tiptap p {
           margin: 0 !important;

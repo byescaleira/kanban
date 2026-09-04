@@ -107,7 +107,7 @@ export default function Checklists({
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <div className="border-light-300 pb-4 dark:border-dark-300">
+      <div className="border-hairline pb-4 dark:border-hairline">
         <div>
           {checklists.map((checklist) => {
             const completedItems = checklist.items.filter(
@@ -131,7 +131,7 @@ export default function Checklists({
                   </div>
                   {!viewOnly && (
                     <div className="ml-2 flex flex-shrink-0 items-center gap-2">
-                      <div className="flex items-center gap-1 rounded-full border-[1px] border-light-300 px-2 py-1 dark:border-dark-300">
+                      <div className="flex items-center gap-1 rounded-full border-2 border-hairline px-2 py-1 dark:border-hairline">
                         <CircularProgress
                           progress={progress}
                           size="sm"
@@ -165,7 +165,7 @@ export default function Checklists({
                   )}
                   {viewOnly && (
                     <div className="ml-2 flex flex-shrink-0 items-center gap-2">
-                      <div className="flex items-center gap-1 rounded-full border-[1px] border-light-300 px-2 py-1 dark:border-dark-300">
+                      <div className="flex items-center gap-1 rounded-full border-2 border-hairline px-2 py-1 dark:border-hairline">
                         <CircularProgress
                           progress={progress}
                           size="sm"

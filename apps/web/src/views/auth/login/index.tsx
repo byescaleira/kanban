@@ -52,7 +52,7 @@ export default function LoginPage() {
                 </p>
               </div>
             ) : (
-              <div className="w-full rounded-lg border border-light-500 bg-light-300 px-4 py-10 dark:border-dark-400 dark:bg-dark-200 sm:max-w-md lg:px-10">
+              <div className="w-full rounded-lg border border-hairline bg-panel px-4 py-10 dark:border-hairline sm:max-w-md lg:px-10">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                   <Auth setIsMagicLinkSent={handleMagicLinkSent} />
                 </div>
@@ -61,7 +61,7 @@ export default function LoginPage() {
             {(!isSignUpDisabled || redirect?.startsWith("/invite/")) && (
               <p className="mt-4 text-sm text-light-1000 dark:text-dark-1000">
                 <Trans>
-                  Don't have an account?{" "}
+                  Don't have an account?{""}
                   <span className="underline">
                     <Link
                       href={redirect ? `/signup?next=${redirect}` : "/signup"}

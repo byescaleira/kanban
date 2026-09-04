@@ -119,7 +119,7 @@ export function CardRightPanel({ isTemplate }: { isTemplate?: boolean }) {
     }) ?? [];
 
   return (
-    <div className="h-full w-[360px] border-l-[1px] border-light-300 bg-light-50 p-8 text-light-900 dark:border-dark-300 dark:bg-dark-50 dark:text-dark-900">
+    <div className="h-full w-[360px] border-l-[1px] border-hairline bg-panel p-8 text-light-900 dark:border-hairline dark:text-dark-900">
       <div className="mb-4 flex w-full flex-row pt-[18px]">
         <p className="my-2 mb-2 w-[100px] text-sm font-medium">{t`List`}</p>
         <ListSelector
@@ -322,10 +322,10 @@ export default function CardPage({ isTemplate }: { isTemplate?: boolean }) {
       />
       <div className="flex h-full flex-1 flex-col overflow-hidden">
         {/* Full-width top strip with board link and dropdown */}
-        <div className="flex w-full items-center justify-between border-b-[1px] border-light-300 bg-light-50 px-8 py-2 dark:border-dark-300 dark:bg-dark-50">
+        <div className="flex w-full items-center justify-between border-b-[1px] border-hairline bg-panel px-8 py-2 dark:border-hairline">
           {!card && isLoading && (
             <div className="flex space-x-2">
-              <div className="h-[1.5rem] w-[150px] animate-pulse rounded-[5px] bg-light-300 dark:bg-dark-300" />
+              <div className="h-[1.5rem] w-[150px] animate-pulse rounded-sm bg-light-300 dark:bg-dark-300" />
             </div>
           )}
           {card && (
@@ -371,7 +371,7 @@ export default function CardPage({ isTemplate }: { isTemplate?: boolean }) {
                 />
                 <Link
                   href={`/${isTemplate ? "templates" : "boards"}/${boardId}`}
-                  className="flex h-7 w-7 items-center justify-center rounded-[5px] text-light-900 hover:bg-light-200 dark:text-dark-900 dark:hover:bg-dark-200"
+                  className="flex h-7 w-7 items-center justify-center rounded-sm text-light-900 hover:bg-light-200 dark:text-dark-900 dark:hover:bg-dark-200"
                   aria-label={t`Close`}
                 >
                   <HiXMark className="h-4 w-4" />
@@ -385,13 +385,13 @@ export default function CardPage({ isTemplate }: { isTemplate?: boolean }) {
             </p>
           )}
         </div>
-        <div className="scrollbar-thumb-rounded-[4px] scrollbar-track-rounded-[4px] w-full flex-1 overflow-y-auto scrollbar scrollbar-track-light-200 scrollbar-thumb-light-400 hover:scrollbar-thumb-light-400 dark:scrollbar-track-dark-100 dark:scrollbar-thumb-dark-300 dark:hover:scrollbar-thumb-dark-300">
+        <div className="scrollbar-thumb-rounded-sm scrollbar-track-rounded-sm w-full flex-1 overflow-y-auto scrollbar scrollbar-track-light-200 scrollbar-thumb-light-400 hover:scrollbar-thumb-light-400 dark:scrollbar-track-dark-100 dark:scrollbar-thumb-dark-300 dark:hover:scrollbar-thumb-dark-300">
           <div className="p-auto mx-auto flex h-full w-full max-w-[800px] flex-col">
             <div className="p-6 md:p-8">
               <div className="mb-8 md:mt-4">
                 {!card && isLoading && (
                   <div className="flex space-x-2">
-                    <div className="h-[2.3rem] w-[300px] animate-pulse rounded-[5px] bg-light-300 dark:bg-dark-300" />
+                    <div className="h-[2.3rem] w-[300px] animate-pulse rounded-sm bg-light-300 dark:bg-dark-300" />
                   </div>
                 )}
                 {card && (
@@ -406,7 +406,7 @@ export default function CardPage({ isTemplate }: { isTemplate?: boolean }) {
                         onBlur={canEdit ? handleSubmit(onSubmit) : undefined}
                         rows={1}
                         disabled={!canEdit}
-                        className={`block w-full resize-none overflow-hidden border-0 bg-transparent p-0 py-0 font-bold leading-relaxed text-neutral-900 focus:ring-0 dark:text-dark-1000 sm:text-[1.2rem] ${!canEdit ? "cursor-default" : ""}`}
+                        className={`block w-full resize-none overflow-hidden border-0 bg-transparent p-0 py-0 font-bold leading-relaxed text-light-1000 focus:ring-0 dark:text-dark-1000 sm:text-[1.2rem] ${!canEdit ? "cursor-default" : ""}`}
                         onInput={(e) => {
                           const target = e.target as HTMLTextAreaElement;
                           target.style.height = "auto";
@@ -417,7 +417,7 @@ export default function CardPage({ isTemplate }: { isTemplate?: boolean }) {
                   </form>
                 )}
                 {!card && !isLoading && (
-                  <p className="block p-0 py-0 font-bold leading-[2.3rem] tracking-tight text-neutral-900 dark:text-dark-1000 sm:text-[1.2rem]">
+                  <p className="block p-0 py-0 font-bold leading-[2.3rem] tracking-tight text-light-1000 dark:text-dark-1000 sm:text-[1.2rem]">
                     {t`Card not found`}
                   </p>
                 )}
@@ -471,7 +471,7 @@ export default function CardPage({ isTemplate }: { isTemplate?: boolean }) {
                       )}
                     </>
                   )}
-                  <div className="border-t-[1px] border-light-300 pt-12 dark:border-dark-300">
+                  <div className="border-t-[1px] border-hairline pt-12 dark:border-hairline">
                     <h2 className="text-md pb-4 font-medium text-light-1000 dark:text-dark-1000">
                       {t`Activity`}
                     </h2>

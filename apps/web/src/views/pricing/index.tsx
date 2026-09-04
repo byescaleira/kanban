@@ -1,5 +1,4 @@
 import { t } from "@lingui/core/macro";
-import { useTheme } from "next-themes";
 import { useState } from "react";
 
 import Button from "~/components/Button";
@@ -13,7 +12,6 @@ import PricingTiers from "./components/PricingTiers";
 type FrequencyValue = "monthly" | "annually";
 
 export default function PricingView() {
-  const { resolvedTheme } = useTheme();
   const frequencies = [
     {
       value: "monthly" as FrequencyValue,
@@ -36,7 +34,7 @@ export default function PricingView() {
       <div className="flex h-full w-full flex-col lg:pt-[5rem]">
         <div className="w-full pb-10 pt-32">
           <div className="flex flex-col items-center justify-center px-4 pb-10">
-            <div className="flex items-center gap-2 rounded-full border bg-light-50 px-4 py-1 text-center text-xs text-light-1000 dark:border-dark-300 dark:bg-dark-50 dark:text-dark-900 lg:text-sm">
+            <div className="flex items-center gap-2 rounded-full border bg-panel px-4 py-1 text-center text-xs text-light-1000 dark:border-hairline dark:text-dark-900 lg:text-sm">
               <p>{t`Pricing`}</p>
             </div>
 
@@ -59,8 +57,6 @@ export default function PricingView() {
         </div>
 
         <div className="pb-22 flex flex-col items-center justify-center px-4">
-        
-
           <div className="mt-10 w-full">
             <FeatureComparisonTable
               frequencyValue={frequency?.value ?? "annually"}
@@ -68,7 +64,7 @@ export default function PricingView() {
           </div>
         </div>
         <div className="relative">
-          <Cta theme={resolvedTheme ?? "light"} />
+          <Cta />
         </div>
       </div>
     </Layout>

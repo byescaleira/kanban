@@ -120,7 +120,7 @@ const UpdateWorkspaceUrlForm = ({
           className={`${
             isWorkspaceSlugAvailable?.isAvailable ||
             (workspacePlan !== "free" && slug === workspaceUrl)
-              ? "focus:ring-yellow-500 dark:focus:ring-yellow-500"
+              ? "focus:ring-accent dark:focus:ring-accent"
               : ""
           }`}
           errorMessage={
@@ -137,7 +137,7 @@ const UpdateWorkspaceUrlForm = ({
           iconRight={
             isWorkspaceSlugAvailable?.isAvailable ||
             (workspacePlan !== "free" && slug === workspaceUrl) ? (
-              <HiMiniStar className="h-4 w-4 text-yellow-500" />
+              <HiMiniStar className="h-4 w-4 text-accent-ink" />
             ) : isWorkspaceSlugAvailable?.isAvailable ? (
               <HiCheck className="h-4 w-4 dark:text-dark-1000" />
             ) : null

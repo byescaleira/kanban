@@ -321,7 +321,10 @@ export function NewCardForm({
     }
 
     if (filesToUpload.length > 0) {
-      const failedCount = await uploadAttachments(newCard.publicId, filesToUpload);
+      const failedCount = await uploadAttachments(
+        newCard.publicId,
+        filesToUpload,
+      );
       if (failedCount > 0) {
         showPopup({
           header: t`Some attachments failed`,
@@ -387,7 +390,7 @@ export function NewCardForm({
       }}
       className={
         isDraggingFiles
-          ? "rounded-lg ring-2 ring-inset ring-light-700 dark:ring-dark-700"
+          ? "rounded-lg ring-2 ring-inset ring-hairline"
           : undefined
       }
     >
@@ -403,7 +406,7 @@ export function NewCardForm({
       />
       <div className="px-5 pt-5">
         <div className="flex w-full items-center justify-between pb-5">
-          <h2 className="text-sm font-bold text-neutral-900 dark:text-dark-1000">
+          <h2 className="text-sm font-bold text-light-1000 dark:text-dark-1000">
             {t`New card`}
           </h2>
           <button
@@ -432,7 +435,7 @@ export function NewCardForm({
           />
         </div>
         <div className="mt-2">
-          <div className="block max-h-48 min-h-24 w-full overflow-y-auto rounded-md border-0 bg-dark-300 bg-white/5 px-3 py-2 text-sm shadow-sm ring-1 ring-inset ring-light-600 focus-within:ring-2 focus-within:ring-inset focus-within:ring-light-700 dark:ring-dark-700 dark:focus-within:ring-dark-700 sm:leading-6">
+          <div className="block max-h-48 min-h-24 w-full overflow-y-auto rounded-md border-0 bg-dark-300 bg-white/5 px-3 py-2 text-sm shadow-sm ring-1 ring-inset ring-hairline focus-within:ring-2 focus-within:ring-inset focus-within:ring-hairline dark:focus-within:ring-hairline sm:leading-6">
             <Editor
               content={description}
               onChange={(value) => {
@@ -464,7 +467,7 @@ export function NewCardForm({
               items={formattedLists}
               handleSelect={(_groupKey, item) => handleSelectList(item.key)}
             >
-              <div className="flex h-full w-full items-center rounded-[5px] border-[1px] border-light-600 bg-light-200 px-2 py-1 text-left text-xs text-light-800 hover:bg-light-300 dark:border-dark-600 dark:bg-dark-400 dark:text-dark-1000 dark:hover:bg-dark-500">
+              <div className="flex h-full w-full items-center rounded-sm border-2 border-hairline bg-light-200 px-2 py-1 text-left text-xs text-light-800 hover:bg-light-300 dark:border-hairline dark:bg-dark-400 dark:text-dark-1000 dark:hover:bg-dark-500">
                 {selectedList?.value}
               </div>
             </CheckboxDropdown>
@@ -477,7 +480,7 @@ export function NewCardForm({
                   handleSelectMembers(item.key)
                 }
               >
-                <div className="flex h-full w-full items-center rounded-[5px] border-[1px] border-light-600 bg-light-200 px-2 py-1 text-left text-xs text-light-800 hover:bg-light-300 dark:border-dark-600 dark:bg-dark-400 dark:text-dark-1000 dark:hover:bg-dark-500">
+                <div className="flex h-full w-full items-center rounded-sm border-2 border-hairline bg-light-200 px-2 py-1 text-left text-xs text-light-800 hover:bg-light-300 dark:border-hairline dark:bg-dark-400 dark:text-dark-1000 dark:hover:bg-dark-500">
                   {!memberPublicIds.length ? (
                     t`Members`
                   ) : (
@@ -490,11 +493,11 @@ export function NewCardForm({
                         return (
                           <span
                             key={member?.key}
-                            className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gray-400 ring-1 ring-light-200 dark:ring-dark-500"
+                            className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-light-1000 ring-1 ring-hairline dark:bg-dark-400 dark:ring-hairline"
                           >
-                            <span className="text-[8px] font-medium leading-none text-white">
+                            <span className="text-[8px] font-medium leading-none text-light-200 dark:text-dark-1000">
                               {member?.value
-                                .split(" ")
+                                .split("")
                                 .map((namePart) =>
                                   namePart.charAt(0).toUpperCase(),
                                 )
@@ -519,7 +522,7 @@ export function NewCardForm({
               handleCreate={() => openModal("NEW_LABEL")}
               createNewItemLabel={t`Create new label`}
             >
-              <div className="flex h-full w-full items-center rounded-[5px] border-[1px] border-light-600 bg-light-200 px-2 py-1 text-left text-xs text-light-800 hover:bg-light-300 dark:border-dark-600 dark:bg-dark-400 dark:text-dark-1000 dark:hover:bg-dark-500">
+              <div className="flex h-full w-full items-center rounded-sm border-2 border-hairline bg-light-200 px-2 py-1 text-left text-xs text-light-800 hover:bg-light-300 dark:border-hairline dark:bg-dark-400 dark:text-dark-1000 dark:hover:bg-dark-500">
                 {!labelPublicIds.length ? (
                   t`Labels`
                 ) : (
@@ -539,7 +542,7 @@ export function NewCardForm({
                         return (
                           <>
                             <svg
-                              fill={label?.colourCode ?? "#3730a3"}
+                              fill={label?.colourCode ?? "var(--accent-solid)"}
                               className="h-2 w-2"
                               viewBox="0 0 6 6"
                               aria-hidden="true"
@@ -567,7 +570,7 @@ export function NewCardForm({
             <button
               type="button"
               onClick={() => setIsDateSelectorOpen(!isDateSelectorOpen)}
-              className="flex h-full w-full items-center rounded-[5px] border-[1px] border-light-600 bg-light-200 px-2 py-1 text-left text-xs text-light-800 hover:bg-light-300 dark:border-dark-600 dark:bg-dark-400 dark:text-dark-1000 dark:hover:bg-dark-500"
+              className="flex h-full w-full items-center rounded-sm border-2 border-hairline bg-light-200 px-2 py-1 text-left text-xs text-light-800 hover:bg-light-300 dark:border-hairline dark:bg-dark-400 dark:text-dark-1000 dark:hover:bg-dark-500"
             >
               {dueDate ? (
                 <span>{format(dueDate, "MMM d, yyyy")}</span>
@@ -582,7 +585,7 @@ export function NewCardForm({
                   onClick={() => setIsDateSelectorOpen(false)}
                 />
                 <div
-                  className="absolute left-0 top-full z-20 mt-2 rounded-md border border-light-200 bg-light-50 shadow-lg dark:border-dark-200 dark:bg-dark-100"
+                  className="absolute left-0 top-full z-20 mt-2 rounded-md border border-hairline bg-panel shadow-lg dark:border-hairline dark:bg-dark-100"
                   onClick={(e) => {
                     e.stopPropagation();
                   }}
@@ -607,7 +610,7 @@ export function NewCardForm({
               e.preventDefault();
               setValue("position", position === "start" ? "end" : "start");
             }}
-            className="flex h-auto items-center rounded-[5px] border-[1px] border-light-600 bg-light-200 px-1.5 py-1 text-left text-xs text-light-800 hover:bg-light-300 focus-visible:outline-none dark:border-dark-600 dark:bg-dark-400 dark:text-dark-1000 dark:hover:bg-dark-500"
+            className="flex h-auto items-center rounded-sm border-2 border-hairline bg-light-200 px-1.5 py-1 text-left text-xs text-light-800 hover:bg-light-300 focus-visible:outline-none dark:border-hairline dark:bg-dark-400 dark:text-dark-1000 dark:hover:bg-dark-500"
           >
             {position === "start" ? (
               <HiOutlineBarsArrowUp size={14} />
@@ -620,7 +623,7 @@ export function NewCardForm({
             onClick={() => fileInputRef.current?.click()}
             aria-label={t`Attach files`}
             title={t`Attach files`}
-            className="flex h-auto items-center rounded-[5px] border-[1px] border-light-600 bg-light-200 px-1.5 py-1 text-left text-xs text-light-800 hover:bg-light-300 focus-visible:outline-none dark:border-dark-600 dark:bg-dark-400 dark:text-dark-1000 dark:hover:bg-dark-500"
+            className="flex h-auto items-center rounded-sm border-2 border-hairline bg-light-200 px-1.5 py-1 text-left text-xs text-light-800 hover:bg-light-300 focus-visible:outline-none dark:border-hairline dark:bg-dark-400 dark:text-dark-1000 dark:hover:bg-dark-500"
           >
             <HiOutlinePaperClip size={14} />
           </button>
@@ -630,7 +633,7 @@ export function NewCardForm({
             {pendingFiles.map((file, index) => (
               <span
                 key={`${file.name}-${index}`}
-                className="flex items-center gap-1 rounded-[5px] border-[1px] border-light-600 bg-light-200 px-2 py-1 text-xs text-light-800 dark:border-dark-600 dark:bg-dark-400 dark:text-dark-1000"
+                className="flex items-center gap-1 rounded-sm border-2 border-hairline bg-light-200 px-2 py-1 text-xs text-light-800 dark:border-hairline dark:bg-dark-400 dark:text-dark-1000"
               >
                 <HiOutlinePaperClip size={12} />
                 <span className="max-w-[180px] truncate">{file.name}</span>
@@ -648,7 +651,7 @@ export function NewCardForm({
         )}
       </div>
 
-      <div className="mt-5 flex items-center justify-end space-x-4 border-t border-light-600 px-5 pb-5 pt-5 dark:border-dark-600">
+      <div className="mt-5 flex items-center justify-end space-x-4 border-t border-hairline px-5 pb-5 pt-5 dark:border-hairline">
         <Toggle
           label={t`Create another`}
           isChecked={isCreateAnotherEnabled}

@@ -555,7 +555,7 @@ export default function BoardPage({ isTemplate }: { isTemplate?: boolean }) {
         <div className="z-10 flex w-full flex-col justify-between p-6 md:flex-row md:p-8">
           {isLoading && !boardData && (
             <div className="flex space-x-2">
-              <div className="h-[2.3rem] w-[150px] animate-pulse rounded-[5px] bg-light-200 dark:bg-dark-100" />
+              <div className="h-[2.3rem] w-[150px] animate-pulse rounded-sm bg-light-200 dark:bg-dark-100" />
             </div>
           )}
           {boardData && (
@@ -570,18 +570,18 @@ export default function BoardPage({ isTemplate }: { isTemplate?: boolean }) {
                 {...register("name")}
                 onBlur={canEditBoard ? handleSubmit(onSubmit) : undefined}
                 readOnly={!canEditBoard}
-                className="block border-0 bg-transparent p-0 py-0 font-bold leading-[2.3rem] tracking-tight text-neutral-900 focus:ring-0 focus-visible:outline-none disabled:cursor-not-allowed dark:text-dark-1000 sm:text-[1.2rem]"
+                className="block border-0 bg-transparent p-0 py-0 font-bold leading-[2.3rem] tracking-tight text-light-1000 focus:ring-0 focus-visible:outline-none disabled:cursor-not-allowed dark:text-dark-1000 sm:text-[1.2rem]"
               />
             </form>
           )}
           {!boardData && !isLoading && (
-            <p className="order-2 block p-0 py-0 font-bold leading-[2.3rem] tracking-tight text-neutral-900 dark:text-dark-1000 sm:text-[1.2rem] md:order-1">
+            <p className="order-2 block p-0 py-0 font-bold leading-[2.3rem] tracking-tight text-light-1000 dark:text-dark-1000 sm:text-[1.2rem] md:order-1">
               {t`${isTemplate ? "Template" : "Board"} not found`}
             </p>
           )}
           <div className="order-1 mb-4 flex items-center justify-end space-x-2 md:order-2 md:mb-0">
             {isTemplate && (
-              <div className="inline-flex cursor-default items-center justify-center whitespace-nowrap rounded-md border-[1px] border-light-300 bg-light-50 px-3 py-2 text-sm font-semibold text-light-950 shadow-sm dark:border-dark-300 dark:bg-dark-50 dark:text-dark-950">
+              <div className="inline-flex cursor-default items-center justify-center whitespace-nowrap rounded-md border-2 border-hairline bg-panel px-3 py-2 text-sm font-semibold text-light-950 shadow-sm dark:border-hairline dark:text-dark-950">
                 <span className="mr-2">
                   <HiOutlineRectangleStack />
                 </span>
@@ -656,7 +656,7 @@ export default function BoardPage({ isTemplate }: { isTemplate?: boolean }) {
         <div
           ref={scrollRef}
           onMouseDown={onMouseDown}
-          className={`scrollbar-w-none scrollbar-track-rounded-[4px] scrollbar-thumb-rounded-[4px] scrollbar-h-[8px] z-0 flex-1 snap-x snap-mandatory scroll-pl-[10px] overflow-y-hidden overflow-x-scroll overscroll-contain scrollbar scrollbar-track-light-200 scrollbar-thumb-light-400 dark:scrollbar-track-dark-100 dark:scrollbar-thumb-dark-300 md:snap-none`}
+          className={`scrollbar-w-none scrollbar-track-rounded-sm scrollbar-thumb-rounded-sm scrollbar-h-[8px] z-0 flex-1 snap-x snap-mandatory scroll-pl-[10px] overflow-y-hidden overflow-x-scroll overscroll-contain scrollbar scrollbar-track-light-200 scrollbar-thumb-light-400 dark:scrollbar-track-dark-100 dark:scrollbar-thumb-dark-300 md:snap-none`}
         >
           {isLoading ? (
             <div className="ml-[2rem] flex">
@@ -728,7 +728,7 @@ export default function BoardPage({ isTemplate }: { isTemplate?: boolean }) {
                                 <div
                                   ref={provided.innerRef}
                                   {...provided.droppableProps}
-                                  className="scrollbar-track-rounded-[4px] scrollbar-thumb-rounded-[4px] scrollbar-w-[8px] z-10 h-full max-h-[calc(100dvh-225px)] min-h-[2rem] overflow-y-auto pb-[calc(0.75rem+env(safe-area-inset-bottom))] pr-1 scrollbar dark:scrollbar-track-dark-100 dark:scrollbar-thumb-dark-600"
+                                  className="scrollbar-track-rounded-sm scrollbar-thumb-rounded-sm scrollbar-w-[8px] z-10 h-full max-h-[calc(100dvh-225px)] min-h-[2rem] overflow-y-auto pb-[calc(0.75rem+env(safe-area-inset-bottom))] pr-1 scrollbar dark:scrollbar-track-dark-100 dark:scrollbar-thumb-dark-600"
                                 >
                                   {list.cards.map((card, index) => (
                                     <Draggable

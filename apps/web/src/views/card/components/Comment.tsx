@@ -110,7 +110,9 @@ const Comment = ({
           {
             label: t`Edit comment`,
             action: () => setIsEditing(true),
-            icon: <HiPencil className="h-[16px] w-[16px] text-dark-900" />,
+            icon: (
+              <HiPencil className="h-[16px] w-[16px] text-light-900 dark:text-dark-900" />
+            ),
           },
         ]
       : []),
@@ -119,7 +121,9 @@ const Comment = ({
           {
             label: t`Delete comment`,
             action: () => openModal("DELETE_COMMENT", publicId),
-            icon: <HiTrash className="h-[16px] w-[16px] text-dark-900" />,
+            icon: (
+              <HiTrash className="h-[16px] w-[16px] text-light-900 dark:text-dark-900" />
+            ),
           },
         ]
       : []),
@@ -128,7 +132,7 @@ const Comment = ({
   return (
     <div
       key={publicId}
-      className="group relative flex w-full flex-col rounded-xl border border-light-600 bg-light-200 p-4 text-light-900 focus-visible:outline-none dark:border-dark-400 dark:bg-dark-100 dark:text-dark-1000 sm:text-sm sm:leading-6"
+      className="group relative flex w-full flex-col rounded-xl border border-hairline bg-panel p-4 text-light-900 focus-visible:outline-none dark:border-hairline dark:text-dark-1000 sm:text-sm sm:leading-6"
     >
       <div className="flex justify-between">
         <div className="flex items-center space-x-2">

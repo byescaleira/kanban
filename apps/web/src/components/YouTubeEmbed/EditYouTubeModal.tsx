@@ -104,7 +104,7 @@ export function EditYouTubeModal() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="px-5 pt-5">
-        <div className="flex w-full items-center justify-between pb-4 text-neutral-900 dark:text-dark-1000">
+        <div className="flex w-full items-center justify-between pb-4 text-light-1000 dark:text-dark-1000">
           <h2 className="text-sm font-medium">{t`Edit YouTube Video`}</h2>
           <button
             type="button"
@@ -158,15 +158,13 @@ export function EditYouTubeModal() {
               }}
             />
             {urlError && (
-              <p className="mt-1 text-xs text-red-600 dark:text-red-400">
-                {urlError}
-              </p>
+              <p className="mt-1 text-xs text-danger-ink">{urlError}</p>
             )}
           </div>
         </div>
       </div>
 
-      <div className="mt-12 flex items-center justify-end border-t border-light-600 px-5 pb-5 pt-5 dark:border-dark-600">
+      <div className="mt-12 flex items-center justify-end border-t border-hairline px-5 pb-5 pt-5 dark:border-hairline">
         <div className="space-x-2">
           <Button
             type="button"

@@ -239,7 +239,7 @@ export function InviteMemberForm({
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="px-5 pt-5">
-        <div className="text-neutral-9000 flex w-full items-center justify-between pb-4 dark:text-dark-1000">
+        <div className="flex w-full items-center justify-between pb-4 text-light-1000 dark:text-dark-1000">
           <h2 className="text-sm font-bold">{t`Add member`}</h2>
           <button
             type="button"
@@ -282,15 +282,15 @@ export function InviteMemberForm({
                   onClick={copyToClipboard}
                 >
                   {copied ? (
-                    <HiMiniCheck className="h-5 w-5 text-green-600" />
+                    <HiMiniCheck className="h-5 w-5 text-accent-ink" />
                   ) : (
                     <HiOutlineDocumentDuplicate className="h-5 w-5" />
                   )}
                 </button>
               </div>
               <div className="mt-2 flex items-start gap-1">
-                <HiInformationCircle className="mt-0.5 h-4 w-4 text-dark-900" />
-                <p className="text-xs text-gray-500 dark:text-dark-900">
+                <HiInformationCircle className="mt-0.5 h-4 w-4 text-light-900 dark:text-dark-900" />
+                <p className="text-xs text-light-900 dark:text-dark-900">
                   {t`Anyone with this link can join your workspace`}
                 </p>
               </div>
@@ -301,7 +301,7 @@ export function InviteMemberForm({
           (isPartnerTier && seatLimit !== null ? (
             <div className="mt-3 rounded-md bg-light-100 p-3 text-xs text-light-900 dark:bg-dark-200 dark:text-dark-900">
               <div className="flex items-center justify-between">
-                <span className="font-medium text-emerald-500 dark:text-emerald-400">
+                <span className="font-medium text-accent-ink dark:text-accent-ink">
                   {hasTeamSubscription ? t`Team Plan` : t`Pro Plan`}
                 </span>
                 <span className="text-light-900 dark:text-dark-900">
@@ -313,7 +313,7 @@ export function InviteMemberForm({
             <div className="mt-3 rounded-md bg-light-100 p-3 text-xs text-light-900 dark:bg-dark-200 dark:text-dark-900">
               {hasTeamSubscription || hasProSubscription ? (
                 <div>
-                  <span className="font-medium text-emerald-500 dark:text-emerald-400">
+                  <span className="font-medium text-accent-ink dark:text-accent-ink">
                     {hasTeamSubscription ? t`Team Plan` : t`Pro Plan ∞`}
                   </span>
                   <p className="mt-1">
@@ -334,7 +334,7 @@ export function InviteMemberForm({
           ) : null)}
       </div>
 
-      <div className="mt-12 flex items-center justify-end space-x-4 border-t border-light-600 px-5 pb-5 pt-5 dark:border-dark-600">
+      <div className="mt-12 flex items-center justify-end space-x-4 border-t border-hairline px-5 pb-5 pt-5 dark:border-hairline">
         {!isFreePlan && (
           <Toggle
             label={

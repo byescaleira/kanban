@@ -34,7 +34,7 @@ const Avatar = ({
       {imageUrl ? (
         <Image
           src={imageUrl}
-          className="rounded-full bg-gray-50"
+          className="rounded-full bg-light-100"
           width={sizeMap[size]}
           height={sizeMap[size]}
           alt=""
@@ -50,11 +50,13 @@ const Avatar = ({
           )}
         >
           {icon ? (
-            <span className="text-[12px] text-white">{icon}</span>
+            <span className="text-[12px] text-light-200 dark:text-dark-1000">
+              {icon}
+            </span>
           ) : (
             <span
               className={twMerge(
-                "text-sm font-medium leading-none text-white",
+                "text-sm font-medium leading-none text-light-200 dark:text-dark-1000",
                 size === "xs" && "text-[8px]",
                 size === "sm" && "text-[10px]",
                 size === "lg" && "text-md",

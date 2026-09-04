@@ -23,7 +23,7 @@ export default function NotFoundPage() {
             <p className="mb-10 text-3xl font-bold tracking-tight text-light-1000 dark:text-dark-1000">
               <Trans>Page not found</Trans>
             </p>
-            <div className="w-full rounded-lg border border-light-500 bg-light-300 px-4 py-10 dark:border-dark-400 dark:bg-dark-200 sm:max-w-md lg:px-10">
+            <div className="w-full rounded-lg border border-hairline bg-panel px-4 py-10 dark:border-hairline sm:max-w-md lg:px-10">
               <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                 <p className="mb-6 text-center text-light-900 dark:text-dark-900">
                   <Trans>
@@ -39,7 +39,7 @@ export default function NotFoundPage() {
                   </Link>
                   <Link
                     href="/boards"
-                    className="flex w-full justify-center rounded-md border border-light-500 bg-light-100 px-3 py-2 text-sm font-semibold text-light-1000 shadow-sm hover:bg-light-200 dark:border-dark-400 dark:bg-dark-100 dark:text-dark-1000 dark:hover:bg-dark-300"
+                    className="flex w-full justify-center rounded-md border border-hairline bg-light-100 px-3 py-2 text-sm font-semibold text-light-1000 shadow-sm hover:bg-light-200 dark:border-hairline dark:bg-dark-100 dark:text-dark-1000 dark:hover:bg-dark-300"
                   >
                     <Trans>Go to boards</Trans>
                   </Link>

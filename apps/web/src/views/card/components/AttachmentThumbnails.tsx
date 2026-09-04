@@ -348,8 +348,8 @@ export function AttachmentThumbnails({
                       </div>
 
                       {imageAttachments.length > 1 && (
-                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-black/50 px-3 py-1.5 text-[10px] text-white">
-                          {selectedIndex !== null && selectedIndex + 1} /{" "}
+                        <div className="bg-foreground/70 absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full px-3 py-1.5 text-[10px] text-background">
+                          {selectedIndex !== null && selectedIndex + 1} /{""}
                           {imageAttachments.length}
                         </div>
                       )}
@@ -382,7 +382,7 @@ function AttachmentThumbnail({
   return (
     <button
       onClick={onClick}
-      className="relative h-16 w-16 overflow-hidden rounded-xl border border-light-300 transition-transform hover:scale-105 dark:border-dark-300"
+      className="relative h-16 w-16 overflow-hidden rounded-xl border border-hairline transition-transform hover:scale-105 dark:border-hairline"
       aria-label={`View ${attachment.originalFilename}`}
     >
       {isImage ? (
@@ -420,7 +420,7 @@ function FileListItem({
   onDelete?: () => void;
 }) {
   return (
-    <div className="group flex w-full items-center gap-3 rounded-lg border border-light-300 bg-light-50 px-3 py-2 dark:border-dark-200 dark:bg-dark-100">
+    <div className="group flex w-full items-center gap-3 rounded-lg border border-hairline bg-panel px-3 py-2 dark:border-hairline dark:bg-dark-100">
       <div className="flex-shrink-0">
         <HiDocumentText className="h-5 w-5 text-light-700 dark:text-dark-700" />
       </div>

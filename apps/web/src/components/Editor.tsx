@@ -126,14 +126,14 @@ const CommandsList = forwardRef<
   }));
 
   return (
-    <div className="w-56 rounded-md border-[1px] border-light-200 bg-light-50 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:border-dark-500 dark:bg-dark-200">
+    <div className="w-56 rounded-md border-2 border-hairline bg-panel shadow-lg ring-1 ring-hairline focus:outline-none dark:border-hairline dark:bg-dark-200">
       <div className="max-h-[350px] overflow-y-auto p-1">
         {items.map((item, index) => (
           <button
             key={item.title}
             onClick={() => command(item)}
             className={twMerge(
-              "group flex w-full items-center rounded-[5px] p-2 hover:bg-light-200 dark:hover:bg-dark-300",
+              "group flex w-full items-center rounded-sm p-2 hover:bg-light-200 dark:hover:bg-dark-300",
               index === selectedIndex && "bg-light-200 dark:bg-dark-300",
             )}
           >
@@ -245,7 +245,7 @@ const MentionList = forwardRef<
   }));
 
   return (
-    <div className="w-56 rounded-md border-[1px] border-light-200 bg-light-50 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:border-dark-500 dark:bg-dark-200">
+    <div className="w-56 rounded-md border-2 border-hairline bg-panel shadow-lg ring-1 ring-hairline focus:outline-none dark:border-hairline dark:bg-dark-200">
       <div className="max-h-[350px] overflow-y-auto p-1 scrollbar-thin scrollbar-thumb-light-200 dark:scrollbar-thumb-dark-300">
         {items.length > 0 ? (
           items.map((item, index) => (
@@ -253,7 +253,7 @@ const MentionList = forwardRef<
               key={item.id}
               onClick={() => command(item)}
               className={twMerge(
-                "group flex w-full items-center rounded-[5px] p-2 hover:bg-light-200 dark:hover:bg-dark-300",
+                "group flex w-full items-center rounded-sm p-2 hover:bg-light-200 dark:hover:bg-dark-300",
                 index === selectedIndex && "bg-light-200 dark:bg-dark-300",
               )}
             >
@@ -483,7 +483,7 @@ export default function Editor({
         Link.configure({
           openOnClick: true,
           HTMLAttributes: {
-            class: "text-blue-600 hover:text-blue-800 underline cursor-pointer",
+            class: "text-accent-ink underline cursor-pointer",
             target: "_blank",
             rel: "noopener noreferrer",
           },
@@ -691,19 +691,19 @@ function EditorBubbleMenu({ editor }: { editor: TiptapEditor | null }) {
   ];
   return (
     <BubbleMenu editor={editor}>
-      <div className="flex items-center gap-2 rounded-md border border-light-600 bg-light-50 p-1 dark:border-dark-600 dark:bg-dark-50">
+      <div className="flex items-center gap-2 rounded-md border border-hairline bg-panel p-1 dark:border-hairline">
         {bubbleMenuItems.map((item) => (
           <Button
             key={item.title}
             className={twMerge(
-              "rounded p-1 text-light-900 focus:ring-2 focus:ring-light-600 dark:text-dark-900 dark:focus:ring-dark-600",
+              "rounded p-1 text-light-900 focus:ring-2 focus:ring-hairline dark:text-dark-900 dark:focus:ring-hairline",
               item.active && "bg-light-100 dark:bg-dark-400",
             )}
-            title={`${item.title} [${item.keys.join(" + ").replace("meta", isMac ? "⌘" : "ctrl")}]`}
+            title={`${item.title} [${item.keys.join("+").replace("meta", isMac ? "⌘" : "ctrl")}]`}
             onClick={item.onClick}
             tabIndex={0}
             onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
+              if (e.key === "Enter" || e.key === "") {
                 e.preventDefault();
                 item.onClick();
               }

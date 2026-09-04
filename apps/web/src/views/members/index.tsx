@@ -155,11 +155,11 @@ export default function MembersPage() {
                 <div className="flex items-center">
                   <p
                     className={twMerge(
-                      "mr-2 truncate text-xs font-medium text-neutral-900 dark:text-dark-1000 sm:text-sm",
+                      "mr-2 truncate text-xs font-medium text-light-1000 dark:text-dark-1000 sm:text-sm",
                       showSkeleton &&
                         "md mb-2 h-3 w-[125px] animate-pulse rounded-sm bg-light-200 dark:bg-dark-200",
                       showPendingIcon &&
-                        "italic text-neutral-500 dark:text-dark-900",
+                        "italic text-light-900 dark:text-dark-900",
                     )}
                   >
                     {memberName}
@@ -170,7 +170,7 @@ export default function MembersPage() {
                   showSkeleton) && (
                   <p
                     className={twMerge(
-                      "truncate text-xs text-dark-900 sm:text-sm",
+                      "truncate text-xs text-light-900 dark:text-dark-900 sm:text-sm",
                       showSkeleton &&
                         "h-3 w-[175px] animate-pulse rounded-sm bg-light-200 dark:bg-dark-200",
                     )}
@@ -193,13 +193,13 @@ export default function MembersPage() {
               {showSkeleton ? (
                 <span
                   className={twMerge(
-                    "inline-flex items-center rounded-md bg-emerald-500/10 px-1.5 py-0.5 text-[10px] font-medium text-emerald-400 ring-1 ring-inset ring-emerald-500/20 sm:text-[11px]",
+                    "inline-flex items-center rounded-md bg-accent-soft px-1.5 py-0.5 text-[10px] font-medium text-accent-ink ring-1 ring-inset ring-accent sm:text-[11px]",
                     "h-5 w-[50px] animate-pulse bg-light-200 ring-0 dark:bg-dark-200",
                   )}
                 />
               ) : (
                 <div className="relative inline-flex items-center">
-                  <span className="inline-flex items-center gap-1 rounded-md bg-emerald-500/10 px-1.5 py-0.5 text-[10px] font-medium text-emerald-400 ring-1 ring-inset ring-emerald-500/20 sm:text-[11px]">
+                  <span className="inline-flex items-center gap-1 rounded-md bg-accent-soft px-1.5 py-0.5 text-[10px] font-medium text-accent-ink ring-1 ring-inset ring-accent sm:text-[11px]">
                     {memberRole &&
                       memberRole.charAt(0).toUpperCase() + memberRole.slice(1)}
                     {canEditMember && session?.user.id !== memberId && (
@@ -226,7 +226,7 @@ export default function MembersPage() {
                 </div>
               )}
               {(memberStatus === "invited" || memberStatus === "paused") && (
-                <span className="inline-flex items-center rounded-md bg-gray-500/10 px-1.5 py-0.5 text-[10px] font-medium text-gray-400 ring-1 ring-inset ring-gray-500/20 sm:text-[11px]">
+                <span className="ring-hairline/20 inline-flex items-center rounded-md bg-light-600/10 px-1.5 py-0.5 text-[10px] font-medium text-light-900 ring-1 ring-inset sm:text-[11px]">
                   {memberStatus === "invited" ? t`Pending` : t`Paused`}
                 </span>
               )}
@@ -280,7 +280,7 @@ export default function MembersPage() {
       <div className="m-auto h-full max-w-[1100px] p-6 px-5 md:px-28 md:py-12">
         <div className="mb-8 flex w-full justify-between">
           <div className="flex items-center gap-3">
-            <h1 className="font-bold tracking-tight text-neutral-900 dark:text-dark-1000 sm:text-[1.2rem]">
+            <h1 className="font-bold tracking-tight text-light-1000 dark:text-dark-1000 sm:text-[1.2rem]">
               {t`Members`}
             </h1>
           </div>
@@ -290,7 +290,7 @@ export default function MembersPage() {
                 {!isPaidPlan && (
                   <Link
                     href={`/upgrade/select-plan?plan=team&workspacePublicId=${workspace.publicId}&returnUrl=${encodeURIComponent("/members")}`}
-                    className="hidden items-center rounded-full border border-emerald-300 bg-emerald-50 px-3 py-1 text-center text-xs text-emerald-400 dark:border-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 lg:flex"
+                    className="hidden items-center rounded-full border border-accent bg-accent-soft px-3 py-1 text-center text-xs text-accent-ink dark:border-accent dark:bg-accent-soft dark:text-accent-ink lg:flex"
                   >
                     <HiBolt />
                     <span className="ml-1 font-medium">{t`Upgrade`}</span>
@@ -300,8 +300,8 @@ export default function MembersPage() {
                   className={twMerge(
                     "flex items-center rounded-full border px-3 py-1 text-center text-xs",
                     isPaidPlan
-                      ? "border-emerald-300 bg-emerald-50 text-emerald-400 dark:border-emerald-700 dark:bg-emerald-950 dark:text-emerald-400"
-                      : "border-light-300 bg-light-50 text-light-1000 dark:border-dark-300 dark:bg-dark-50 dark:text-dark-900",
+                      ? "border-accent bg-accent-soft text-accent-ink dark:border-accent dark:bg-accent-soft dark:text-accent-ink"
+                      : "border-hairline bg-panel text-light-1000 dark:border-hairline dark:text-dark-900",
                   )}
                 >
                   <span className="font-medium">
@@ -313,7 +313,7 @@ export default function MembersPage() {
                   </span>
                 </div>
                 {isPaidPlan && (unlimitedSeats || totalSeats !== null) && (
-                  <div className="flex items-center rounded-full border border-light-300 bg-light-50 px-3 py-1 text-center text-xs text-light-1000 dark:border-dark-300 dark:bg-dark-50 dark:text-dark-900">
+                  <div className="flex items-center rounded-full border border-hairline bg-panel px-3 py-1 text-center text-xs text-light-1000 dark:border-hairline dark:text-dark-900">
                     <span className="font-medium">
                       {unlimitedSeats
                         ? t`Unlimited seats`
@@ -336,7 +336,7 @@ export default function MembersPage() {
         <div className="mt-8 flow-root">
           <div className="-mx-4 -my-2 sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full overflow-x-auto px-4 py-2 pb-16 align-middle sm:px-6 lg:px-8">
-              <div className="h-full shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
+              <div className="h-full shadow ring-1 ring-hairline sm:rounded-lg">
                 <table className="min-w-full divide-y divide-light-600 overflow-visible dark:divide-dark-600">
                   <thead className="rounded-t-lg bg-light-300 dark:bg-dark-200">
                     <tr>

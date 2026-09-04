@@ -8,11 +8,7 @@ import { usePopup } from "~/providers/popup";
 import { useWorkspace } from "~/providers/workspace";
 import { api } from "~/utils/api";
 
-export function MoveBoardForm({
-  boardPublicId,
-}: {
-  boardPublicId: string;
-}) {
+export function MoveBoardForm({ boardPublicId }: { boardPublicId: string }) {
   const router = useRouter();
   const { closeModal } = useModal();
   const { showPopup } = usePopup();
@@ -60,7 +56,7 @@ export function MoveBoardForm({
   return (
     <div className="p-5">
       <div className="flex w-full flex-col justify-between pb-4">
-        <h2 className="text-md pb-4 font-medium text-neutral-900 dark:text-dark-1000">
+        <h2 className="text-md pb-4 font-medium text-light-1000 dark:text-dark-1000">
           {t`Move board to another workspace`}
         </h2>
         {otherWorkspaces.length === 0 ? (
@@ -79,7 +75,7 @@ export function MoveBoardForm({
               id="target-workspace"
               value={targetWorkspacePublicId}
               onChange={(e) => setTargetWorkspacePublicId(e.target.value)}
-              className="block w-full rounded-md border-0 bg-dark-300 bg-white/5 py-1.5 text-sm shadow-sm ring-1 ring-inset ring-light-600 placeholder:text-dark-800 focus:ring-2 focus:ring-inset focus:ring-light-700 dark:text-dark-1000 dark:ring-dark-700 dark:focus:ring-dark-700 sm:leading-6"
+              className="block w-full rounded-md border-0 bg-dark-300 bg-white/5 py-1.5 text-sm shadow-sm ring-1 ring-inset ring-hairline placeholder:text-dark-800 focus:ring-2 focus:ring-inset focus:ring-hairline dark:text-dark-1000 dark:ring-hairline dark:focus:ring-hairline sm:leading-6"
             >
               <option value="">{t`Select a workspace`}</option>
               {otherWorkspaces.map((ws) => (

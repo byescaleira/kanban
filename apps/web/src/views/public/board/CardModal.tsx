@@ -99,7 +99,7 @@ export function CardModal({
               <div className="flex-1">
                 {isLoading ? (
                   <div className="flex space-x-2">
-                    <div className="h-[2.3rem] w-[300px] animate-pulse rounded-[5px] bg-light-300 dark:bg-dark-300" />
+                    <div className="h-[2.3rem] w-[300px] animate-pulse rounded-sm bg-light-300 dark:bg-dark-300" />
                   </div>
                 ) : (
                   <>
@@ -110,7 +110,7 @@ export function CardModal({
                           {data.cardNumber}
                         </span>
                       )}
-                    <h1 className="font-bold leading-[2.3rem] tracking-tight text-neutral-900 dark:text-dark-1000 sm:text-[1.2rem]">
+                    <h1 className="font-bold leading-[2.3rem] tracking-tight text-light-1000 dark:text-dark-1000 sm:text-[1.2rem]">
                       {data?.title}
                     </h1>
                   </>
@@ -204,7 +204,7 @@ export function CardModal({
                   viewOnly
                 />
               )}
-              <div className="border-t-[1px] border-light-600 pb-4 pt-12 dark:border-dark-400">
+              <div className="border-t-[1px] border-hairline pb-4 pt-12 dark:border-hairline">
                 <h2 className="text-md pb-4 font-medium text-light-900 dark:text-dark-1000">
                   {t`Activity`}
                 </h2>
@@ -220,10 +220,10 @@ export function CardModal({
               </div>
             </div>
             {showTopFade && (
-              <div className="pointer-events-none absolute left-0 right-0 top-0 h-6 bg-gradient-to-b from-white/80 to-transparent dark:from-dark-100/80" />
+              <div className="pointer-events-none absolute left-0 right-0 top-0 h-6 bg-gradient-to-b from-panel to-transparent" />
             )}
             {showFade && (
-              <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-white/80 to-transparent dark:from-dark-100/80" />
+              <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-panel to-transparent" />
             )}
           </div>
         </div>

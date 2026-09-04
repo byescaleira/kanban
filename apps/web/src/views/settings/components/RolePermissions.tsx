@@ -1,7 +1,7 @@
 import { t } from "@lingui/core/macro";
 
-import { permissionCategories, roles } from "@kan/shared";
 import type { Permission, Role } from "@kan/shared";
+import { permissionCategories, roles } from "@kan/shared";
 
 import { useWorkspace } from "~/providers/workspace";
 import { api } from "~/utils/api";
@@ -54,11 +54,11 @@ export function RolePermissions() {
     );
 
   const systemRoles = (data?.roles ?? []).filter((role) =>
-    (roles).includes(role.name as Role),
+    roles.includes(role.name as Role),
   );
 
-  const orderedRoleNames: Role[] = ["admin", "member", "guest"].filter(
-    (role) => systemRoles.some((r) => r.name === role),
+  const orderedRoleNames: Role[] = ["admin", "member", "guest"].filter((role) =>
+    systemRoles.some((r) => r.name === role),
   ) as Role[];
 
   const grantMutation = api.permission.grantRolePermission.useMutation({
@@ -106,12 +106,12 @@ export function RolePermissions() {
   return (
     <div className="mt-2">
       {orderedRoleNames.length === 0 && !isLoading ? (
-        <p className="mb-4 text-sm text-neutral-500 dark:text-dark-800">
+        <p className="mb-4 text-sm text-light-900 dark:text-dark-800">
           {t`No roles found for this workspace yet.`}
         </p>
       ) : null}
 
-      <div className="overflow-x-auto rounded-md border border-light-300 bg-light-50 dark:border-dark-300 dark:bg-dark-100">
+      <div className="overflow-x-auto rounded-md border border-hairline bg-panel dark:border-hairline dark:bg-dark-100">
         <table className="min-w-full table-fixed divide-y divide-light-600 overflow-visible text-left text-sm dark:divide-dark-600">
           <thead className="rounded-t-lg bg-light-300 dark:bg-dark-300">
             <tr>
@@ -161,7 +161,7 @@ export function RolePermissions() {
                       >
                         <input
                           type="checkbox"
-                          className="h-[16px] w-[16px] appearance-none rounded-md border border-light-500 bg-transparent outline-none ring-0 checked:bg-blue-600 focus:shadow-none focus:ring-0 focus:ring-offset-0 focus-visible:outline-none dark:border-dark-500 dark:hover:border-dark-500 disabled:opacity-60"
+                          className="h-[16px] w-[16px] appearance-none rounded-md border border-hairline bg-transparent outline-none ring-0 checked:bg-accent focus:shadow-none focus:ring-0 focus:ring-offset-0 focus-visible:outline-none disabled:opacity-60 dark:border-hairline dark:hover:border-hairline"
                           disabled={
                             isAdminRole ||
                             isBillingOrDeletePermission ||
@@ -193,4 +193,3 @@ export function RolePermissions() {
     </div>
   );
 }
-

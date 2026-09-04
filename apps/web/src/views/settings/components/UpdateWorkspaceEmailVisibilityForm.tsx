@@ -43,7 +43,7 @@ export default function UpdateWorkspaceEmailVisibilityForm({
   return (
     <div className="mb-8 flex items-center justify-between">
       <div className="flex-1">
-        <p className="text-sm text-neutral-500 dark:text-dark-900">
+        <p className="text-sm text-light-900 dark:text-dark-900">
           {t`Allow workspace members to see each other's email addresses`}
         </p>
       </div>

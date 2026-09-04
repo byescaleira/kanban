@@ -68,7 +68,7 @@ export default function OSSFriendsView() {
               Array.from({ length: 12 }).map((_, idx) => (
                 <div
                   key={`oss-friend-skeleton-${idx}`}
-                  className="group relative h-[200px] rounded-2xl border border-light-200 bg-light-50 p-6 dark:border-dark-200 dark:bg-dark-50"
+                  className="group relative h-[200px] rounded-2xl border border-hairline bg-panel p-6 dark:border-hairline"
                 >
                   <div className="mb-4 flex flex-col gap-3">
                     <div className="h-5 w-2/3 animate-pulse rounded-sm bg-light-200 dark:bg-dark-200" />
@@ -84,7 +84,7 @@ export default function OSSFriendsView() {
                 return (
                   <div
                     key={`oss-friend-${idx}`}
-                    className="group relative rounded-2xl border border-light-200 bg-light-50 p-6 transition-all duration-200 hover:shadow-sm dark:border-dark-200 dark:bg-dark-50"
+                    className="group relative rounded-2xl border border-hairline bg-panel p-6 transition-all duration-200 hover:shadow-sm dark:border-hairline"
                   >
                     <div className="mb-4 flex flex-col gap-2">
                       <Link

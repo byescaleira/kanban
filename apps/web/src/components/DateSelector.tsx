@@ -125,7 +125,7 @@ const DateSelector = ({
                 "mx-auto flex size-7 items-center justify-center rounded-full text-light-900 dark:text-dark-900",
                 day.isCurrentMonth
                   ? "text-light-900 dark:text-dark-900"
-                  : "text-light-700 dark:text-dark-600",
+                  : "text-light-700 dark:text-dark-900",
                 day.isSelected && "text-light-50 dark:text-dark-50",
               )}
             >
