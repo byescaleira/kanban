@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import { useTheme } from "next-themes";
 import { IoLogoGithub } from "react-icons/io";
 
 import Button from "~/components/Button";
@@ -15,8 +14,6 @@ import Logos from "./components/Logos";
 import Testimonials from "./components/Testimonials";
 
 export default function HomeView() {
-  const { resolvedTheme } = useTheme();
-
   return (
     <Layout>
       <PageHead title="byescaleira Kanban | The open source alternative to Trello" />
@@ -111,7 +108,7 @@ export default function HomeView() {
         <Logos />
         <div className="relative pt-10">
           <div id="features" className="absolute -top-20" />
-          <Features theme={resolvedTheme === "dark" ? "dark" : "light"} />
+          <Features />
         </div>
         <div className="relative pt-10">
           <div id="testimonials" className="absolute -top-20" />

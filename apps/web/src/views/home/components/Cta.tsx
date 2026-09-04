@@ -63,27 +63,16 @@ const Cta = () => {
           </Link>
         </div>
       </div>
-      <svg
-        viewBox="0 0 1024 1024"
-        aria-hidden="true"
-        className="absolute left-1/2 top-[65%] -z-10 size-[60rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] lg:size-[64rem]"
-      >
-        <circle
-          r={512}
-          cx={512}
-          cy={512}
-          fill="url(#8d958450-c69f-4251-94bc-4e091a323369)"
-          fillOpacity="0.7"
-        />
-        <defs>
-          <radialGradient id="8d958450-c69f-4251-94bc-4e091a323369">
-            {/* The ink, not a grey ramp. Both stops follow the theme
-                through the token, so nothing has to be switched in JS. */}
-            <stop stopColor="var(--ink-3)" />
-            <stop offset={1} stopColor="var(--ink-2)" />
-          </radialGradient>
-        </defs>
-      </svg>
+      {/* This was a radial gradient circle behind the CTA — a glowing
+          blob, which is one of the tells this system exists to avoid,
+          and a gradient background besides. The printed sky replaces
+          it: the halftone dot is the one mark that is both space and
+          print, because a press builds tone from dots. Same atmosphere,
+          nothing that glows. */}
+      <div className="sky -z-10" aria-hidden="true">
+        <div className="sky-scatter" />
+        <div className="sky-disc" />
+      </div>
     </div>
   );
 };

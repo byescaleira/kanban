@@ -20,8 +20,13 @@ const TestimonialCard = ({
   rowSpan?: number;
 }) => {
   // Generate initials for avatar
+  /* This split on "" rather than " ", so every letter of the name
+     became an "initial" — a single-word handle rendered its whole self
+     inside a 40px circle and overflowed it. Two letters, at most. */
   const initials = testimonial.name
-    .split("")
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
     .map((n) => n[0])
     .join("")
     .toUpperCase();
@@ -232,7 +237,7 @@ const Testimonials = () => {
           {t`Loved by teams worldwide`}
         </h2>
         <p className="t-lead mt-4 max-w-[58ch] text-light-950 dark:text-dark-900">
-          {t`See what our users are saying about Kan`}
+          {t`What people are saying about kan, the project this is built on. Their words, unedited.`}
         </p>
 
         <div className="mx-auto mt-16 w-full max-w-7xl">

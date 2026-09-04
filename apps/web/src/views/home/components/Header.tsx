@@ -16,7 +16,6 @@ const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
       openInNewTab: true,
     },
     { label: t`Features`, href: "/#features" },
-    { label: t`Pricing`, href: "/pricing" },
     {
       label: t`Docs`,
       href: "https://docs.kan.bn",
@@ -32,7 +31,6 @@ const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
       group: "Product",
     },
     { label: t`Features`, href: "/#features", group: "Product" },
-    { label: t`Pricing`, href: "/pricing", group: "Product" },
     {
       label: t`Documentation`,
       href: "https://docs.kan.bn",

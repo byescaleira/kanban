@@ -221,8 +221,7 @@ line around it is not a design; a titled plate is.
 ```
 
 The **tinted band** is reserved for the one plate on a page that
-matters. See `PricingTiers.tsx` for the reference implementation — the
-tinted band is why that tier needs no separate "most popular" badge.
+matters. See `Features.tsx` for the reference implementation.
 
 The **index** must be true: a plate number, a status, a year, a sector.
 Never a decorative label.

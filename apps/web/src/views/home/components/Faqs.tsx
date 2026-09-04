@@ -27,10 +27,10 @@ const Faqs = () => {
       ),
     },
     {
-      question: t`What's the difference between Kan and Trello?`,
+      question: t`What's the difference between Kanban and Trello?`,
       answer: (
         <Text>
-          {t`The main difference between Kan and Trello is that Kan is open source, allowing anyone to view, modify, and contribute to our code. Our cloud offering also offers no restrictions on features for individual use, whereas Trello locks basic features such as the number of boards you can create behind a paywall.`}
+          {t`The main difference between Kanban and Trello is that Kanban is open source, allowing anyone to view, modify, and contribute to our code. Our cloud offering also offers no restrictions on features for individual use, whereas Trello locks basic features such as the number of boards you can create behind a paywall.`}
         </Text>
       ),
     },
@@ -47,7 +47,7 @@ const Faqs = () => {
       answer: (
         <Text>
           <Trans>
-            Importing your Trello boards into Kan is easy. You can follow our
+            Importing your Trello boards into Kanban is easy. You can follow our
             step-by-step guide{""}
             <Link
               href="https://docs.kan.bn/imports/trello"
@@ -151,8 +151,8 @@ const Faqs = () => {
         </h2>
         <p className="t-lead mt-4 max-w-[58ch] text-light-950 dark:text-dark-900">
           <Trans>
-            Find answers to common questions about Kan. Can't find what you're
-            looking for? Feel free to{""}
+            Find answers to common questions about Kanban. Can't find what
+            you're looking for? Feel free to{""}
             <Link href="mailto:support@kan.bn" className="underline">
               contact us
             </Link>
