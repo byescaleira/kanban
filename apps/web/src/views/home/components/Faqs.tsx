@@ -65,17 +65,12 @@ const Faqs = () => {
       answer: (
         <Text>
           <Trans>
-            You can get a custom workspace URL, like{""}
-            <Link href="https://kan.bn/kan" className="underline">
-              kan.bn/kan
-            </Link>
-            , by going into your{""}
-            <Link href="https://kan.bn/settings" className="underline">
+            Set it in your{""}
+            <Link href="/settings/workspace" className="underline">
               workspace settings
             </Link>
-            {""}
-            and upgrading to a Team workspace subscription. All subscriptions
-            help fund the development of the project!
+            {""}. Your workspace URL is whatever slug you choose, on this
+            instance's own domain.
           </Trans>
         </Text>
       ),
@@ -95,7 +90,7 @@ const Faqs = () => {
           <Trans>
             We are using the{""}
             <Link
-              href="https://github.com/kan-bn/kan/blob/main/LICENSE"
+              href="https://github.com/kanbn/kan/blob/main/LICENSE"
               className="underline"
             >
               AGPL-3.0 license
@@ -112,7 +107,7 @@ const Faqs = () => {
           <Trans>
             You can invite team members by clicking the "Invite" button in the
             top right corner of the{""}
-            <Link href="https://kan.bn/members" className="underline">
+            <Link href="/members" className="underline">
               members page
             </Link>
             {""}

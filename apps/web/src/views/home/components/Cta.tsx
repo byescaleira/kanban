@@ -1,74 +1,44 @@
 import Link from "next/link";
 import { t } from "@lingui/core/macro";
-import { useEffect, useState } from "react";
+import { env } from "next-runtime-env";
 
 import Button from "~/components/Button";
 
 const Cta = () => {
-  const [currentWorkspaceSlug, setCurrentWorkspaceSlug] = useState("acme");
-  const [isVisible, setIsVisible] = useState(true);
-
-  useEffect(() => {
-    const workspaceSlugs = [
-      "acme",
-      "henry",
-      "cal",
-      "documenso",
-      "jack",
-      "openstatus",
-      "florrie",
-      "supabase",
-    ];
-
-    const interval = setInterval(() => {
-      setIsVisible(false);
-      setTimeout(() => {
-        setCurrentWorkspaceSlug((prev) => {
-          const currentIndex = workspaceSlugs.indexOf(prev);
-          const nextIndex = (currentIndex + 1) % workspaceSlugs.length;
-          const nextSlug = workspaceSlugs[nextIndex];
-          if (!nextSlug) return prev;
-          return nextSlug;
-        });
-        setIsVisible(true);
-      }, 500);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
+  /* The label shows this instance's own host, derived at runtime, so it
+     stops advertising the upstream product's domain. */
+  const baseUrl = env("NEXT_PUBLIC_BASE_URL");
+  const host = baseUrl
+    ? baseUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")
+    : "";
+  const workspaceUrl = host ? `${host}/your-team` : "/your-team";
 
   return (
     <div className="relative isolate overflow-hidden">
       <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
         <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
-          <div
-            className={`mb-8 flex items-center gap-2 rounded-2xl border bg-light-50 px-4 py-2 text-center text-sm font-bold text-light-1000 transition-all duration-500 dark:border-hairline dark:bg-dark-50 dark:text-dark-950 lg:text-[16px] ${
-              isVisible
-                ? "translate-y-0 opacity-100"
-                : "-translate-y-4 opacity-0"
-            }`}
-          >
-            <p>kan.bn/{currentWorkspaceSlug}</p>
-          </div>
-          <h2 className="text-balance text-4xl font-bold tracking-tight text-light-1000 dark:text-dark-1000 sm:text-4xl">
+          {/* This advertised kan.bn/<slug>, cycling through eight fake
+              workspace names every 3s behind an opacity fade. Two
+              problems: it sold the upstream product's domain rather
+              than this instance's, and a reveal that replays on a timer
+              is not something a press can do — a reveal fires once and
+              never repeats. It is a printed label now. */}
+          <p className="pill mb-8 font-mono text-[13px]">{workspaceUrl}</p>
+          <h2 className="t-section text-balance text-light-1000 dark:text-dark-1000">
             {t`Get started for free today`}
           </h2>
-          <p className="text-md/8 mx-auto mt-6 max-w-[375px] text-pretty text-light-950 dark:text-dark-900">
-            {t`Unlimited boards, unlimited lists, unlimited cards. No credit card required.`}
+          <p className="t-lead mx-auto mt-6 max-w-[42ch] text-pretty text-light-950 dark:text-dark-900">
+            {t`Unlimited boards, unlimited lists, unlimited cards.`}
           </p>
-          <Link href="/signup">
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Button size="lg">{t`Get started`}</Button>
-            </div>
-          </Link>
+          <div className="mt-10 flex items-center justify-center gap-x-6">
+            <Button href="/signup" size="lg">{t`Get started`}</Button>
+          </div>
         </div>
       </div>
       {/* This was a radial gradient circle behind the CTA — a glowing
           blob, which is one of the tells this system exists to avoid,
           and a gradient background besides. The printed sky replaces
-          it: the halftone dot is the one mark that is both space and
-          print, because a press builds tone from dots. Same atmosphere,
-          nothing that glows. */}
+          it: a press builds tone from dots, and so does a sky. */}
       <div className="sky -z-10" aria-hidden="true">
         <div className="sky-scatter" />
         <div className="sky-disc" />

@@ -38,10 +38,7 @@ export default function HomeView() {
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Button
-                href="/signup"
-                size="lg"
-              >{t`Get started on Cloud`}</Button>
+              <Button href="/signup" size="lg">{t`Get started`}</Button>
               <Button
                 variant="secondary"
                 size="lg"
@@ -53,9 +50,6 @@ export default function HomeView() {
             </div>
 
             <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2">
-              <p className="t-caption text-light-900 dark:text-dark-900">
-                {t`No credit card required`}
-              </p>
               {/* The spinning ring is the accent plate turning: one
                   colour, one orbit, retimed from 4s to 46s. An orbital
                   under 5s reads as a spinner, not as atmosphere. */}
