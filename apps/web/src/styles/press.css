@@ -1,0 +1,246 @@
+/* ============================================================
+   byescaleira — paper and motion
+
+   Three families, and one rule that outranks all of them:
+   CONTENT IS NEVER INVISIBLE BY DEFAULT. Everything below is pure
+   CSS animation with `both` fill, so it runs whether or not JS ever
+   boots. Nothing here hides content and waits for a script to
+   release it.
+
+   The reduced-motion block comes FIRST. It is the only part that is
+   not optional.
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  /* A reveal that cannot animate must resolve VISIBLE, never hidden. */
+  [data-reveal="pending"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ============================================================
+   PAPER — the grain that makes this a print and not a beige page.
+   Static SVG turbulence: no image file, no request. It multiplies
+   into the ink on bone paper and screens over it on black paper,
+   which is how the two presses actually behave.
+
+   z-index sits below the app's overlays (modals, dropdowns, the
+   command palette) rather than at 9999: this app has real layered
+   UI, and grain painted over an open modal would read as dirt on
+   the lens, not tooth in the paper.
+   ============================================================ */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.42;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23p)' opacity='0.55'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+.dark body::after,
+:root[data-theme="dark"] body::after {
+  mix-blend-mode: screen;
+  opacity: 0.3;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) body::after {
+    mix-blend-mode: screen;
+    opacity: 0.3;
+  }
+}
+
+/* ============================================================
+   EASING — three curves, no others.
+   ============================================================ */
+:root {
+  --ease-default: cubic-bezier(0.32, 0.72, 0, 1); /* reveals, hovers */
+  --ease-colour: cubic-bezier(0.25, 0.1, 0.25, 1); /* colour + opacity ONLY */
+  /* linear is the third: orbits, drift, marquee */
+}
+
+/* ORBITAL — continuous, ambient, 15–90s, linear; nothing orbital
+   sits on top of text, and no cycle runs under 5s. The one orbital
+   this app installs is the accent ring behind the GitHub badge, and
+   it is declared in the Tailwind preset (border-spin, 46s) rather
+   than here, so it is not duplicated. */
+
+/* ============================================================
+   REVEAL — once on entry, 0.7s, 70ms stagger, in reading order.
+   Fires once and never replays.
+   ============================================================ */
+@keyframes bye-rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes bye-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* The stagger, in reading order. Seven rungs is enough for any row
+   or grid in this app; beyond that the delay stops reading as a
+   sequence and starts reading as lag. */
+.o-stagger > * {
+  animation: bye-rise 0.7s var(--ease-default) both;
+}
+.o-stagger > *:nth-child(1) {
+  animation-delay: 0ms;
+}
+.o-stagger > *:nth-child(2) {
+  animation-delay: 70ms;
+}
+.o-stagger > *:nth-child(3) {
+  animation-delay: 140ms;
+}
+.o-stagger > *:nth-child(4) {
+  animation-delay: 210ms;
+}
+.o-stagger > *:nth-child(5) {
+  animation-delay: 280ms;
+}
+.o-stagger > *:nth-child(6) {
+  animation-delay: 350ms;
+}
+.o-stagger > *:nth-child(n + 7) {
+  animation-delay: 420ms;
+}
+
+/* ============================================================
+   RESPONSE — on interaction only, borrowed from the press.
+
+   THE RULE THAT GOVERNS THIS FAMILY: if an effect cannot be
+   explained by how a screenprint is actually made, it does not
+   belong here. That rules out drifting particles, gradient blobs
+   and anything that glows.
+   ============================================================ */
+
+/* Misregistration. The two plates never line up perfectly on a real
+   press, and a pull that is a hair out is the signature of the
+   medium. On hover the accent plate slips; on leave it snaps back. */
+.misreg {
+  position: relative;
+}
+.misreg::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border: 2px solid var(--accent-solid);
+  border-radius: inherit;
+  opacity: 0;
+  transform: translate(0, 0);
+  pointer-events: none;
+  transition:
+    opacity 0.22s var(--ease-colour),
+    transform 0.22s var(--ease-default);
+}
+.misreg:hover::after,
+.misreg:focus-visible::after,
+.misreg:focus-within::after {
+  opacity: 0.85;
+  transform: translate(3px, 3px);
+}
+
+/* The squeegee. One pass, left to right, on load — a heavy rule is
+   not drawn, it is PRINTED. Fires once and never replays. */
+@keyframes bye-squeegee {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+.o-squeegee {
+  animation: bye-squeegee 0.9s var(--ease-default) both;
+}
+
+/* ============================================================
+   THE PRINTED SKY — atmosphere, where a project needs it.
+
+   The subject is space and the medium is a screenprint, and there is
+   exactly ONE mark that is both: the halftone dot. A press builds
+   tone from dots; a night sky is dots. So this is not a starfield
+   dropped onto a print — it is the same dot the illustrations are
+   made of, at two pitches.
+
+   Reach for this before reaching for anything that glows.
+   ============================================================ */
+.sky {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.sky-scatter {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    var(--ink-3) 0.9px,
+    transparent 1.2px
+  );
+  background-size: 78px 64px;
+  -webkit-mask-image: radial-gradient(
+    120% 90% at 78% 18%,
+    #000 0%,
+    #000 42%,
+    transparent 78%
+  );
+  mask-image: radial-gradient(
+    120% 90% at 78% 18%,
+    #000 0%,
+    #000 42%,
+    transparent 78%
+  );
+}
+.sky-disc {
+  position: absolute;
+  top: -14%;
+  right: -16%;
+  width: min(46vw, 640px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  opacity: 0.42;
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    var(--ink-2) 1.15px,
+    transparent 1.45px
+  );
+  background-size: 8px 8px;
+  -webkit-mask-image: linear-gradient(
+    118deg,
+    #000 6%,
+    rgba(0, 0, 0, 0.45) 44%,
+    transparent 74%
+  );
+  mask-image: linear-gradient(
+    118deg,
+    #000 6%,
+    rgba(0, 0, 0, 0.45) 44%,
+    transparent 74%
+  );
+}

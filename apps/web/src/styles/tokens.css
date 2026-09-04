@@ -1,0 +1,133 @@
+/* ============================================================
+   byescaleira — tokens
+   Two inks and a paper. The two builds are the same press on two
+   stocks, not two designs.
+
+   Every value carries its reason. A rule stripped of its reason
+   gets undone by the next person who finds it inconvenient.
+
+   The COMPLETE light palette is defined on bare :root; the dark
+   block redefines ONLY the tokens. A colour whose only definition
+   sits inside a media or theme block never applies in the
+   un-stamped state, which is the classic unreadable-page bug.
+   ============================================================ */
+
+:root {
+  /* ---- ground: what you paint on ---- */
+  --background: #f3efe5; /* the paper */
+  --surface: #e6e0d2; /* alternating sections */
+  --card: #fbf8f1; /* plates — NEVER equal to --surface */
+
+  /* ---- ink: what you read ----
+     Worst case across all three grounds: 11.78 / 6.71 / 5.21.
+     #6e6960 measured 3.92 on the surface and was dropped a notch.
+     There is no readable step ABOVE --ink-3 on bone paper, which is
+     why this app's three old "muted text" steps all collapse onto
+     it rather than fanning out into a ladder that cannot exist. */
+  --foreground: #26241f;
+  --ink-2: #4e4a41;
+  --ink-3: #5f5a50;
+
+  /* A rule on a page, not a hairline: 2px, in ink. */
+  --hairline: #4e4a41;
+
+  /* ---- accent: what matters right now ----
+     --accent-solid is FILLS ONLY. No orange bright enough to feel
+     vibrant clears 4.5:1 as text on a light ground — #ff6b00
+     measures 2.49:1 on the paper. That is physics. So orange type
+     steps down to --accent-ink (4.60:1, the brightest that clears
+     AA on all three grounds) and the saturated orange goes into
+     rules, folios, bands and buttons.
+
+     --on-accent is near-black because white on #ff6b00 measures
+     2.86:1 and fails AA on the primary CTA. Darkening the orange
+     enough to carry white takes it to ~#c75200, which is brown and
+     no longer the brand. */
+  --accent-solid: #ff6b00;
+  --accent-ink: #ad3e00;
+  --accent-soft: rgba(255, 107, 0, 0.16);
+  --on-accent: #26241f;
+
+  /* ---- danger ----
+     A destructive red is a THIRD ink this press does not carry, so it
+     is spent as sparingly as a third plate would be: destructive
+     confirmation only, never for ordinary error text decoration.
+
+     It could not follow the accent's pattern. The accent works as a
+     bright fill under near-black ink because #ff6b00 is light enough
+     (5.43:1). Every warm red is darker: the brightest that still
+     reads as "red" and not "orange" carries near-black at only
+     3.8:1. So danger takes the OTHER move this system already owns —
+     the plate band — and prints as a solid dark field with the paper
+     reversed out of it. #f3efe5 on #8f2417 is 7.52:1, and the same
+     field works on black paper because the ink is the paper, not the
+     page. As type, #8f2417 measures 7.52 / 8.14 / 6.56 on the three
+     light grounds. */
+  --danger: #8f2417;
+  --danger-ink: #8f2417;
+  --on-danger: #f3efe5;
+  --danger-soft: rgba(143, 36, 23, 0.12);
+
+  /* Dark separates plates by fill lightness; light cannot, so it
+     separates by fill plus this shadow, which is none in dark. */
+  --card-shadow:
+    0 1px 2px rgba(38, 36, 31, 0.06), 0 8px 20px rgba(38, 36, 31, 0.07);
+
+  /* ---- type ----
+     System stack, no webfonts. Weights 400/500/600, nothing heavier. */
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono:
+    ui-monospace, "SF Mono", SFMono-Regular, Menlo, Monaco, monospace;
+}
+
+/* ---- black paper ----
+   The same press, pulled on a dark stock. Warm throughout: a cool
+   grey ink gives away that this is a screen and not a press. */
+.dark,
+:root[data-theme="dark"] {
+  --background: #0b0a09;
+  --surface: #17150f;
+  --card: #252019;
+
+  --foreground: #eae4d6;
+  --ink-2: #ada595;
+  --ink-3: #918a7c;
+  --hairline: rgba(234, 228, 214, 0.34);
+
+  --accent-solid: #ff6b00;
+  --accent-ink: #ff8a3d;
+  --accent-soft: rgba(255, 107, 0, 0.14);
+  --on-accent: #26241f;
+
+  /* The field stays: a dark red plate reads on black paper too. Only
+     the TYPE has to lift, to 8.61 / 7.95 / 7.04. */
+  --danger-ink: #ff8a75;
+  --danger-soft: rgba(255, 138, 117, 0.14);
+
+  --card-shadow: none;
+}
+
+/* A viewer who has made no explicit choice gets the dark stock on a
+   dark OS. next-themes stamps `.light` for an explicit light choice
+   and `.dark` for an explicit dark one, so `.light` is the guard
+   here — the reference's [data-theme="light"] guard would never
+   match under attribute="class" and dark would leak over an
+   explicit light choice. This also covers the pre-hydration paint. */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --background: #0b0a09;
+    --surface: #17150f;
+    --card: #252019;
+    --foreground: #eae4d6;
+    --ink-2: #ada595;
+    --ink-3: #918a7c;
+    --hairline: rgba(234, 228, 214, 0.34);
+    --accent-ink: #ff8a3d;
+    --accent-soft: rgba(255, 107, 0, 0.14);
+    --danger-ink: #ff8a75;
+    --danger-soft: rgba(255, 138, 117, 0.14);
+    --card-shadow: none;
+  }
+}

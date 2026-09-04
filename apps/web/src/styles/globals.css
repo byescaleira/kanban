@@ -1,26 +1,314 @@
+@import "./tokens.css";
+@import "./press.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html {
-  font-size: 14px;
+@layer base {
+  /* The host paints its own ground behind the page: a transparent
+     body silently borrows it. Always set this explicitly.
+
+     There is no `html { font-size: 14px }` here any more. The app's
+     FontSizeProvider sets 14/16/18px on the element after mount, so
+     the old rule only ever governed the pre-hydration paint — and it
+     disagreed with the provider's own default, which meant every
+     cold load reflowed from 14px to 16px. The browser default now
+     matches the provider's "medium". */
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 600 is the ceiling for headlines. The utility scale is capped in
+     the Tailwind preset — a base-layer override would lose to any
+     `font-bold` utility — so only the raw elements need saying here. */
+  b,
+  strong {
+    font-weight: 600;
+  }
+
+  ::selection {
+    background: var(--accent-soft);
+    color: var(--foreground);
+  }
+
+  /* Touch targets are 44px minimum. This app is a dense desktop
+     product whose toolbars would fall apart if every control were
+     46px on a mouse, so the floor is applied where it actually
+     matters: on a coarse pointer. */
+  @media (pointer: coarse) {
+    button,
+    [role="button"],
+    summary,
+    input[type="checkbox"],
+    input[type="radio"] {
+      min-height: 44px;
+    }
+    button:not(.inline-flex),
+    [role="button"]:not(.inline-flex) {
+      min-width: 44px;
+    }
+  }
+
+  /* One focus treatment, in ink, everywhere. */
+  :focus-visible {
+    outline: 2px solid var(--accent-solid);
+    outline-offset: 2px;
+  }
 }
+
+@layer components {
+  /* ==========================================================
+     THE TYPE RAMP
+     Carries size, weight and tracking — NEVER colour. Baking a
+     colour in means it can never be overridden at the use site.
+     Tuned for SF Pro: swapping the family without retuning the
+     tracking leaves the new face cramped or loose.
+     ========================================================== */
+  .t-display {
+    font-size: clamp(2.75rem, 6vw, 5.5rem);
+    font-weight: 600;
+    line-height: 1.03;
+    letter-spacing: -0.035em;
+  }
+  .t-section {
+    font-size: clamp(2rem, 4.2vw, 3.5rem);
+    font-weight: 600;
+    line-height: 1.07;
+    letter-spacing: -0.03em;
+  }
+  .t-sub {
+    font-size: clamp(1.5rem, 2.6vw, 2.125rem);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.028em;
+  }
+  .t-card {
+    font-size: 1.3125rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  .t-lead {
+    font-size: clamp(1.0625rem, 1.5vw, 1.3125rem);
+    line-height: 1.48;
+  }
+  .t-body {
+    font-size: 1.0625rem;
+    line-height: 1.47;
+  }
+  .t-small {
+    font-size: 0.9375rem;
+    line-height: 1.45;
+  }
+  .t-caption {
+    font-size: 0.8125rem;
+    line-height: 1.4;
+  }
+  .t-eyebrow {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--accent-ink);
+  }
+
+  /* Uppercase survives in exactly two places, both labels rather
+     than headings: this running head and the plate's title band.
+     Both take POSITIVE tracking. */
+  .label-mono {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-3);
+  }
+
+  /* ==========================================================
+     THE PLATE — the one container. It replaces the card.
+
+     Two fields, not one: a solid title band with the heading
+     reversed out of it, and a body below on the paper. The band
+     does the work the heading was doing anyway, so the structure
+     costs no decoration. A box with a line around it is not a
+     design; a titled plate is.
+     ========================================================== */
+  .plate {
+    border: 2px solid var(--hairline);
+    border-radius: 18px;
+    background: var(--card);
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+  }
+  .plate-band {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.625rem 1.25rem;
+    border-bottom: 2px solid var(--hairline);
+    background: var(--foreground);
+    color: var(--background);
+  }
+  .plate-band-title {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+  }
+  /* The index is a plate number, a status, a year, a sector.
+     Anything TRUE. Never a decorative label. */
+  .plate-index {
+    flex-shrink: 0;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    opacity: 0.75;
+  }
+  /* Reserved for the one plate on a page that matters. */
+  .plate-band--tinted {
+    background: var(--accent-solid);
+    color: var(--on-accent);
+  }
+  .plate-body {
+    padding: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .plate-band {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    .plate-body {
+      padding: 1.5rem;
+    }
+  }
+
+  /* ==========================================================
+     SECTION FURNITURE
+     ========================================================== */
+
+  /* Running head — the label and the folio on one rule, above each
+     section. Numbering is honest: it is pagination, not decoration,
+     so only number things that are genuinely a sequence. */
+  .running-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-solid);
+  }
+  .running-head-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent-ink);
+  }
+  .running-head-folio {
+    flex-shrink: 0;
+    border-radius: 980px;
+    background: var(--accent-solid);
+    color: var(--on-accent);
+    padding: 0.25rem 0.625rem;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+
+  /* The heavy rule — ONE per page, 6px, full width, printed rather
+     than drawn. It is the only thick thing on the page; a second
+     one halves the weight of both. */
+  .rule-heavy {
+    height: 6px;
+    width: 100%;
+    background: var(--accent-solid);
+    border: 0;
+  }
+  /* A rule that bleeds edge to edge. */
+  .rule {
+    height: 2px;
+    width: 100%;
+    background: var(--hairline);
+    border: 0;
+  }
+
+  /* Colophon — a strip at the foot of a sheet: label/value pairs
+     running edge to edge, divided by rules. Not a card, never boxed. */
+  .colophon {
+    border-top: 2px solid var(--hairline);
+  }
+  .colophon-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 0.75rem 0;
+    border-bottom: 2px solid var(--hairline);
+  }
+
+  /* ==========================================================
+     CONTROLS — every control is a capsule. A pill button reads as
+     a printed badge, not as an OS control. Touch targets never
+     below 44px.
+
+     The button and link specs live in the Button component, not
+     here: duplicating them as CSS classes would ship a second
+     vocabulary that nothing imports and that would drift from the
+     one the app actually renders.
+     ========================================================== */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 980px;
+    padding: 0.25rem 0.625rem;
+    font-size: 13px;
+    background: color-mix(in srgb, var(--foreground) 7%, transparent);
+    color: var(--ink-2);
+  }
+  .pill-status {
+    background: var(--accent-soft);
+    color: var(--accent-ink);
+  }
+  .icon-tile {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    border: 2px solid var(--hairline);
+    color: var(--accent-ink);
+  }
+}
+
+/* ==========================================================
+   App utilities carried over from before, retokenised.
+   ========================================================== */
 
 [contenteditable="true"]:empty:before {
   content: attr(placeholder);
   display: block;
-  color: #707070;
-  font-size: 0.8rem;
+  color: var(--ink-3);
+  font-size: 0.9375rem;
 }
 
+/* This was a pink-and-purple conic sweep — the tell of a generic
+   system, and a third ink this press does not carry. It is now the
+   accent plate rotating: one colour, one orbit. */
 .gradient-border::before {
   background: conic-gradient(
     from 0deg,
     transparent 0deg,
     transparent 45deg,
-    rgba(244, 114, 182, 0.4) 85deg,
-    rgba(192, 132, 252, 0.4) 95deg,
-    transparent 110deg,
+    var(--accent-solid) 88deg,
+    var(--accent-solid) 96deg,
+    transparent 140deg,
     transparent 360deg
   );
   content: "";
@@ -44,16 +332,17 @@ html {
   }
 }
 
-/* Tippy.js tooltip theme */
+/* Tippy.js tooltip theme — a small printed label, so it takes the
+   plate's border and inset radius, and no shadow. */
 .tippy-box[data-theme~="tooltip"] {
-  @apply rounded-md border border-light-600 bg-white px-2 py-1 text-sm text-neutral-900 shadow-lg dark:border-dark-600 dark:bg-dark-100 dark:text-dark-1000;
+  @apply rounded-md border-2 border-hairline bg-panel px-2 py-1 text-xs text-foreground;
 }
 
 .tippy-box[data-theme~="tooltip"] > .tippy-arrow::before {
-  @apply border-t-light-600 dark:border-t-dark-600;
+  @apply border-t-hairline;
 }
 
 .tippy-box[data-theme~="tooltip"][data-placement^="bottom"]
   > .tippy-arrow::before {
-  @apply border-b-light-600 dark:border-b-dark-600;
+  @apply border-b-hairline;
 }
