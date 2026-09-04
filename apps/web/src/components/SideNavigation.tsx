@@ -27,6 +27,7 @@ import templatesIconLight from "~/assets/templates-light.json";
 import ButtonComponent from "~/components/Button";
 import ReactiveButton from "~/components/ReactiveButton";
 import UserMenu from "~/components/UserMenu";
+import { Wordmark } from "~/components/Wordmark";
 import WorkspaceMenu from "~/components/WorkspaceMenu";
 import { useWorkspace } from "~/providers/workspace";
 import { api } from "~/utils/api";
@@ -163,7 +164,7 @@ export default function SideNavigation({
             {!isCollapsed && (
               <Link href="/" className="block">
                 <h1 className="pl-2 text-[16px] font-bold tracking-tight text-light-1000 dark:text-dark-1000">
-                  kan.bn
+                  <Wordmark />
                 </h1>
               </Link>
             )}

@@ -19,7 +19,7 @@ export default function HomeView() {
 
   return (
     <Layout>
-      <PageHead title="Kan.bn | The open source alternative to Trello" />
+      <PageHead title="byescaleira Kanban | The open source alternative to Trello" />
       <div className="flex h-full w-full flex-col lg:pt-[5rem]">
         {/* THE MASTHEAD. Not a hero: the type IS the structure, rather
             than a headline centred on top of one. Left-aligned, ranged

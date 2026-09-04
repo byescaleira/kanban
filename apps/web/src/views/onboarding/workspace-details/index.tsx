@@ -18,6 +18,7 @@ import Button from "~/components/Button";
 import Input from "~/components/Input";
 import LoadingSpinner from "~/components/LoadingSpinner";
 import { Tooltip } from "~/components/Tooltip";
+import { Wordmark } from "~/components/Wordmark";
 import { useDebounce } from "~/hooks/useDebounce";
 import { usePopup } from "~/providers/popup";
 import { api } from "~/utils/api";
@@ -361,7 +362,7 @@ export default function WorkspaceNameView() {
 
               {/* Footer */}
               <p className="mt-2 text-[10px] font-semibold text-light-900 dark:text-dark-900">
-                kan.bn
+                <Wordmark showMark={false} />
               </p>
             </div>
           </div>

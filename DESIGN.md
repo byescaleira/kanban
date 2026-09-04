@@ -267,6 +267,46 @@ for it before reaching for anything that glows.
 
 ---
 
+## The name and the mark
+
+The naming rule is: **modules take Apollo navigation stars, products
+keep market names, and anything nobody imports or installs gets no name
+at all.**
+
+This is a product, so it gets a market name, not a codename: it is
+**byescaleira Kanban**, shown as `Kanban` in the header and
+`… | byescaleira` in page titles. The house carries the
+distinctiveness; the product carries the category — the pattern behind
+"Apple Notes". A market name is generic by construction and hard to
+register, and that is the trade the rule accepts.
+
+The name lives in exactly one component, `Wordmark.tsx`, so the mark
+lands in one file rather than in the eight headers that used to
+hardcode it.
+
+**The name is set in ink, never in orange.** No orange bright enough to
+feel vibrant clears 4.5:1 as type on bone paper, so the accent goes
+where a press actually floods it — into a fill. Here that fill is the
+mark.
+
+The current mark is a filled plate with two fields, in `Wordmark.tsx`
+and `public/icon.svg`. It is a placeholder for a drawn mark, and it is
+deliberately three shapes and one closed silhouette, because a Tier-2
+mark has to survive **32px, one colour and a circular crop**. The two
+fields are different heights on purpose: two matched shapes side by
+side read as eyes.
+
+`.design/mark-prompt.md` carries the generation prompt for the real
+mark, and the five reduction tests any candidate has to pass.
+
+**What stays kan.bn on purpose:** `docs.kan.bn`, `support@kan.bn`,
+`github.com/kanbn/kan`, the `kan.bn/{workspace}` URL preview, and the
+"Powered by kan.bn" badge. Those are live addresses and upstream
+attribution — renaming the label while the link still points at the
+upstream service would be a lie, not a rebrand.
+
+---
+
 ## Voice
 
 Editorial, first person, English.

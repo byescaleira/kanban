@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 import Button from "~/components/Button";
+import { Wordmark } from "~/components/Wordmark";
 
 const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -76,7 +77,7 @@ const Header = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
             <div className="my-auto flex items-center justify-between">
               <Link href="/">
                 <h1 className="text-lg font-bold tracking-tight text-light-1000 dark:text-dark-1000 lg:w-[200px]">
-                  kan.bn
+                  <Wordmark />
                 </h1>
               </Link>
             </div>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+  <!-- The mark: a filled plate with two fields. One closed silhouette,
+       one accent fill, near-black ink over it — white on #ff6b00 is
+       2.86:1 and fails AA. Survives 32px, one colour, circular crop. -->
+  <rect x="1" y="1" width="22" height="22" rx="7" fill="#ff6b00"/>
+  <rect x="6" y="6" width="5" height="12" rx="2" fill="#26241f"/>
+  <rect x="13" y="6" width="5" height="7" rx="2" fill="#26241f"/>
+</svg>

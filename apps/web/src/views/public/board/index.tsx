@@ -12,6 +12,7 @@ import { PageHead } from "~/components/PageHead";
 import PatternedBackground from "~/components/PatternedBackground";
 import Popup from "~/components/Popup";
 import ThemeToggle from "~/components/ThemeToggle";
+import { Wordmark } from "~/components/Wordmark";
 import { useDragToScroll } from "~/hooks/useDragToScroll";
 import { useModal } from "~/providers/modal";
 import { usePopup } from "~/providers/popup";
@@ -250,7 +251,7 @@ export default function PublicBoardView() {
               className="text-lg font-bold tracking-tight text-light-1000 dark:text-dark-1000"
               href="/"
             >
-              kan.bn
+              <Wordmark />
             </Link>
           )}
 

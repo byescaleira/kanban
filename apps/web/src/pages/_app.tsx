@@ -19,7 +19,7 @@ import { PopupProvider } from "~/providers/popup";
 import { api } from "~/utils/api";
 
 export const metadata = {
-  title: "Kan",
+  title: "byescaleira Kanban",
   description: "The open source Trello alternative",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };

@@ -5,6 +5,7 @@ import { useEffect } from "react";
 
 import { PageHead } from "~/components/PageHead";
 import PatternedBackground from "~/components/PatternedBackground";
+import { Wordmark } from "~/components/Wordmark";
 import { api } from "~/utils/api";
 
 export default function PublicBoardsView() {
@@ -73,7 +74,7 @@ export default function PublicBoardsView() {
 
   return (
     <>
-      <PageHead title={`${data?.name ?? t`Workspace`} | kan.bn`} />
+      <PageHead title={`${data?.name ?? t`Workspace`} | byescaleira`} />
       <style jsx global>{`
         html {
           height: 100vh;
@@ -100,7 +101,7 @@ export default function PublicBoardsView() {
           className="text-lg font-bold tracking-tight text-light-1000 dark:text-dark-1000"
           href="/"
         >
-          kan.bn
+          <Wordmark />
         </Link>
       </div>
     </>
