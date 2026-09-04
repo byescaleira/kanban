@@ -144,7 +144,7 @@ export function LabelForm({
               {({ open }) => (
                 <>
                   <div className="relative mt-4">
-                    <Listbox.Button className="block w-full rounded-md border-0 bg-white/5 px-4 py-1.5 shadow-sm ring-1 ring-inset ring-hairline focus:ring-2 focus:ring-inset focus:ring-hairline dark:bg-dark-300 dark:text-dark-1000 dark:ring-hairline dark:focus:ring-hairline sm:text-sm sm:leading-6">
+                    <Listbox.Button className="block w-full rounded-md border-0 bg-panel px-4 py-1.5 shadow-sm ring-1 ring-inset ring-hairline focus:ring-2 focus:ring-inset focus:ring-hairline dark:bg-dark-300 dark:text-dark-1000 dark:ring-hairline dark:focus:ring-hairline sm:text-sm sm:leading-6">
                       <span className="flex items-center">
                         <span
                           style={{ backgroundColor: field.value.code }}

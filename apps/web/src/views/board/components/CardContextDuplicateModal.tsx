@@ -121,7 +121,7 @@ export function CardContextDuplicateModal({
             <div className="relative">
               <ListboxButton
                 className={twMerge(
-                  "relative w-full cursor-pointer rounded-md border border-hairline bg-white py-2 pl-3 pr-10 text-left text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-hairline focus:ring-offset-0 dark:border-hairline dark:bg-dark-200 dark:text-dark-1000 dark:focus:ring-hairline",
+                  "relative w-full cursor-pointer rounded-md border border-hairline bg-panel py-2 pl-3 pr-10 text-left text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-hairline focus:ring-offset-0 dark:border-hairline dark:bg-dark-200 dark:text-dark-1000 dark:focus:ring-hairline",
                   !listPublicId && "text-light-900 dark:text-dark-900",
                 )}
               >
@@ -142,7 +142,7 @@ export function CardContextDuplicateModal({
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
               >
-                <ListboxOptions className="absolute z-50 mt-1 w-full overflow-hidden rounded-md border border-hairline bg-white shadow-lg ring-1 ring-hairline focus:outline-none dark:border-hairline dark:bg-dark-200">
+                <ListboxOptions className="absolute z-50 mt-1 w-full overflow-hidden rounded-md border border-hairline bg-panel shadow-lg ring-1 ring-hairline focus:outline-none dark:border-hairline dark:bg-dark-200">
                   <div className="scrollbar-track-rounded-sm scrollbar-thumb-rounded-sm scrollbar-w-[8px] max-h-60 overflow-y-auto py-1 pr-1 scrollbar scrollbar-track-light-200 scrollbar-thumb-light-400 dark:scrollbar-track-dark-100 dark:scrollbar-thumb-dark-600">
                     {listOptions.map((option) => {
                       const isCurrentList =

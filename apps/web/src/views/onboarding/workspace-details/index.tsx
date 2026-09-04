@@ -262,7 +262,7 @@ export default function WorkspaceNameView() {
                     placeholder={t`Workspace description`}
                     maxLength={280}
                     rows={3}
-                    className="block w-full resize-none rounded-md border-0 bg-dark-300 bg-white/5 py-1.5 text-sm shadow-sm ring-1 ring-inset ring-hairline placeholder:text-dark-800 focus:ring-2 focus:ring-inset focus:ring-hairline dark:text-dark-1000 dark:ring-hairline dark:focus:ring-hairline sm:leading-6"
+                    className="block w-full resize-none rounded-md border-0 bg-panel py-1.5 text-sm shadow-sm ring-1 ring-inset ring-hairline placeholder:text-dark-800 focus:ring-2 focus:ring-inset focus:ring-hairline dark:text-dark-1000 dark:ring-hairline dark:focus:ring-hairline sm:leading-6"
                   />
                   <p className="mt-1 text-right text-[10px] text-light-700 dark:text-dark-700">
                     {description.length}/280

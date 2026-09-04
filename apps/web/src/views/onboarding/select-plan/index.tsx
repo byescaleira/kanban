@@ -176,7 +176,7 @@ export default function SelectPlanView() {
                       className={twMerge(
                         "cursor-pointer rounded-full px-2.5 py-0.5 text-xs transition-colors",
                         billing === f.value
-                          ? "bg-dark-50 text-white dark:bg-light-50 dark:text-dark-50"
+                          ? "bg-dark-50 text-dark-1000 dark:bg-light-50 dark:text-dark-50"
                           : "text-light-900 hover:bg-light-200 dark:text-dark-900 dark:hover:bg-dark-200",
                       )}
                     >

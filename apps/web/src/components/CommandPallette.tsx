@@ -95,7 +95,7 @@ export default function CommandPallette({
         <div className="flex min-h-full items-start justify-center p-4 text-center sm:items-start sm:p-0">
           <DialogPanel
             transition
-            className="data-closed:opacity-0 data-closed:translate-y-4 data-closed:sm:translate-y-0 data-closed:sm:scale-95 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in relative mt-[25vh] w-full max-w-[550px] transform divide-y divide-gray-100 overflow-hidden rounded-lg border border-hairline bg-white/90 shadow-3xl-light transition-all dark:divide-white/10 dark:border-hairline dark:bg-dark-100/90 dark:shadow-3xl-dark"
+            className="data-closed:opacity-0 data-closed:translate-y-4 data-closed:sm:translate-y-0 data-closed:sm:scale-95 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in relative mt-[25vh] w-full max-w-[550px] transform divide-y divide-gray-100 overflow-hidden rounded-lg border border-hairline bg-panel shadow-3xl-light transition-all dark:divide-hairline dark:border-hairline dark:bg-dark-100/90 dark:shadow-3xl-dark"
           >
             <Combobox>
               <div className="grid grid-cols-1">

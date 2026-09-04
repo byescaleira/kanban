@@ -98,11 +98,18 @@ export function SettingsLayout({ children, currentTab }: SettingsLayoutProps) {
     <div className="flex h-full w-full flex-col overflow-hidden">
       <div className="h-full max-h-[calc(100vdh-3rem)] overflow-y-auto md:max-h-[calc(100vdh-4rem)]">
         <div className="m-auto max-w-[1100px] px-5 py-6 md:px-28 md:py-12">
-          <div className="mb-8 flex w-full justify-between">
-            <h1 className="font-bold tracking-tight text-light-1000 dark:text-dark-1000 sm:text-[1.2rem]">
-              {t`Settings`}
-            </h1>
+          {/* A running head: the label and the folio on one rule. The
+              folio here is where you actually are in the section, which
+              is an honest index rather than a decorative number. */}
+          <div className="running-head">
+            <p className="running-head-label">{t`Settings`}</p>
+            <p className="running-head-folio">
+              {availableTabs[selectedTabIndex]?.label ?? currentTab}
+            </p>
           </div>
+          <h1 className="t-sub mb-8 mt-5 text-light-1000 dark:text-dark-1000">
+            {availableTabs[selectedTabIndex]?.label ?? t`Settings`}
+          </h1>
 
           <div className="focus:outline-none">
             <div className="sm:hidden">
@@ -139,7 +146,7 @@ export function SettingsLayout({ children, currentTab }: SettingsLayoutProps) {
               </Listbox>
             </div>
             <div className="hidden sm:block">
-              <div className="border-b border-hairline dark:border-white/10">
+              <div className="border-b border-hairline dark:border-hairline">
                 <nav
                   aria-label="Tabs"
                   className="-mb-px flex space-x-8 focus:outline-none"
@@ -151,7 +158,7 @@ export function SettingsLayout({ children, currentTab }: SettingsLayoutProps) {
                       className={`whitespace-nowrap border-b-2 px-1 py-4 text-sm font-medium transition-colors focus:outline-none ${
                         isTabActive(tab.key)
                           ? "border-hairline text-light-1000 dark:border-hairline dark:text-dark-1000"
-                          : "border-transparent text-light-900 hover:border-hairline hover:text-light-950 dark:text-dark-900 dark:hover:border-white/20 dark:hover:text-dark-950"
+                          : "border-transparent text-light-900 hover:border-hairline hover:text-light-950 dark:text-dark-900 dark:hover:border-hairline dark:hover:text-dark-950"
                       }`}
                     >
                       {tab.label}

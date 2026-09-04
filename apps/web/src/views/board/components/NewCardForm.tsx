@@ -435,7 +435,7 @@ export function NewCardForm({
           />
         </div>
         <div className="mt-2">
-          <div className="block max-h-48 min-h-24 w-full overflow-y-auto rounded-md border-0 bg-dark-300 bg-white/5 px-3 py-2 text-sm shadow-sm ring-1 ring-inset ring-hairline focus-within:ring-2 focus-within:ring-inset focus-within:ring-hairline dark:focus-within:ring-hairline sm:leading-6">
+          <div className="block max-h-48 min-h-24 w-full overflow-y-auto rounded-md border-0 bg-panel px-3 py-2 text-sm shadow-sm ring-1 ring-inset ring-hairline focus-within:ring-2 focus-within:ring-inset focus-within:ring-hairline dark:focus-within:ring-hairline sm:leading-6">
             <Editor
               content={description}
               onChange={(value) => {

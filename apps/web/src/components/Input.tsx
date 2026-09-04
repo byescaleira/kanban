@@ -44,7 +44,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           onChange={onChange}
           onKeyDown={onKeyDown}
           className={twMerge(
-            "block min-h-[70px] w-full cursor-text overflow-y-auto rounded-md border-0 bg-dark-300 bg-white/5 px-3 py-1.5 text-light-900 shadow-sm ring-1 ring-inset ring-hairline focus:ring-2 focus:ring-inset focus:ring-hairline focus-visible:outline-none dark:text-dark-1000 dark:ring-hairline dark:focus:ring-hairline sm:text-sm sm:leading-6",
+            "block min-h-[70px] w-full cursor-text overflow-y-auto rounded-md border-0 bg-panel px-3 py-1.5 text-light-900 shadow-sm ring-1 ring-inset ring-hairline focus:ring-2 focus:ring-inset focus:ring-hairline focus-visible:outline-none dark:text-dark-1000 dark:ring-hairline dark:focus:ring-hairline sm:text-sm sm:leading-6",
             className && className,
           )}
         />
@@ -65,7 +65,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             onChange={onChange}
             type={type === "password" && showPassword ? "text" : type}
             className={twMerge(
-              "block w-full rounded-md border-0 bg-dark-300 bg-white/5 py-1.5 text-sm shadow-sm ring-1 ring-inset ring-hairline placeholder:text-dark-800 focus:ring-2 focus:ring-inset focus:ring-hairline dark:text-dark-1000 dark:ring-hairline dark:focus:ring-hairline sm:leading-6",
+              "block w-full rounded-md border-0 bg-panel py-1.5 text-sm shadow-sm ring-1 ring-inset ring-hairline placeholder:text-dark-800 focus:ring-2 focus:ring-inset focus:ring-hairline dark:text-dark-1000 dark:ring-hairline dark:focus:ring-hairline sm:leading-6",
               prefix && "rounded-l-none",
               type === "password" && "pr-8",
               className && className,

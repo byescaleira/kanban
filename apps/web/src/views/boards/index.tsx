@@ -189,7 +189,7 @@ export default function BoardsPage({ isTemplate }: { isTemplate?: boolean }) {
                         className={`mb-8 mt-2 whitespace-nowrap px-1 py-0 text-sm font-semibold transition-colors focus:outline-none ${
                           activeTab === tab.key
                             ? "border-hairline text-light-1000 dark:border-hairline dark:text-dark-1000"
-                            : "border-transparent text-light-900 hover:border-hairline hover:text-light-950 dark:text-dark-900 dark:hover:border-white/20 dark:hover:text-dark-950"
+                            : "border-transparent text-light-900 hover:border-hairline hover:text-light-950 dark:text-dark-900 dark:hover:border-hairline dark:hover:text-dark-950"
                         }`}
                       >
                         {tab.label}

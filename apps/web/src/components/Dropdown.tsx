@@ -38,7 +38,7 @@ export default function Dropdown({
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 isolate z-[100] mt-2 w-56 origin-top-right rounded-md border border-hairline bg-white p-1 shadow-lg ring-1 ring-hairline focus:outline-none dark:border-hairline dark:bg-dark-300">
+        <Menu.Items className="absolute right-0 isolate z-[100] mt-2 w-56 origin-top-right rounded-md border border-hairline bg-panel p-1 shadow-lg ring-1 ring-hairline focus:outline-none dark:border-hairline dark:bg-dark-300">
           <div className="flex flex-col">
             {items.map((item) => (
               <Menu.Item key={item.label} disabled={item.disabled}>

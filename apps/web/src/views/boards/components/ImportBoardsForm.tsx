@@ -102,7 +102,7 @@ const SelectSource = ({
               {({ open }) => (
                 <>
                   <div className="relative">
-                    <Listbox.Button className="focus-ring-hairline block w-full rounded-md border-0 bg-dark-300 bg-white/5 px-4 py-1.5 text-light-1000 shadow-sm ring-1 ring-inset ring-hairline focus:ring-2 focus:ring-inset dark:text-dark-1000 dark:ring-hairline dark:focus:ring-hairline sm:text-sm sm:leading-6">
+                    <Listbox.Button className="focus-ring-hairline block w-full rounded-md border-0 bg-panel px-4 py-1.5 text-light-1000 shadow-sm ring-1 ring-inset ring-hairline focus:ring-2 focus:ring-inset dark:text-dark-1000 dark:ring-hairline dark:focus:ring-hairline sm:text-sm sm:leading-6">
                       <span className="flex items-center">
                         {integrationProviders[field.value]?.icon}
                         <span className="ml-2 block truncate text-sm">

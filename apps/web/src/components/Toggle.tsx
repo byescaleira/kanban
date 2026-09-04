@@ -35,8 +35,13 @@ const Toggle = ({
       <span
         aria-hidden="true"
         className={twMerge(
-          "pointer-events-none inline-block h-3 w-3 translate-x-0 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out",
-          isChecked && "translate-x-2",
+          /* The knob has to change with the track it sits on: --card on
+             the ink track measures 6.46:1, but only 2.69:1 once the
+             track floods orange, while --on-accent is the reverse
+             (5.43:1 on orange, 2.26:1 on ink). A fixed knob fails one
+             state or the other. */
+          "pointer-events-none inline-block h-3 w-3 translate-x-0 transform rounded-full ring-0 transition duration-200 ease-in-out",
+          isChecked ? "translate-x-2 bg-on-accent" : "bg-panel",
         )}
       />
     </Switch>

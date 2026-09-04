@@ -313,7 +313,7 @@ export function KeyboardShortcutProvider({
         <div className="fixed inset-0 flex min-h-full w-screen items-center justify-center overflow-y-auto p-4">
           <DialogPanel
             transition
-            className="relative w-full max-w-sm transform overflow-hidden rounded-lg border border-hairline bg-white shadow-3xl-light dark:border-hairline dark:bg-dark-100 dark:shadow-3xl-dark"
+            className="relative w-full max-w-sm transform overflow-hidden rounded-lg border border-hairline bg-panel shadow-3xl-light dark:border-hairline dark:bg-dark-100 dark:shadow-3xl-dark"
           >
             <div className="flex items-center justify-between border-b border-hairline px-6 py-4 dark:border-hairline">
               <DialogTitle className="text-[14px] font-semibold text-light-1000 dark:text-dark-1000">

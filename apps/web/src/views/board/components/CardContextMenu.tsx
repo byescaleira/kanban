@@ -108,7 +108,7 @@ export function CardContextMenu({
   return (
     <div
       ref={menuRef}
-      className="fixed z-[200] min-w-[200px] rounded-md border border-hairline bg-white py-1 shadow-lg dark:border-hairline dark:bg-dark-200"
+      className="fixed z-[200] min-w-[200px] rounded-md border border-hairline bg-panel py-1 shadow-lg dark:border-hairline dark:bg-dark-200"
       style={{ left: x, top: y }}
     >
       {items.map(({ action, label, icon }) => (
