@@ -1,0 +1,117 @@
+/* byescaleira — the press, applied to the docs.
+
+   Mintlify owns the layout, so this only repoints its grounds, its ink
+   and its shape at the same tokens the app uses. Values carry their
+   reason here too; see ../../DESIGN.md for the full argument.
+
+   The complete light palette is defined on bare :root and the dark
+   block redefines only the tokens — a colour whose only definition
+   sits inside a theme block never applies in the un-stamped state. */
+:root {
+  --background: #f3efe5;
+  --surface: #e6e0d2;
+  --card: #fbf8f1;
+  --foreground: #26241f;
+  --ink-2: #4e4a41;
+  --ink-3: #5f5a50;
+  --hairline: #4e4a41;
+  --accent-solid: #ff6b00;
+  --accent-ink: #ad3e00; /* 4.60:1 worst case; #ff6b00 as type is 2.49:1 */
+  --on-accent: #26241f; /* white on the accent is 2.86:1 and fails AA */
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono:
+    ui-monospace, "SF Mono", SFMono-Regular, Menlo, Monaco, monospace;
+}
+
+.dark {
+  --background: #0b0a09;
+  --surface: #17150f;
+  --card: #252019;
+  --foreground: #eae4d6;
+  --ink-2: #ada595;
+  --ink-3: #918a7c;
+  --hairline: rgba(234, 228, 214, 0.34);
+  --accent-ink: #ff8a3d;
+  --on-accent: #26241f;
+}
+
+body,
+main {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+code,
+pre,
+kbd {
+  font-family: var(--font-mono);
+}
+
+/* Weights 400, 500, 600 — 600 is the ceiling for headlines. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b,
+strong {
+  font-weight: 600 !important;
+  letter-spacing: -0.02em;
+}
+
+/* A hairline is a rule on a page: 2px, in ink. Print has no depth of
+   field, so nothing here casts a shadow. */
+.border,
+[class*="border-gray"],
+[class*="border-zinc"],
+[class*="border-slate"] {
+  border-color: var(--hairline) !important;
+}
+
+[class*="shadow"] {
+  box-shadow: none !important;
+}
+
+/* Plates: 18px is the default radius, and controls are capsules. */
+[class*="rounded-lg"],
+[class*="rounded-xl"],
+[class*="rounded-2xl"] {
+  border-radius: 18px !important;
+}
+
+/* Orange is a FILL, never type. Links step down to --accent-ink. */
+a {
+  color: var(--accent-ink);
+}
+
+/* The paper grain — the difference between a screenprint and a beige
+   page. Static SVG turbulence: no image file, no request. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.42;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23p)' opacity='0.55'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+.dark body::after {
+  mix-blend-mode: screen;
+  opacity: 0.3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

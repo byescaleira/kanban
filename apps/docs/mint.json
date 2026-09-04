@@ -1,48 +1,54 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "kan.bn",
+  "name": "byescaleira Kanban",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg",
-    "href": "https://kan.bn"
+    "href": "https://kanban.byescaleira.com"
   },
   "favicon": "./favicon.png",
   "colors": {
-    "primary": "#000000",
-    "light": "#EDEDED",
-    "dark": "#161616",
+    "primary": "#ff6b00",
+    "light": "#ff8a3d",
+    "dark": "#ad3e00",
+    "background": {
+      "light": "#f3efe5",
+      "dark": "#0b0a09"
+    },
     "anchors": {
-      "from": "#000000",
-      "to": "#161616"
+      "from": "#ff6b00",
+      "to": "#ad3e00"
     }
   },
   "topbarLinks": [
     {
       "name": "Sign in",
-      "url": "https://kan.bn/login"
+      "url": "https://kanban.byescaleira.com/login"
     }
   ],
   "topbarCtaButton": {
     "name": "Go to app",
-    "url": "https://kan.bn/boards"
+    "url": "https://kanban.byescaleira.com/boards"
   },
   "anchors": [
     {
       "name": "API Reference",
-      "openapi": "https://kan.bn/api/v1/openapi.json",
+      "openapi": "https://kanban.byescaleira.com/api/v1/openapi.json",
       "url": "api-reference",
       "icon": "square-terminal"
     },
     {
       "name": "GitHub",
       "icon": "github",
-      "url": "https://github.com/kanbn"
+      "url": "https://github.com/byescaleira/kanban"
     }
   ],
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction"]
+      "pages": [
+        "introduction"
+      ]
     },
     {
       "group": "Guides",
@@ -62,15 +68,19 @@
     },
     {
       "group": "Import",
-      "pages": ["imports/trello"]
+      "pages": [
+        "imports/trello"
+      ]
     },
     {
       "group": "API Documentation",
-      "pages": ["api-reference/introduction"]
+      "pages": [
+        "api-reference/introduction"
+      ]
     }
   ],
   "footerSocials": {
     "discord": "https://discord.gg/e6ejRb6CmT",
-    "github": "https://github.com/kanbn"
+    "github": "https://github.com/kanbn/kan"
   }
 }
